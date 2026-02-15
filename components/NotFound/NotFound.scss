@@ -24,7 +24,7 @@
   &__404 {
     color: $white-color;
     font-family: $font-righteous;
-    font-size: 90px;
+    font-size: 64px;
     text-shadow: 0 0 5px $logo-color-1, 0 0 10px $logo-color-2,
       0 0 20px $logo-color-3, 0 0 40px $logo-color-4, 0 0 80px $logo-color-5;
   }
@@ -57,9 +57,9 @@
     @include button;
   }
 
-  @media screen and (max-width: $media-sm) {
+  @media screen and (min-width: $media-sm) {
     &__404 {
-      font-size: 64px;
+      font-size: 90px;
     }
   }
 }

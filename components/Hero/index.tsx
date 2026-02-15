@@ -6,7 +6,7 @@ import { Link } from "react-scroll";
 
 import { Icons } from "@aristobyte-ui/utils";
 import { Gradient } from "@/components";
-import { HEADER_SIZE, LinkType } from "@/utils";
+import { HEADER_SIZE, LinkType } from "@/config";
 import { useTranslate } from "@/context";
 
 import "./Hero.scss";

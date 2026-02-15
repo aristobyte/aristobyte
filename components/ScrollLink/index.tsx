@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Link } from "react-scroll";
-import { HEADER_SIZE } from "@/utils";
+import { HEADER_SIZE } from "@/config";
 
 import "./ScrollLink.scss";
 

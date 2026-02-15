@@ -4,7 +4,7 @@ import * as React from "react";
 import NextLink from "next/link";
 import { Link } from "react-scroll";
 
-import { HEADER_SIZE } from "@/utils";
+import { HEADER_SIZE } from "@/config";
 import { GoBackButton } from "./GoBackButton";
 
 import "./compliance.scss";

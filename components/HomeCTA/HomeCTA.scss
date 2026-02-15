@@ -12,7 +12,8 @@
       border-radius: $border-radius-standard;
       padding: 40px;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 30px;
       position: relative;
@@ -52,6 +53,7 @@
     right: -10px;
     bottom: -20px;
     width: 180px;
+    display: none;
     opacity: 0.8;
     pointer-events: none;
   }
@@ -71,14 +73,14 @@
     }
   }
 
-  @media screen and (max-width: $media-md) {
+  @media screen and (min-width: $media-md) {
     &__card {
-      flex-direction: column;
-      align-items: flex-start;
+      flex-direction: row;
+      align-items: center;
     }
 
     &__mascot {
-      display: none;
+      display: block;
     }
   }
 }

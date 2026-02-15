@@ -28,7 +28,7 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: 16px;
   }
 
@@ -82,9 +82,9 @@
     font-weight: 600;
   }
 
-  @media screen and (max-width: $media-sm) {
+  @media screen and (min-width: $media-sm) {
     &__grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 }

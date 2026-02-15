@@ -46,7 +46,7 @@
       padding: 18px;
       transition: all 200ms ease-out;
       position: relative;
-      width: calc((100% - 18px * 2) / 3);
+      width: 100%;
     }
 
     &::before {
@@ -100,15 +100,15 @@
     font-weight: 600;
   }
 
-  @media screen and (max-width: $media-lg) {
-    &__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+  @media screen and (min-width: $media-sm) {
+    &__card {
+      width: calc((100% - 16px) / 2);
     }
   }
 
-  @media screen and (max-width: $media-sm) {
-    &__grid {
-      grid-template-columns: 1fr;
+  @media screen and (min-width: $media-lg) {
+    &__card {
+      width: calc((100% - 18px * 2) / 3);
     }
   }
 }

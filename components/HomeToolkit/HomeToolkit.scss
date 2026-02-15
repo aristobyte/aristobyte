@@ -7,7 +7,7 @@
     @include container;
     & {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       gap: 30px;
       align-items: center;
       position: relative;
@@ -43,7 +43,7 @@
 
   &__gallery {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: 16px;
   }
 
@@ -63,15 +63,15 @@
     }
   }
 
-  @media screen and (max-width: $media-md) {
-    &__container {
-      grid-template-columns: 1fr;
+  @media screen and (min-width: $media-sm) {
+    &__gallery {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 
-  @media screen and (max-width: $media-sm) {
-    &__gallery {
-      grid-template-columns: 1fr;
+  @media screen and (min-width: $media-md) {
+    &__container {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 }

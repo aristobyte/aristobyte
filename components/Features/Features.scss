@@ -46,7 +46,7 @@
       gap: 30px;
       justify-content: flex-start;
       padding: 20px;
-      flex: 1 1 calc(25% - 20px);
+      flex: 1 1 100%;
       min-width: 220px;
       transition: all 250ms ease;
 
@@ -97,15 +97,15 @@
     }
   }
 
-  @media screen and (max-width: $media-lg) {
+  @media screen and (min-width: $media-sm) {
     &__card {
       flex: 1 1 calc(50% - 20px);
     }
   }
 
-  @media screen and (max-width: $media-sm) {
+  @media screen and (min-width: $media-lg) {
     &__card {
-      flex: 1 1 100%;
+      flex: 1 1 calc(25% - 20px);
     }
   }
 }

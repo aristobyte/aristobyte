@@ -73,12 +73,12 @@
   }
 
   &__terminal {
-    animation: terminal-float 2s ease-in-out infinite;
+    animation: none;
     background: rgba(15, 22, 36, 0.9);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: $border-radius-standard;
     overflow: hidden;
-    transform: perspective(-1px) translateY(-6px) rotateX(6deg);
+    transform: none;
     box-shadow:
       0 30px 60px rgba(0, 0, 0, 0.45),
       0 10px 25px rgba(0, 0, 0, 0.35),
@@ -188,7 +188,7 @@
   }
 
   &__terminal::before {
-    content: "";
+    content: none;
     position: absolute;
     left: 50%;
     bottom: -18px;
@@ -256,14 +256,14 @@
     }
   }
 
-  @media screen and (max-width: $media-sm) {
+  @media screen and (min-width: $media-sm) {
     &__terminal {
-      transform: none;
-      animation: none;
+      animation: terminal-float 2s ease-in-out infinite;
+      transform: perspective(-1px) translateY(-6px) rotateX(6deg);
     }
 
     &__terminal::before {
-      display: none;
+      content: "";
     }
   }
 }

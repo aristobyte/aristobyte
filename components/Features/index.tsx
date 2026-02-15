@@ -21,12 +21,11 @@ export const Features = () => {
         </div>
 
         <ul className="features__list">
-          {Config.home.features.cards.map(({ id, icon }) => (
+          {Config.home.features.cards.map(({ id, icon: Icon }) => (
             <li key={id} className="features__card">
-              <span
-                className="features__card-icon"
-                dangerouslySetInnerHTML={{ __html: icon }}
-              />
+              <span className="features__card-icon">
+                <Icon />
+              </span>
               <h3 className="features__card-title">
                 {t(`home.features.cards.${id}.title`)}
               </h3>

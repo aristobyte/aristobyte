@@ -4,8 +4,7 @@ import * as React from "react";
 import NextLink from "next/link";
 
 import { useTranslate } from "@/context";
-import { Icons } from "@/utils";
-import { Config } from "@/config";
+import { Config, Icons } from "@/config";
 
 import "./ComplianceMap.scss";
 
@@ -35,10 +34,9 @@ export const ComplianceMap = () => {
                   <span className="compliance-map__link-text">
                     {t(`compliance.main.list.${id}`)}
                   </span>
-                  <span
-                    className="compliance-map__link-icon"
-                    dangerouslySetInnerHTML={{ __html: Icons.ArrowRight }}
-                  />
+                  <span className="compliance-map__link-icon">
+                    <Icons.ArrowRight />
+                  </span>
                 </NextLink>
               </li>
             ))}

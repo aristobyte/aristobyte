@@ -24,10 +24,9 @@ export const Header = () => {
       <div className="header__container">
         <NextLink href="/" className="header__logo">
           <span className="header__logo-icon">
-            <span
-              className="header__logo-icon-container"
-              dangerouslySetInnerHTML={{ __html: Config.header.logo }}
-            />
+            <span className="header__logo-icon-container">
+              {Config.header.logo({})}
+            </span>
           </span>
           <span className="header__logo-text">AristoByte</span>
         </NextLink>

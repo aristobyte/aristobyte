@@ -32,7 +32,7 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
@@ -54,7 +54,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
-    min-height: 180px;
+    min-height: auto;
     padding: 24px;
     position: relative;
 
@@ -87,27 +87,30 @@
     bottom: -30px;
     width: 180px;
     height: auto;
+    display: none;
     opacity: 0.9;
     pointer-events: none;
   }
 
-  @media screen and (max-width: $media-lg) {
+  @media screen and (min-width: $media-sm) {
     &__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-  }
-
-  @media screen and (max-width: $media-sm) {
-    &__grid {
-      grid-template-columns: 1fr;
-    }
 
     &__card-inner {
-      min-height: auto;
+      min-height: 180px;
     }
+  }
 
+  @media screen and (min-width: $media-lg) {
+    &__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (min-width: $media-md) {
     &__mascot {
-      display: none;
+      display: block;
     }
   }
 }

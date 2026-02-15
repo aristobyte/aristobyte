@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Link } from "react-scroll";
 import NextLink from "next/link";
-import { HEADER_SIZE } from "@/utils";
+import { HEADER_SIZE } from "@/config";
 
 import { GoBackButton } from "./GoBackButton";
 
