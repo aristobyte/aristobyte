@@ -1,6 +1,8 @@
 @use "../../styles/settings" as *;
 
 .features {
+  position: relative;
+
   &__container {
     @include container;
     & {
@@ -8,6 +10,8 @@
       flex-direction: column;
       justify-content: center;
       gap: 20px;
+      position: relative;
+      z-index: 1;
     }
   }
 
@@ -24,23 +28,32 @@
   }
 
   &__list {
-    align-items: space-between;
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
   }
 
   &__card {
-    @include regularShadow;
+    @include lightShadow;
     & {
       align-items: center;
-      background-color: $black-flat-color;
+      background: linear-gradient(135deg, #14151b, #1c1d24);
       border-radius: $border-radius-standard;
+      border: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
       flex-direction: column;
       gap: 30px;
       justify-content: flex-start;
       padding: 20px;
-      width: 25%;
+      flex: 1 1 calc(25% - 20px);
+      min-width: 220px;
+      transition: all 250ms ease;
+
+      &:hover {
+        transform: translateY(-6px);
+        border-color: rgba(255, 255, 255, 0.16);
+      }
 
       &-icon {
         @include regularShadow;
@@ -81,6 +94,18 @@
         @include description;
         text-align: center;
       }
+    }
+  }
+
+  @media screen and (max-width: $media-lg) {
+    &__card {
+      flex: 1 1 calc(50% - 20px);
+    }
+  }
+
+  @media screen and (max-width: $media-sm) {
+    &__card {
+      flex: 1 1 100%;
     }
   }
 }

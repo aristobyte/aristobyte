@@ -1,20 +1,18 @@
 import * as React from "react";
 
-import { Hero } from "@/components";
-import { Config } from "@/config";
+import { Hero, InsightsSocial } from "@/components";
 
 export default function Insights() {
   return (
     <>
       <Hero
         withGradient
-        icon={Config.insights.hero.icon}
+        icon="AristoByte"
         title="insights.hero.title"
         subtitle="insights.hero.subtitle"
         description="insights.hero.description"
-        linkText="insights.hero.links"
-        links={Config.insights.hero.links}
       />
+      <InsightsSocial />
     </>
   );
 }

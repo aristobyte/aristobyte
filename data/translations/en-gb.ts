@@ -3,7 +3,7 @@ export const EN_GB = {
     logo: { id: "logo", href: "/" },
     nav: {
       apps: "Apps",
-      ui: "AristoByteUI",
+      ui: "AristoByte UI",
       community: "Community",
       insights: "Insights",
       contact: "Contact",
@@ -43,6 +43,108 @@ export const EN_GB = {
         },
       },
     },
+    services: {
+      title: "What We Create",
+      description:
+        "We design and build digital products end-to-end — from early strategy through launch and growth. Every engagement is tailored to product goals, industry needs, and user expectations.",
+      cards: {
+        "product-strategy": {
+          title: "Product Strategy",
+          description:
+            "Discovery, research, and roadmaps that clarify what to build and why.",
+        },
+        "ui-ux": {
+          title: "UX & UI Design",
+          description:
+            "Modern, accessible interfaces designed for clarity, conversion, and speed.",
+        },
+        "web-platforms": {
+          title: "Web Platforms",
+          description:
+            "High-performance web apps with scalable architecture and great DX.",
+        },
+        "mobile-experiences": {
+          title: "Mobile Experiences",
+          description:
+            "Cross-platform mobile apps that feel native and stay fast at scale.",
+        },
+        "ai-automation": {
+          title: "AI & Automation",
+          description:
+            "Intelligent workflows, copilots, and internal automation for real teams.",
+        },
+        "devops-growth": {
+          title: "DevOps & Growth",
+          description:
+            "CI/CD, monitoring, and optimization that keep products reliable.",
+        },
+      },
+    },
+    process: {
+      title: "How We Build",
+      description:
+        "A clear, collaborative process that keeps delivery fast and outcomes measurable.",
+      steps: {
+        discovery: {
+          title: "Discovery Sprint",
+          description:
+            "Align on vision, scope, and success metrics before a single pixel ships.",
+        },
+        design: {
+          title: "Design Systems",
+          description:
+            "Define a component system and UX patterns that stay consistent at scale.",
+        },
+        build: {
+          title: "Product Build",
+          description:
+            "Iterative development with rapid feedback loops and weekly milestones.",
+        },
+        launch: {
+          title: "Launch & Iterate",
+          description:
+            "Shipping, monitoring, and growth-focused improvements after release.",
+        },
+      },
+    },
+    showcase: {
+      title: "Visual Language in Motion",
+      description:
+        "Our brand universe blends bold gradients, futuristic shapes, and human-friendly mascots to create memorable experiences.",
+    },
+    toolkit: {
+      title: "AristoByte UI Toolkit",
+      description:
+        "A modern UI system, CLI, and registry that help teams build fast with consistent design language.",
+      links: {
+        docs: "Explore docs",
+        releases: "View releases",
+      },
+    },
+    stack: {
+      title: "Modern Stack, Future-Proof Choices",
+      description:
+        "We build with proven technology and a sharp focus on performance and maintainability.",
+      groups: {
+        "product-core": {
+          title: "Product Core",
+        },
+        "platform-data": {
+          title: "Platform & Data",
+        },
+      },
+    },
+    community: {
+      title: "Built with the Community",
+      description:
+        "We open-source our tools, share insights, and build together with makers worldwide.",
+      links: {
+        github: "GitHub",
+        "open-collective": "Open Collective",
+        patreon: "Patreon",
+        stackoverflow: "Stack Overflow",
+      },
+    },
     "ui-components-preview": {
       title: "Interfaces that Scale with You",
       description:
@@ -55,13 +157,45 @@ export const EN_GB = {
         "From productivity tools to creative utilities, our upcoming apps are designed with performance and cross-platform simplicity in mind.",
       link: "Explore our apps",
     },
+    cta: {
+      title: "Ready to Build the Next AristoByte Experience?",
+      description:
+        "Tell us about your product and we will help you define a clear, high-impact plan.",
+      primary: "Start a project",
+      secondary: "Explore our apps",
+    },
   },
   ui: {
     hero: {
-      title: "AristoByteUI",
+      title: "AristoByte UI",
       subtitle: "Build Interfaces at the Speed of Thought",
       description:
         "Supercharge your development workflow with our production-ready, beautifully designed UI components",
+    },
+    overview: {
+      title: "Product Overview",
+      description:
+        "A quick tour of the system, animated components, and the workflow behind AristoByteUI.",
+    },
+    suite: {
+      title: "Everything You Need to Ship Faster",
+      description:
+        "A growing ecosystem of docs, packages, and releases designed to make UI development effortless.",
+      links: {
+        documentation: "Documentation",
+        "github-org": "GitHub Organization",
+        "github-project": "Source Code",
+        "npm-packages": "NPM Packages",
+        releases: "Release Notes",
+        "gh-packages": "GitHub Packages",
+        "open-collective": "Open Collective",
+        discussions: "Discussions",
+      },
+    },
+    cli: {
+      title: "CLI Experience",
+      description:
+        "Scaffold, install, and update components with a developer-friendly CLI.",
     },
     idee: {
       title: "We Build the System, You Build the Experience",
@@ -92,6 +226,38 @@ export const EN_GB = {
         twitter: "Twitter",
       },
     },
+    roadmap: {
+      title: "What We Are Building",
+      description:
+        "A suite of mobile-first experiences designed for everyday workflows and creative exploration.",
+      items: {
+        productivity: {
+          title: "Productivity Suite",
+          description:
+            "Focus tools, task management, and smart reminders for modern teams.",
+        },
+        creative: {
+          title: "Creative Utilities",
+          description:
+            "Lightweight editors and composition tools for fast iteration.",
+        },
+        automation: {
+          title: "Automation Helpers",
+          description:
+            "Micro-automations that connect your apps and remove busy work.",
+        },
+        "community-tools": {
+          title: "Community Tools",
+          description:
+            "Shared spaces and micro-communities powered by real-time updates.",
+        },
+      },
+    },
+    highlights: {
+      title: "Designed with Aristobot",
+      description:
+        "Our mascot helps us tell the product story and bring delightful moments to every UI.",
+    },
   },
   community: {
     hero: {
@@ -105,6 +271,17 @@ export const EN_GB = {
         "aristobyte-board": "AristoByte Board",
       },
     },
+    resources: {
+      title: "Community Resources",
+      description:
+        "Jump into the ecosystem with source code, package registries, and funding programs.",
+      links: {
+        github: "AristoByte GitHub",
+        "aristobyte-ui-org": "AristoByteUI Org",
+        "aristobyte-ui-packages": "AristoByteUI Packages",
+        "open-collective": "Open Collective",
+      },
+    },
   },
   insights: {
     hero: {
@@ -116,6 +293,46 @@ export const EN_GB = {
         instagram: "Instagram",
         "linked-in": "LinkedIn",
         facebook: "Facebook",
+      },
+    },
+    social: {
+      title: "Follow the Build",
+      description:
+        "Short updates, product launches, and team culture — all in one place.",
+      links: {
+        instagram: "Instagram",
+        facebook: "Facebook",
+        "linked-in": "LinkedIn",
+        twitter: "X (Twitter)",
+      },
+    },
+  },
+  contact: {
+    hero: {
+      title: "Let's Build Something Great",
+      subtitle: "Start a project or ask a question",
+      description:
+        "Tell us what you are building and we will reply with a clear, honest plan on how to move forward.",
+      links: {
+        email: "Send an email",
+        whatsapp: "WhatsApp",
+      },
+    },
+    title: "Contact AristoByte",
+    description:
+      "Reach us through any channel that works best for you. We aim to respond within one business day.",
+    cards: {
+      email: {
+        title: "Email",
+        value: "info@aristobyte.com",
+        description: "Project scope, timelines, and technical questions.",
+        action: "Send email",
+      },
+      whatsapp: {
+        title: "WhatsApp",
+        value: "+48 451 652 749",
+        description: "Quick questions or a fast kickoff call.",
+        action: "Message on WhatsApp",
       },
     },
   },

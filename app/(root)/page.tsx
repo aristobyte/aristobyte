@@ -1,5 +1,15 @@
 import * as React from "react";
-import { Hero, Features, AppsPreview, UIComponentsPreview } from "@/components";
+import {
+  Hero,
+  Features,
+  UIComponentsPreview,
+  HomeServices,
+  HomeProcess,
+  HomeStack,
+  HomeCTA,
+  HomeToolkit,
+  HomeCommunity,
+} from "@/components";
 import { Config } from "@/config";
 
 export default function Home() {
@@ -7,7 +17,7 @@ export default function Home() {
     <>
       <Hero
         withGradient
-        icon={Config.home.hero.icon}
+        icon="AristoByte"
         title="home.hero.title"
         subtitle="home.hero.subtitle"
         description="home.hero.description"
@@ -15,8 +25,13 @@ export default function Home() {
         links={Config.home.hero.links}
       />
       <Features />
-      <AppsPreview />
+      <HomeServices />
+      <HomeProcess />
+      <HomeToolkit />
       <UIComponentsPreview />
+      <HomeStack />
+      <HomeCommunity />
+      <HomeCTA />
     </>
   );
 }

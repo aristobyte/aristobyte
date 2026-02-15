@@ -1,6 +1,4 @@
 import type { NextConfig } from "next";
-import path from "path";
-
 const nextConfig: NextConfig = {
   images: {
     domains: ["images.ctfassets.net"],
@@ -13,15 +11,6 @@ const nextConfig: NextConfig = {
       test: /\.svg$/,
       use: "raw-loader",
     });
-
-    config.resolve = {
-      ...config.resolve,
-      alias: {
-        ...(config.resolve?.alias || {}),
-        canvas: false,
-        "pdfjs-dist": path.join(__dirname, "node_modules/pdfjs-dist"),
-      },
-    };
 
     return config;
   },

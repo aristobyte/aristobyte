@@ -1,0 +1,90 @@
+@use "../../styles/settings" as *;
+
+.community-resources {
+  &__container {
+    @include container;
+    & {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  &__content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__title {
+    @include title;
+  }
+
+  &__description {
+    @include description;
+    max-width: 640px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  &__card {
+    @include regularShadow;
+    & {
+      align-items: center;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: $border-radius-standard;
+      display: flex;
+      gap: 12px;
+      padding: 18px;
+      transition: all 200ms ease;
+      position: relative;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+  }
+
+  &__card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: $logo-gradient;
+    opacity: 0.6;
+  }
+
+  &__icon {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    width: 40px;
+
+    img {
+      filter: invert(1);
+    }
+  }
+
+  &__label {
+    color: $white-color;
+    font-weight: 600;
+  }
+
+  @media screen and (max-width: $media-sm) {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

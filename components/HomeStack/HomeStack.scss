@@ -1,0 +1,96 @@
+@use "../../styles/settings" as *;
+
+.home-stack {
+  position: relative;
+
+  &__container {
+    @include container;
+    & {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &__content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__title {
+    @include title;
+  }
+
+  &__description {
+    @include description;
+    max-width: 640px;
+  }
+
+  &__groups {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  &__group {
+    @include regularShadow;
+    & {
+      background: $black-flat-color;
+      border-radius: $border-radius-standard;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 24px;
+      transition: all 200ms ease;
+      position: relative;
+
+      &:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 255, 255, 0.16);
+      }
+    }
+  }
+
+  &__group::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: $logo-gradient;
+    opacity: 0.7;
+  }
+
+  &__group-title {
+    color: $white-color;
+    font-family: $font-righteous;
+    font-size: 18px;
+  }
+
+  &__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  &__badge {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 999px;
+    color: $white-color;
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  @media screen and (max-width: $media-md) {
+    &__groups {
+      grid-template-columns: 1fr;
+    }
+  }
+}

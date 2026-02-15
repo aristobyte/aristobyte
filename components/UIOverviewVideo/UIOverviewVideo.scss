@@ -1,0 +1,52 @@
+@use "../../styles/settings" as *;
+
+.ui-overview {
+  &__container {
+    @include container;
+    & {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+
+  &__content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__title {
+    @include title;
+  }
+
+  &__description {
+    @include description;
+    & {
+      max-width: 640px;
+    }
+  }
+
+  &__frame {
+    @include regularShadow;
+    & {
+      background: rgba(15, 22, 36, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: $border-radius-standard;
+      overflow: hidden;
+      position: relative;
+      min-width: 500px;
+      height: 300px;
+    }
+  }
+
+  &__video {
+    border: 0;
+    height: 100%;
+    inset: 0;
+    width: 100%;
+    position: absolute;
+  }
+}

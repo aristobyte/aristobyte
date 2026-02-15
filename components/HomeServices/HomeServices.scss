@@ -1,0 +1,113 @@
+@use "../../styles/settings" as *;
+
+.home-services {
+  position: relative;
+
+  &__container {
+    @include container;
+    & {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &__content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__title {
+    @include title;
+  }
+
+  &__description {
+    @include description;
+    max-width: 640px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  &__card {
+    border-radius: $border-radius-standard;
+    position: relative;
+    padding: 1px;
+    background: $logo-gradient;
+    transition: all 250ms ease;
+
+    &:hover {
+      transform: translateY(-6px);
+    }
+  }
+
+  &__card-inner {
+    background: linear-gradient(135deg, #15161d, #0b0b0f);
+    border-radius: $border-radius-standard;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 180px;
+    padding: 24px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background: $logo-gradient;
+      opacity: 0.8;
+    }
+  }
+
+  &__card-title {
+    color: $white-color;
+    font-family: $font-righteous;
+    font-size: 22px;
+  }
+
+  &__card-description {
+    @include description;
+    text-align: left;
+  }
+
+  &__mascot {
+    position: absolute;
+    right: 20px;
+    bottom: -30px;
+    width: 180px;
+    height: auto;
+    opacity: 0.9;
+    pointer-events: none;
+  }
+
+  @media screen and (max-width: $media-lg) {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: $media-sm) {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+
+    &__card-inner {
+      min-height: auto;
+    }
+
+    &__mascot {
+      display: none;
+    }
+  }
+}

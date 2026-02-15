@@ -1,10 +1,11 @@
 @use "../../styles/settings" as *;
 
 .hero {
-  border-top: 1px solid linear-gradient();
+  border-top: 1px solid transparent;
   min-height: calc(100vh - $header-height);
-  overflow: hidden;
+  overflow: visible;
   display: flex;
+  position: relative;
 
   &__container {
     @include container;
@@ -15,6 +16,8 @@
       gap: 20px;
       margin-bottom: auto;
       margin-top: auto;
+      position: relative;
+      z-index: 1;
     }
   }
 
@@ -27,10 +30,9 @@
 
   &__icon {
     align-items: center;
-    background-color: $black-color;
     display: flex;
     margin: 0 0 10px;
-    width: 140px;
+    width: min(140px, 40vw);
 
     svg {
       width: 100%;
@@ -40,7 +42,7 @@
   &__subtitle {
     color: $white-color;
     font-family: $font-righteous;
-    font-size: 32px;
+    font-size: clamp(20px, 4vw, 32px);
   }
 
   &__title {
@@ -48,9 +50,10 @@
     & {
       background: $logo-gradient;
       font-family: $font-righteous;
-      font-size: 84px;
+      font-size: clamp(38px, 9vw, 84px);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      text-align: center;
     }
   }
 
@@ -63,6 +66,7 @@
     align-items: center;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     height: auto;
     gap: 20px;
     margin: 0 auto;
@@ -74,5 +78,19 @@
 
   &__link {
     @include button;
+  }
+
+  @media screen and (max-width: $media-sm) {
+    &__container {
+      gap: 16px;
+    }
+
+    &__description {
+      max-width: 100%;
+    }
+
+    &__links {
+      justify-content: center;
+    }
   }
 }

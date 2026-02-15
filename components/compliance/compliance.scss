@@ -79,4 +79,16 @@
       margin: 5px 0;
     }
   }
+
+  @media screen and (max-width: $media-sm) {
+    &__title {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    &__list--with-dots {
+      margin: 0 0 20px 20px;
+    }
+  }
 }

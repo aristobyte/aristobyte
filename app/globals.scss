@@ -1,9 +1,15 @@
 @use "../styles/settings" as *;
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   @include scrollbar;
   & {
-    background-color: $black-color;
+    background-color: #0b0b10;
     margin: 0;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -57,9 +63,10 @@ body {
       outline: none;
     }
     &:visited {
-      text-d &:hover {
-        text-decoration: none;
-      }
+      text-decoration: none;
+    }
+    &:hover {
+      text-decoration: none;
     }
   }
 
@@ -117,8 +124,8 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
   color: rgb(161, 242, 187);
 }
 
@@ -136,6 +143,41 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+@media screen and (max-width: $media-xxs) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: $media-xs) {
+  html {
+    font-size: 14.5px;
+  }
+}
+
+@media screen and (min-width: $media-sm) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: $media-md) {
+  html {
+    font-size: 15.5px;
+  }
+}
+
+@media screen and (min-width: $media-lg) {
+  html {
+    font-size: 16px;
+  }
+}
+
+section {
+  position: relative;
+  overflow: visible;
 }
 
 main {

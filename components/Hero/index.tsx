@@ -5,6 +5,7 @@ import NextLink from "next/link";
 import { Link } from "react-scroll";
 import { motion } from "framer-motion";
 
+import { Icons } from "@aristobyte-ui/utils";
 import { Gradient } from "@/components";
 import { HEADER_SIZE, LinkType } from "@/utils";
 import { useTranslate } from "@/context";
@@ -13,7 +14,7 @@ import "./Hero.scss";
 
 export type HeroPropsType = {
   withGradient?: boolean;
-  icon?: string;
+  icon?: keyof typeof Icons;
   subtitle?: string;
   title?: string;
   description?: string;
@@ -47,18 +48,18 @@ export const Hero = ({
   return (
     <section className="hero">
       {withGradient && <Gradient id="hero" preventMotionAnimation />}
-      <div className="hero__gradient" />
       <div className="hero__container">
         <div className="hero__content">
           {icon && (
             <motion.span
               className="hero__icon"
-              dangerouslySetInnerHTML={{ __html: icon }}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: iconDelay }}
               viewport={{ once: false }}
-            />
+            >
+              {Icons[icon]({ size: "100%" })}
+            </motion.span>
           )}
           {subtitle && (
             <motion.h3
@@ -106,7 +107,12 @@ export const Hero = ({
                 viewport={{ once: false }}
               >
                 {type === LinkType.NEXT_LINK && (
-                  <NextLink href={href} target="_blank" className="hero__link">
+                  <NextLink
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hero__link"
+                  >
                     <span>{t(`${linkText}.${id}`)}</span>
                   </NextLink>
                 )}

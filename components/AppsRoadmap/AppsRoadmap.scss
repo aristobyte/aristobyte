@@ -1,0 +1,82 @@
+@use "../../styles/settings" as *;
+
+.apps-roadmap {
+  &__container {
+    @include container;
+    & {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  &__content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__title {
+    @include title;
+  }
+
+  &__description {
+    @include description;
+    max-width: 640px;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  &__card {
+    @include regularShadow;
+    & {
+      background: $black-flat-color;
+      border-radius: $border-radius-standard;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: all 200ms ease;
+      position: relative;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.16);
+    }
+  }
+
+  &__card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: $logo-gradient;
+    opacity: 0.6;
+  }
+
+  &__card-title {
+    color: $white-color;
+    font-family: $font-righteous;
+    font-size: 20px;
+  }
+
+  &__card-description {
+    @include description;
+    text-align: left;
+  }
+
+  @media screen and (max-width: $media-md) {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

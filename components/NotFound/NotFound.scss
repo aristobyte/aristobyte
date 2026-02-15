@@ -56,4 +56,10 @@
   &__button {
     @include button;
   }
+
+  @media screen and (max-width: $media-sm) {
+    &__404 {
+      font-size: 64px;
+    }
+  }
 }
