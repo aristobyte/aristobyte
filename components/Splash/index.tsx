@@ -48,9 +48,9 @@ export const Splash = ({ setIsReady, isReady }: SplashPropsType) => {
   }, [setIsReady, canPlay]);
 
   React.useEffect(() => {
-    document.body.style.overflow = isReady ? "auto" : "hidden";
+    document.body.classList.toggle("splash-lock", !isReady);
     return () => {
-      document.body.style.overflow = "auto";
+      document.body.classList.remove("splash-lock");
     };
   }, [isReady]);
 

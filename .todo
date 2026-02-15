@@ -3,3 +3,4 @@
 - refactor and move content to translation and the urls etc to Config
 - create 404 page
 - add link to compliance documents and enhance the busy styling
+- hide scrollbar in the menu (on open there is a scrollbar flickering) - totally hide it

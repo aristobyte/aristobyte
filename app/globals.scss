@@ -123,6 +123,30 @@ body {
   }
 }
 
+body.header-menu-open {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+body.splash-lock {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+@media screen and (min-width: $media-md) {
+  body.header-menu-open {
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: auto;
+  }
+
+  body.splash-lock {
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: auto;
+  }
+}
+
 code {
   font-family:
     source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;

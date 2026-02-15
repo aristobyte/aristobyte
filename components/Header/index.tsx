@@ -4,7 +4,7 @@ import * as React from "react";
 import NextLink from "next/link";
 import { usePathname } from "next/navigation";
 
-import { Config } from "@config";
+import { Config, Icons } from "@config";
 import { CdnIcon } from "@/components";
 import { useTranslate } from "@/context";
 
@@ -16,8 +16,36 @@ export const Header = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
 
   React.useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia("(min-width: 900px)");
+    const handleDesktopViewport = (event: MediaQueryListEvent) => {
+      if (event.matches) {
+        setMenuOpen(false);
+      }
+    };
+
+    if (mediaQuery.matches) {
+      setMenuOpen(false);
+    }
+
+    mediaQuery.addEventListener("change", handleDesktopViewport);
+    return () => mediaQuery.removeEventListener("change", handleDesktopViewport);
+  }, []);
+
+  React.useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
+
+  React.useEffect(() => {
+    document.body.classList.toggle("header-menu-open", menuOpen);
+
+    return () => {
+      document.body.classList.remove("header-menu-open");
+    };
+  }, [menuOpen]);
 
   return (
     <header className={`header header--menu-${menuOpen ? "opened" : "closed"}`}>
@@ -57,7 +85,10 @@ export const Header = () => {
                   href={href}
                   onClick={() => setMenuOpen(false)}
                 >
-                  {t(`header.nav.${id}`)}
+                  <span className="header__text">{t(`header.nav.${id}`)}</span>
+                  <span className="header__arrow-icon">
+                    <Icons.ArrowRight />
+                  </span>
                 </NextLink>
               </li>
             ))}
