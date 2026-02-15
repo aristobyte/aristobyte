@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import NextLink from "next/link";
-import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 
 import { Config } from "@config";
@@ -21,13 +20,7 @@ export const Header = () => {
   }, [pathname]);
 
   return (
-    <motion.header
-      className={`header ${menuOpen ? "header--menu-open" : ""}`}
-      initial={{ opacity: 0, y: -120 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: 0.4 }}
-      viewport={{ once: true }}
-    >
+    <header className={`header header--menu-${menuOpen ? "opened" : "closed"}`}>
       <div className="header__container">
         <NextLink href="/" className="header__logo">
           <span className="header__logo-icon">
@@ -55,7 +48,9 @@ export const Header = () => {
         </button>
 
         <nav id="header-nav" className="header__nav" aria-label="Primary">
-          <ul className={`header__list ${menuOpen ? "header__list--open" : ""}`}>
+          <ul
+            className={`header__list header__list--${menuOpen ? "opened" : "closed"}`}
+          >
             {Config.header.nav.map(({ id, href }) => (
               <li key={id}>
                 <NextLink
@@ -70,6 +65,6 @@ export const Header = () => {
           </ul>
         </nav>
       </div>
-    </motion.header>
+    </header>
   );
 };

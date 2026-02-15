@@ -3,7 +3,6 @@
 import * as React from "react";
 import NextLink from "next/link";
 import { Link } from "react-scroll";
-import { motion } from "framer-motion";
 
 import { Icons } from "@aristobyte-ui/utils";
 import { Gradient } from "@/components";
@@ -39,72 +38,38 @@ export const Hero = ({
 }: HeroPropsType) => {
   const { t } = useTranslate();
 
-  const subtitleDelay = 0;
-  const iconDelay = 0.2 + subtitleDelay;
-  const titleDelay = 0.2 + subtitleDelay;
-  const descriptionDelay = titleDelay + 0.2;
-  const linksDelay = descriptionDelay + 0.2;
-
   return (
     <section className="hero">
       {withGradient && <Gradient id="hero" preventMotionAnimation />}
       <div className="hero__container">
         <div className="hero__content">
           {icon && (
-            <motion.span
-              className="hero__icon"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: iconDelay }}
-              viewport={{ once: false }}
-            >
+            <span className="hero__icon hero__animate hero__animate--icon">
               {Icons[icon]({ size: "100%" })}
-            </motion.span>
+            </span>
           )}
           {subtitle && (
-            <motion.h3
-              className="hero__subtitle"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: subtitleDelay }}
-              viewport={{ once: false }}
-            >
+            <h3 className="hero__subtitle hero__animate hero__animate--subtitle">
               {t(subtitle)}
-            </motion.h3>
+            </h3>
           )}
           {title && (
-            <motion.h2
-              className="hero__title"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: titleDelay }}
-              viewport={{ once: false }}
-            >
+            <h2 className="hero__title hero__animate hero__animate--title">
               {t(title)}
-            </motion.h2>
+            </h2>
           )}
           {description && (
-            <motion.p
-              className="hero__description"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: descriptionDelay }}
-              viewport={{ once: false }}
-            >
+            <p className="hero__description hero__animate hero__animate--description">
               {t(description)}
-            </motion.p>
+            </p>
           )}
         </div>
         {links && linkText && (
           <ul className="hero__links">
             {links.map(({ id, href, type }) => (
-              <motion.li
+              <li
                 key={id}
-                className={`hero__item hero__item--${id}`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: linksDelay }}
-                viewport={{ once: false }}
+                className={`hero__item hero__item--${id} hero__animate hero__animate--links`}
               >
                 {type === LinkType.NEXT_LINK && (
                   <NextLink
@@ -121,7 +86,7 @@ export const Hero = ({
                     <span>{t(`${linkText}.${id}`)}</span>
                   </Link>
                 )}
-              </motion.li>
+              </li>
             ))}
           </ul>
         )}

@@ -26,6 +26,16 @@
   width: 100%;
   will-change: transform, width, height;
 
+  &--motion-enabled {
+    animation:
+      gradient-opacity-enter 150ms ease-out both,
+      glow 10s infinite alternate;
+  }
+
+  &--motion-disabled {
+    animation: glow 10s infinite alternate;
+  }
+
   &--hero {
     height: 60%;
     bottom: 0;
@@ -53,5 +63,15 @@
     left: 20%;
     width: 20%;
     z-index: -1;
+  }
+}
+
+@keyframes gradient-opacity-enter {
+  from {
+    opacity: 0.6;
+  }
+
+  to {
+    opacity: 1;
   }
 }

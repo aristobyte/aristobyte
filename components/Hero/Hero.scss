@@ -1,11 +1,61 @@
 @use "../../styles/settings" as *;
 
 .hero {
+  @keyframes hero-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes hero-fade-down {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
   border-top: 1px solid transparent;
   min-height: calc(100vh - $header-height);
   overflow: visible;
   display: flex;
   position: relative;
+
+  &__animate {
+    opacity: 0;
+    animation: hero-fade-up 400ms ease-out both;
+
+    &--subtitle {
+      animation-delay: 0ms;
+    }
+
+    &--icon {
+      animation-name: hero-fade-down;
+      animation-delay: 200ms;
+    }
+
+    &--title {
+      animation-delay: 200ms;
+    }
+
+    &--description {
+      animation-delay: 400ms;
+    }
+
+    &--links {
+      animation-delay: 600ms;
+    }
+  }
 
   &__container {
     @include container;
@@ -91,6 +141,13 @@
 
     &__links {
       justify-content: center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &__animate {
+      animation: none;
+      opacity: 1;
     }
   }
 }

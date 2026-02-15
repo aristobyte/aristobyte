@@ -7,10 +7,16 @@
   inset: 0;
   justify-content: center;
   height: 100vh;
+  opacity: 1;
   pointer-events: none;
   position: fixed;
+  transition: opacity 500ms ease;
   width: 100vw;
   z-index: 9999;
+
+  &--exit {
+    opacity: 0;
+  }
 
   &__video {
     object-fit: cover;

@@ -1,0 +1,23 @@
+.app-layout {
+  &__main {
+    animation: app-layout-main-enter 360ms ease-out 80ms both;
+  }
+}
+
+@keyframes app-layout-main-enter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-layout__main {
+    animation: none;
+  }
+}

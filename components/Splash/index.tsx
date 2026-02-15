@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import "./Splash.scss";
 
 export type SplashPropsType = {
@@ -12,6 +11,8 @@ export type SplashPropsType = {
 export const Splash = ({ setIsReady, isReady }: SplashPropsType) => {
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const [canPlay, setCanPlay] = React.useState<boolean | null>(null);
+  const [isExiting, setIsExiting] = React.useState(false);
+  const [isMounted, setIsMounted] = React.useState(true);
 
   React.useEffect(() => {
     if (typeof window === "undefined") return;
@@ -54,6 +55,21 @@ export const Splash = ({ setIsReady, isReady }: SplashPropsType) => {
   }, [isReady]);
 
   React.useEffect(() => {
+    if (!isReady) {
+      setIsExiting(false);
+      setIsMounted(true);
+      return;
+    }
+
+    setIsExiting(true);
+    const timeoutId = window.setTimeout(() => {
+      setIsMounted(false);
+    }, 500);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [isReady]);
+
+  React.useEffect(() => {
     if (typeof window === "undefined") return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       window.sessionStorage.setItem("ab_splash_seen", "1");
@@ -71,27 +87,21 @@ export const Splash = ({ setIsReady, isReady }: SplashPropsType) => {
     return null;
   }
 
+  if (!canPlay || !isMounted) {
+    return null;
+  }
+
   return (
-    <AnimatePresence>
-      {!isReady && canPlay && (
-        <motion.div
-          className="splash"
-          initial={{ opacity: 1 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <video
-            ref={videoRef}
-            className="splash__video"
-            src="/videos/splash.mp4"
-            muted
-            playsInline
-            preload="auto"
-            autoPlay
-          />
-        </motion.div>
-      )}
-    </AnimatePresence>
+    <div className={`splash ${isExiting ? "splash--exit" : ""}`}>
+      <video
+        ref={videoRef}
+        className="splash__video"
+        src="/videos/splash.mp4"
+        muted
+        playsInline
+        preload="auto"
+        autoPlay
+      />
+    </div>
   );
 };

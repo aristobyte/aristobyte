@@ -1,9 +1,10 @@
 "use client";
 
 import * as React from "react";
-import { AnimatePresence } from "framer-motion";
 
 import { Header, Splash } from "@/components";
+
+import "./AppLayout.scss";
 
 export type AppLayoutPropsType = {
   children: React.ReactNode;
@@ -14,9 +15,9 @@ export const AppLayout = ({ children }: AppLayoutPropsType) => {
 
   return (
     <>
-      <AnimatePresence>{isReady && <Header />}</AnimatePresence>
+      {isReady && <Header />}
       <Splash isReady={isReady} setIsReady={setIsReady} />
-      {isReady && <main>{children}</main>}
+      {isReady && <main className="app-layout__main">{children}</main>}
     </>
   );
 };
