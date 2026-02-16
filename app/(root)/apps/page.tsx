@@ -7,12 +7,7 @@ export default function Home() {
     <>
       <Hero
         withGradient
-        icons={[
-          { id: "AristoByteUICLI", size: 200 },
-          { id: "AristoByteUI", size: 300 },
-          { id: "AristoBadges", size: 280 },
-          { id: "AristoRepo", size: 280 },
-        ]}
+        icons={[{ id: "AristoByte", size: 200 }]}
         title="apps.hero.title"
         subtitle="apps.hero.subtitle"
         description="apps.hero.description"

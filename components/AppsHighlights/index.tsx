@@ -6,9 +6,9 @@ import { useTranslate } from "@/context";
 import "./AppsHighlights.scss";
 
 const highlights = [
-  "/images/aristobot/aristobot-greeting.png",
   "/images/aristobot/aristobot-holding-bulb.png",
-  "/images/aristobot/aristobot-pointing-finger-up.png",
+  "/images/aristobot/aristobot-holding-chat-app.png",
+  "/images/aristobot/aristobot-facing-left.png",
 ];
 
 export const AppsHighlights = () => {
