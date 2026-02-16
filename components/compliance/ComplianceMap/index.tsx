@@ -3,8 +3,9 @@
 import * as React from "react";
 import NextLink from "next/link";
 
+import { Icons } from "@aristobyte-ui/utils";
 import { useTranslate } from "@/context";
-import { Config, Icons } from "@/config";
+import { Config } from "@/config";
 
 import "./ComplianceMap.scss";
 

@@ -1,7 +1,7 @@
 import * as React from "react";
 import NextLink from "next/link";
 
-import { Icons } from "@/config";
+import { Icons } from "@aristobyte-ui/utils";
 
 import "./GoBackButton.scss";
 

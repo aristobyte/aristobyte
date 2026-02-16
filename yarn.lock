@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@aristobyte-ui/utils@^2.16.2":
-  version "2.16.2"
-  resolved "https://registry.yarnpkg.com/@aristobyte-ui/utils/-/utils-2.16.2.tgz#2d44eb3211a56710f874319a1271e334c229c84f"
-  integrity sha512-zxFcpjHvdoG3YBYjrem+Kaz1gGa1R4fVJmtR/7X4TFblWZHwTL6pjg8Rq+UBa2sZU+tkrFg2G0QWlymmIbGjKg==
+"@aristobyte-ui/utils@^2.17.1":
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/@aristobyte-ui/utils/-/utils-2.17.1.tgz#8b599d222c638d267e8ff32dc738037262f56694"
+  integrity sha512-NSDsBGa4X9H2YHoYh0oUE1BKGp4SUQih9blQgV4HNe61o6JwHTkWCt3ikaIhtIwfm8Zd3+9EIeruef14vdhJAw==
 
 "@emnapi/core@^1.4.0":
   version "1.4.3"

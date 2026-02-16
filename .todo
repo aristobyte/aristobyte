@@ -4,3 +4,5 @@
 - create 404 page
 - add link to compliance documents and enhance the busy styling
 - hide scrollbar in the menu (on open there is a scrollbar flickering) - totally hide it
+- move all constants into config/constants
+- move all types into config/types

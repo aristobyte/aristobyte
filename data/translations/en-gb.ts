@@ -3,6 +3,7 @@ export const EN_GB = {
     logo: { id: "logo", href: "/" },
     nav: {
       apps: "Apps",
+      "apps-overview": "Apps Overview",
       ui: "AristoByte UI",
       community: "Community",
       insights: "Insights",

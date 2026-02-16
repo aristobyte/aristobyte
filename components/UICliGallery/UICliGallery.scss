@@ -63,6 +63,12 @@
     padding: 17.5px;
   }
 
+  &__logo-glyph {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+  }
+
   &__title {
     @include title;
   }

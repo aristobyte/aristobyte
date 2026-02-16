@@ -45,7 +45,9 @@ export const Hero = ({
         <div className="hero__content">
           {icon && (
             <span className="hero__icon hero__animate hero__animate--icon">
-              {Icons[icon]({ size: "100%" })}
+              <span className="hero__icon-glyph">
+                {Icons[icon]({ size: "100%" })}
+              </span>
             </span>
           )}
           {subtitle && (

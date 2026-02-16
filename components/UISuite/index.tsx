@@ -28,7 +28,9 @@ export const UISuite = () => {
       <div className="ui-suite__container">
         <div className="ui-suite__content">
           <span className="ui-suite__logo">
-            <Icons.AristoByteUI size={100} />
+            <span className="ui-suite__logo-glyph">
+              <Icons.AristoByteUI size={100} />
+            </span>
           </span>
           <h2 className="ui-suite__title">{t("ui.suite.title")}</h2>
           <p className="ui-suite__description">{t("ui.suite.description")}</p>

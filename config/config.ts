@@ -1,7 +1,26 @@
-import { Icons as LocalIcons } from "./icons";
-import { LinkType } from "./constants";
 import { Icons } from "@aristobyte-ui/utils";
+import { LinkType } from "./constants";
 import UsefulLinks from "@/useful_links.json";
+
+export enum MenuList {
+  ROOT = "root",
+  APPS = "apps",
+}
+
+export type HeaderMenuItemType = "internal-link" | "external-link" | "button";
+
+export type HeaderMenuItem = {
+  id: string;
+  labelKey: string;
+  type: HeaderMenuItemType;
+  href?: string;
+  nextList?: MenuList;
+};
+
+export type MenuListType = {
+  goBack: MenuList | null;
+  menu: HeaderMenuItem[];
+};
 
 export const Config = {
   header: {
@@ -13,6 +32,72 @@ export const Config = {
       { id: "insights", href: "/insights" },
       { id: "contact", href: "/contact" },
     ],
+    menuLists: {
+      [MenuList.ROOT]: {
+        goBack: null,
+        menu: [
+          {
+            id: "ui",
+            labelKey: "header.nav.ui",
+            href: "/ui",
+            type: "internal-link",
+          },
+          {
+            id: "apps",
+            labelKey: "header.nav.apps",
+            type: "button",
+            nextList: MenuList.APPS,
+          },
+          {
+            id: "community",
+            labelKey: "header.nav.community",
+            href: "/community",
+            type: "internal-link",
+          },
+          {
+            id: "insights",
+            labelKey: "header.nav.insights",
+            href: "/insights",
+            type: "internal-link",
+          },
+          {
+            id: "contact",
+            labelKey: "header.nav.contact",
+            href: "/contact",
+            type: "internal-link",
+          },
+        ],
+      },
+      [MenuList.APPS]: {
+        goBack: MenuList.ROOT,
+        menu: [
+          {
+            id: "apps-overview",
+            labelKey: "header.nav.apps-overview",
+            href: "/apps",
+            type: "internal-link",
+          },
+          {
+            id: "apps-instagram",
+            labelKey: "apps.hero.links.instagram",
+            href: UsefulLinks["instagram-page"],
+            type: "external-link",
+          },
+          {
+            id: "apps-facebook",
+            labelKey: "apps.hero.links.facebook",
+            href: UsefulLinks["facebook-page"],
+            type: "external-link",
+          },
+          {
+            id: "apps-twitter",
+            labelKey: "apps.hero.links.twitter",
+            href: UsefulLinks["twitter-page"],
+            type: "external-link",
+          },
+        ],
+      },
+    } as Record<MenuList, MenuListType>,
   },
   home: {
     hero: {
@@ -69,19 +154,19 @@ export const Config = {
       cards: [
         {
           id: "modular-by-design",
-          icon: LocalIcons.Puzzle,
+          icon: Icons.Puzzle,
         },
         {
           id: "plug-and-play-integration",
-          icon: LocalIcons.Plug,
+          icon: Icons.Plug,
         },
         {
           id: "lightning-performance",
-          icon: LocalIcons.Zap,
+          icon: Icons.Zap,
         },
         {
           id: "future-proof-stack",
-          icon: LocalIcons.Dna,
+          icon: Icons.Dna,
         },
       ],
     },

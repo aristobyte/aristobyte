@@ -56,7 +56,9 @@ export const UICliGallery = () => {
       <div className="ui-cli__container">
         <div className="ui-cli__content">
           <span className="ui-cli__logo">
-            <Icons.AristoByteUICLI size={65} />
+            <span className="ui-cli__logo-glyph">
+              <Icons.AristoByteUICLI size={65} />
+            </span>
           </span>
           <h2 className="ui-cli__title">{t("ui.cli.title")}</h2>
           <p className="ui-cli__description">{t("ui.cli.description")}</p>

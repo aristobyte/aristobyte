@@ -81,6 +81,12 @@
     margin: 15px 0 0;
   }
 
+  &__logo-glyph {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+  }
+
   &__icon {
     align-items: center;
     background: rgba(255, 255, 255, 0.06);
