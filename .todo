@@ -6,3 +6,4 @@
 - hide scrollbar in the menu (on open there is a scrollbar flickering) - totally hide it
 - move all constants into config/constants
 - move all types into config/types
+- What We Create - for this section we should be handling the mobile view in a way all the buttons are next to each other - maybe icons should be used or what?

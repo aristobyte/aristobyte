@@ -169,16 +169,6 @@ export const Config = {
         },
       ],
     },
-    showcase: {
-      images: [
-        "/images/shapes-and-background/neon-wave-bg.png",
-        "/images/aristobot/aristobot-greeting.png",
-        "/images/aristobot/aristobot-holding-bulb.png",
-        "/images/aristobot/aristobot-holding-tablet.png",
-        "/images/shapes-and-background/time-capsule.jpeg",
-        "/images/aristobot/aristobot-with-levitating-bulb.png",
-      ],
-    },
     toolkit: {
       images: [
         "/images/cli/aristobyte-ui-cli-1.png",

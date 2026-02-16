@@ -56,31 +56,43 @@ export const EN_GB = {
           title: "Product Strategy",
           description:
             "Discovery, research, and roadmaps that clarify what to build and why.",
+          previewDescription:
+            "We define product direction through focused discovery, stakeholder alignment, market framing, and a practical roadmap that turns ideas into execution-ready priorities.",
         },
         "ui-ux": {
           title: "UX & UI Design",
           description:
             "Modern, accessible interfaces designed for clarity, conversion, and speed.",
+          previewDescription:
+            "We design complete user journeys with clear information hierarchy, accessible interactions, and polished visual language that improves adoption, trust, and conversion.",
         },
         "web-platforms": {
           title: "Web Platforms",
           description:
             "High-performance web apps with scalable architecture and great DX.",
+          previewDescription:
+            "We engineer scalable web platforms with robust architecture, maintainable frontend systems, and reliable APIs optimized for performance, SEO, and long-term growth.",
         },
         "mobile-experiences": {
           title: "Mobile Experiences",
           description:
             "Cross-platform mobile apps that feel native and stay fast at scale.",
+          previewDescription:
+            "We build native-feel mobile experiences with smooth interactions, resilient architecture, and release workflows that keep product quality high across devices.",
         },
         "ai-automation": {
           title: "AI & Automation",
           description:
             "Intelligent workflows, copilots, and internal automation for real teams.",
+          previewDescription:
+            "We create practical AI and automation layers that reduce repetitive work, connect systems, and provide teams with faster decisions and measurable operational gains.",
         },
         "devops-growth": {
           title: "DevOps & Growth",
           description:
             "CI/CD, monitoring, and optimization that keep products reliable.",
+          previewDescription:
+            "We implement delivery pipelines, observability, and performance optimization practices that improve release confidence, uptime, and sustainable product growth.",
         },
       },
     },
@@ -110,11 +122,6 @@ export const EN_GB = {
             "Shipping, monitoring, and growth-focused improvements after release.",
         },
       },
-    },
-    showcase: {
-      title: "Visual Language in Motion",
-      description:
-        "Our brand universe blends bold gradients, futuristic shapes, and human-friendly mascots to create memorable experiences.",
     },
     toolkit: {
       title: "AristoByte UI Toolkit",

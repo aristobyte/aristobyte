@@ -31,52 +31,43 @@
   }
 
   &__grid {
+    align-items: stretch;
     display: grid;
+    gap: 10px;
     grid-template-columns: 1fr;
-    gap: 16px;
   }
 
   &__card {
-    @include regularShadow;
-    & {
-      align-items: center;
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: $border-radius-standard;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      padding: 20px;
-      text-align: center;
-      transition: all 200ms ease;
-      position: relative;
-    }
+    align-items: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: flex-start;
+    min-height: 52px;
+    padding: 8px 12px;
+    transition: border-color 180ms ease, background-color 180ms ease,
+      transform 180ms ease;
+    width: 100%;
 
     &:hover {
-      transform: translateY(-4px);
-      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba($logo-color-3, 0.4);
+      transform: translateY(-1px);
     }
-  }
-
-  &__card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 2px;
-    width: 100%;
-    background: $logo-gradient;
-    opacity: 0.6;
   }
 
   &__icon {
     align-items: center;
-    background: rgba(255, 255, 255, 0.06);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.14);
     border-radius: 999px;
     display: flex;
-    height: 42px;
+    flex-shrink: 0;
+    height: 34px;
     justify-content: center;
-    width: 42px;
+    width: 34px;
 
     img {
       filter: invert(1);
@@ -85,17 +76,10 @@
 
   &__label {
     color: $white-color;
+    font-family: $font-work-sans;
+    font-size: 14px;
     font-weight: 600;
-  }
-
-  &__mascot {
-    position: absolute;
-    right: 20px;
-    bottom: -40px;
-    width: 160px;
-    display: none;
-    opacity: 0.85;
-    pointer-events: none;
+    letter-spacing: 0.01em;
   }
 
   @media screen and (min-width: $media-sm) {
@@ -107,12 +91,6 @@
   @media screen and (min-width: $media-lg) {
     &__grid {
       grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-  }
-
-  @media screen and (min-width: $media-md) {
-    &__mascot {
-      display: block;
     }
   }
 }

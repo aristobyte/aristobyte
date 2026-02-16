@@ -11,8 +11,6 @@ export { HomeStack } from "./HomeStack";
 export { HomeCTA } from "./HomeCTA";
 export { CdnIcon } from "./CdnIcon";
 export { Portal } from "./Portal";
-export { HomeShowcase } from "./HomeShowcase";
-export { HomeToolkit } from "./HomeToolkit";
 export { HomeCommunity } from "./HomeCommunity";
 export { AppsRoadmap } from "./AppsRoadmap";
 export { AppsHighlights } from "./AppsHighlights";

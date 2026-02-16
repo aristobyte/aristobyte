@@ -7,7 +7,6 @@ import {
   HomeProcess,
   HomeStack,
   HomeCTA,
-  HomeToolkit,
   HomeCommunity,
 } from "@/components";
 import { Config } from "@/config";
@@ -27,7 +26,6 @@ export default function Home() {
       <Features />
       <HomeServices />
       <HomeProcess />
-      <HomeToolkit />
       <UIComponentsPreview />
       <HomeStack />
       <HomeCommunity />
