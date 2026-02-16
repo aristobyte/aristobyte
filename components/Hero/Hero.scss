@@ -78,18 +78,21 @@
     gap: 10px;
   }
 
+  &__icons {
+    align-items: center;
+    display: flex;
+  }
+
   &__icon {
     align-items: center;
     display: flex;
     margin: 0 0 10px;
-    width: min(140px, 40vw);
   }
 
   &__icon-glyph {
     align-items: center;
     display: inline-flex;
     justify-content: center;
-    width: 100%;
   }
 
   &__subtitle {

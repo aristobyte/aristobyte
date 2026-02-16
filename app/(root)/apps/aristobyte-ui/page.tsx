@@ -1,12 +1,13 @@
 import * as React from "react";
+
 import { Hero, UIOverviewVideo, UISuite, UICliGallery } from "@/components";
 
-export default function Home() {
+export default function AristoByteUIPage() {
   return (
     <>
       <Hero
         withGradient
-        icon="AristoByteUI"
+        icons={[{ id: "AristoByteUI", size: 300 }]}
         title="ui.hero.title"
         subtitle="ui.hero.subtitle"
         description="ui.hero.description"

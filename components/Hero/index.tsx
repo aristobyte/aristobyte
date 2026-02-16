@@ -13,7 +13,7 @@ import "./Hero.scss";
 
 export type HeroPropsType = {
   withGradient?: boolean;
-  icon?: keyof typeof Icons;
+  icons?: { id: keyof typeof Icons; size?: number }[];
   subtitle?: string;
   title?: string;
   description?: string;
@@ -29,7 +29,7 @@ const offset = -HEADER_SIZE - 20;
 
 export const Hero = ({
   withGradient,
-  icon,
+  icons,
   subtitle,
   title,
   description,
@@ -43,13 +43,19 @@ export const Hero = ({
       {withGradient && <Gradient id="hero" preventMotionAnimation />}
       <div className="hero__container">
         <div className="hero__content">
-          {icon && (
-            <span className="hero__icon hero__animate hero__animate--icon">
-              <span className="hero__icon-glyph">
-                {Icons[icon]({ size: "100%" })}
-              </span>
-            </span>
-          )}
+          <div className="hero__icons">
+            {icons &&
+              icons.map(({ id, size }, index) => (
+                <span
+                  key={`${id}-${index}`}
+                  className="hero__icon hero__animate hero__animate--icon"
+                >
+                  <span className="hero__icon-glyph">
+                    {Icons[id]({ size: size || "100%" })}
+                  </span>
+                </span>
+              ))}
+          </div>
           {subtitle && (
             <h3 className="hero__subtitle hero__animate hero__animate--subtitle">
               {t(subtitle)}

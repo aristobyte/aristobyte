@@ -26,7 +26,6 @@ export const Config = {
   header: {
     logo: Icons.AristoByte,
     nav: [
-      { id: "ui", href: "/ui" },
       { id: "apps", href: "/apps" },
       { id: "community", href: "/community" },
       { id: "insights", href: "/insights" },
@@ -36,12 +35,6 @@ export const Config = {
       [MenuList.ROOT]: {
         goBack: null,
         menu: [
-          {
-            id: "ui",
-            labelKey: "header.nav.ui",
-            href: "/ui",
-            type: "internal-link",
-          },
           {
             id: "apps",
             labelKey: "header.nav.apps",
@@ -78,22 +71,28 @@ export const Config = {
             type: "internal-link",
           },
           {
-            id: "apps-instagram",
-            labelKey: "apps.hero.links.instagram",
-            href: UsefulLinks["instagram-page"],
-            type: "external-link",
+            id: "aristobyte-ui",
+            labelKey: "header.nav.aristobyte-ui",
+            href: "/apps/aristobyte-ui",
+            type: "internal-link",
           },
           {
-            id: "apps-facebook",
-            labelKey: "apps.hero.links.facebook",
-            href: UsefulLinks["facebook-page"],
-            type: "external-link",
+            id: "aristobyte-ui-cli",
+            labelKey: "header.nav.aristobyte-ui-cli",
+            href: "/apps/aristobyte-ui-cli",
+            type: "internal-link",
           },
           {
-            id: "apps-twitter",
-            labelKey: "apps.hero.links.twitter",
-            href: UsefulLinks["twitter-page"],
-            type: "external-link",
+            id: "aristo-badges",
+            labelKey: "header.nav.aristo-badges",
+            href: "/apps/aristo-badges",
+            type: "internal-link",
+          },
+          {
+            id: "aristo-repo",
+            labelKey: "header.nav.aristo-repo",
+            href: "/apps/aristo-repo",
+            type: "internal-link",
           },
         ],
       },
@@ -262,24 +261,30 @@ export const Config = {
   apps: {
     hero: {
       icon: Icons.AristoByte,
-      links: [
-        {
-          id: "instagram",
-          href: "https://instagram.com/aristo_byte",
-          type: LinkType.NEXT_LINK,
-        },
-        {
-          id: "facebook",
-          href: "https://facebook.com/aristobyte",
-          type: LinkType.NEXT_LINK,
-        },
-        {
-          id: "twitter",
-          href: "https://x.com/aristo_byte",
-          type: LinkType.NEXT_LINK,
-        },
-      ],
+      links: [],
     },
+    products: [
+      {
+        id: "aristobyte-ui",
+        href: "/apps/aristobyte-ui",
+        status: "live",
+      },
+      {
+        id: "aristobyte-ui-cli",
+        href: "/apps/aristobyte-ui-cli",
+        status: "live",
+      },
+      {
+        id: "aristo-badges",
+        href: "/apps/aristo-badges",
+        status: "beta",
+      },
+      {
+        id: "aristo-repo",
+        href: "/apps/aristo-repo",
+        status: "building",
+      },
+    ],
     roadmap: {
       items: [
         { id: "productivity" },

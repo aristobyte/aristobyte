@@ -8,7 +8,7 @@ export default function Community() {
     <>
       <Hero
         withGradient
-        icon="AristoByte"
+        icons={[{ id: "AristoByte", size: 200 }]}
         title="community.hero.title"
         subtitle="community.hero.subtitle"
         description="community.hero.description"

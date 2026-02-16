@@ -32,7 +32,10 @@ export const Header = () => {
 
   const mobileTitle = React.useMemo(() => {
     if (pathname === "/") return "AristoByte";
-    if (pathname.startsWith("/ui")) return t("header.nav.ui");
+    if (pathname.startsWith("/apps/aristobyte-ui-cli")) return "AristoByte UI CLI";
+    if (pathname.startsWith("/apps/aristobyte-ui")) return "AristoByte UI";
+    if (pathname.startsWith("/apps/aristo-badges")) return "AristoBadges";
+    if (pathname.startsWith("/apps/aristo-repo")) return "AristoRepo";
     if (pathname.startsWith("/apps")) return t("header.nav.apps");
     if (pathname.startsWith("/community")) return t("header.nav.community");
     if (pathname.startsWith("/insights")) return t("header.nav.insights");

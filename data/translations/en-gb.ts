@@ -3,8 +3,11 @@ export const EN_GB = {
     logo: { id: "logo", href: "/" },
     nav: {
       apps: "Apps",
-      "apps-overview": "Apps Overview",
-      ui: "AristoByte UI",
+      "apps-overview": "Overview",
+      "aristobyte-ui": "AristoByte UI",
+      "aristobyte-ui-cli": "AristoByte UI CLI",
+      "aristo-badges": "AristoBadges",
+      "aristo-repo": "AristoRepo",
       community: "Community",
       insights: "Insights",
       contact: "Contact",
@@ -217,14 +220,68 @@ export const EN_GB = {
   },
   apps: {
     hero: {
-      title: "Coming soon",
-      subtitle: "Designed for Impact.",
+      title: "AristoByte Products",
+      subtitle: "Built as an ecosystem, not isolated tools.",
       description:
-        "We're building a suite of mobile apps designed to be fast, thoughtful, and beautifully functional—from productivity tools to creative utilities. Our focus? Native feel, cross-platform power, and great UX. Coming soon to the App Store and Google Play.",
-      links: {
-        instagram: "Instagram",
-        facebook: "Facebook",
-        twitter: "Twitter",
+        "Explore the current product line: AristoByte UI, CLI workflows, README automation with AristoBadges, and upcoming repository tooling with AristoRepo.",
+    },
+    products: {
+      title: "Product Lineup",
+      description:
+        "Each product focuses on a practical engineering bottleneck and is designed to integrate with the rest of the AristoByte stack.",
+      cardAction: "Open product",
+      status: {
+        live: "Live",
+        beta: "Beta",
+        building: "In Progress",
+      },
+      items: {
+        "aristobyte-ui": {
+          title: "AristoByte UI",
+          description:
+            "A modern component ecosystem for building consistent interfaces across products and teams.",
+        },
+        "aristobyte-ui-cli": {
+          title: "AristoByte UI CLI",
+          description:
+            "Terminal-first tooling that scaffolds and manages UI workflows with less manual setup.",
+        },
+        "aristo-badges": {
+          title: "AristoBadges",
+          description:
+            "Minimal SVG badges for README dashboards and repository documentation.",
+        },
+        "aristo-repo": {
+          title: "AristoRepo",
+          description:
+            "A repository operations product focused on clarity around project status and execution.",
+        },
+      },
+      pages: {
+        "aristobyte-ui-cli": {
+          hero: {
+            title: "AristoByte UI CLI",
+            subtitle: "Terminal-native UI workflow",
+            description:
+              "Scaffold, install, and maintain UI packages with a single command surface.",
+          },
+        },
+        "aristo-badges": {
+          hero: {
+            title: "AristoBadges",
+            subtitle: "Minimal badges for README dashboards",
+            description:
+              "Generate clean, lightweight SVG badges for project visibility and technical storytelling.",
+          },
+        },
+        "aristo-repo": {
+          hero: {
+            title: "AristoRepo",
+            subtitle: "Repository operations workspace",
+            description:
+              "A focused environment for repository health, release flow, and maintainer execution.",
+          },
+        },
       },
     },
     roadmap: {

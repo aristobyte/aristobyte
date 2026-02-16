@@ -8,7 +8,7 @@ export default function Contact() {
     <>
       <Hero
         withGradient
-        icon="AristoByte"
+        icons={[{ id: "AristoByte", size: 200 }]}
         title="contact.hero.title"
         subtitle="contact.hero.subtitle"
         description="contact.hero.description"

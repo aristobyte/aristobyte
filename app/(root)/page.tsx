@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <Hero
         withGradient
-        icon="AristoByte"
+        icons={[{ id: "AristoByte", size: 200 }]}
         title="home.hero.title"
         subtitle="home.hero.subtitle"
         description="home.hero.description"

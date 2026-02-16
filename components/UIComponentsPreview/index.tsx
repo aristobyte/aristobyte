@@ -19,7 +19,10 @@ export const UIComponentsPreview = () => {
           <p className="ui-components-preview__description">
             {t("home.ui-components-preview.description")}
           </p>
-          <NextLink href="/ui" className="ui-components-preview__link">
+          <NextLink
+            href="/apps/aristobyte-ui"
+            className="ui-components-preview__link"
+          >
             <span>{t("home.ui-components-preview.link")}</span>
           </NextLink>
         </div>

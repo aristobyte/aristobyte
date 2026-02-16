@@ -1,20 +1,23 @@
 import * as React from "react";
 
-import { Hero, AppsRoadmap, AppsHighlights } from "@/components";
-import { Config } from "@/config";
+import { Hero, AppsProducts, AppsRoadmap, AppsHighlights } from "@/components";
 
 export default function Home() {
   return (
     <>
       <Hero
         withGradient
-        icon="AristoByte"
+        icons={[
+          { id: "AristoByteUICLI", size: 200 },
+          { id: "AristoByteUI", size: 300 },
+          { id: "AristoBadges", size: 280 },
+          { id: "AristoRepo", size: 280 },
+        ]}
         title="apps.hero.title"
         subtitle="apps.hero.subtitle"
         description="apps.hero.description"
-        linkText="apps.hero.links"
-        links={Config.apps.hero.links}
       />
+      <AppsProducts />
       <AppsRoadmap />
       <AppsHighlights />
     </>

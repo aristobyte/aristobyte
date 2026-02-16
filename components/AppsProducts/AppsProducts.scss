@@ -1,0 +1,111 @@
+@use "../../styles/settings" as *;
+
+.apps-products {
+  &__container {
+    @include container;
+    & {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+  }
+
+  &__content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__title {
+    @include title;
+  }
+
+  &__description {
+    @include description;
+    max-width: 760px;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: 1fr;
+  }
+
+  &__card {
+    @include regularShadow;
+    & {
+      background:
+        radial-gradient(
+          240px 100px at 100% 0%,
+          rgba($logo-color-3, 0.15),
+          transparent
+        ),
+        $black-flat-color;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: $border-radius-standard;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      min-height: 230px;
+      padding: 24px;
+      transition: transform 200ms ease;
+    }
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+
+  &__status {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    color: $grey-dark-color;
+    font-family: $font-work-sans;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12px;
+    line-height: 1;
+    padding: 6px 10px;
+    width: fit-content;
+
+    &--live {
+      border-color: rgba(30, 204, 133, 0.45);
+      color: #40d999;
+    }
+
+    &--beta {
+      border-color: rgba($logo-color-3, 0.45);
+      color: $logo-color-3;
+    }
+
+    &--building {
+      border-color: rgba(112, 156, 255, 0.45);
+      color: #8fb2ff;
+    }
+  }
+
+  &__card-title {
+    color: $white-color;
+    font-family: $font-righteous;
+    font-size: clamp(20px, 5vw, 28px);
+    line-height: 1.2;
+  }
+
+  &__card-description {
+    @include description;
+    flex: 1;
+    text-align: left;
+  }
+
+  &__card-link {
+    @include button;
+    width: fit-content;
+  }
+
+  @media screen and (min-width: $media-sm) {
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+}
