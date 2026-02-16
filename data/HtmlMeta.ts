@@ -1,14 +1,20 @@
+import type { Metadata } from "next";
+
 const title = "AristoByte";
 const description =
   "AristoByte is a forward-thinking software and technology company specializing in the design, development, and deployment of custom web and mobile applications. We empower startups, businesses, and enterprises with scalable digital solutions that streamline operations, enhance user experience, and drive growth. From concept to launch, AristoByte delivers innovation with precision, ensuring every product is tailored to meet unique client goals and industry demands.";
 const url = "https://aristobyte.com";
 
-export const HtmlMeta = {
+export const HtmlMeta: Record<string, Metadata> = {
   root: {
-    title,
+    title: {
+      default: title,
+      template: `%s · ${title}`,
+    },
     description,
     keywords: [
       "AristoByte",
+      "AristoByte UI",
       "software development",
       "web applications",
       "mobile applications",
@@ -22,6 +28,16 @@ export const HtmlMeta = {
       "user experience design",
       "digital transformation",
     ],
+    generator: "Next.js",
+    referrer: "origin-when-cross-origin",
+    authors: [{ name: "Aristobyte UI" }],
+    creator: "Aristobyte UI",
+    publisher: "Aristobyte UI",
+    formatDetection: {
+      email: false,
+      address: false,
+      telephone: false,
+    },
     category: "Software company",
     metadataBase: new URL(url),
     applicationName: title,
@@ -36,8 +52,8 @@ export const HtmlMeta = {
     },
     openGraph: {
       title,
-      description: "Smart, Scalable, Simple",
-      url,
+      description,
+      url: "/",
       siteName: title,
       images: [
         {
@@ -49,7 +65,7 @@ export const HtmlMeta = {
       ],
       type: "website",
       countryName: "Poland",
-      locale: "en_GB",
+      locale: "en_US",
       emails: ["info@aristobyte.com"],
       phoneNumbers: ["+48-451-652-749"],
     },
@@ -61,11 +77,24 @@ export const HtmlMeta = {
       creator: "@aristobyte",
     },
     icons: {
-      icon: "/favicon.ico",
-      shortcut: "/favicon-32x32.png",
-      apple: "/apple-touch-icon-180x180.png",
+      icon: [
+        { url: "/favicon.ico" },
+        { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+        { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+        { url: "/favicon-192x192.png", sizes: "192x192", type: "image/png" },
+        { url: "/favicon-512x512.png", sizes: "512x512", type: "image/png" },
+        { url: "/icon.png", type: "image/png" },
+        { url: "/icon.svg", type: "image/svg+xml" },
+      ],
+      apple: [{ url: "/apple-touch-icon.png" }],
+      shortcut: ["/favicon.ico"],
     },
     manifest: "/site.webmanifest",
+    other: {
+      "theme-color": "#0c101a",
+      "msapplication-TileColor": "#0c101a",
+      "msapplication-config": "/browserconfig.xml",
+    },
     robots: {
       index: true,
       follow: true,
@@ -74,17 +103,13 @@ export const HtmlMeta = {
         index: true,
         follow: true,
         noimageindex: false,
-        maxVideoPreview: -1,
-        maxImagePreview: "large",
-        maxSnippet: -1,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
       },
     },
     alternates: {
-      canonical: url,
-      languages: {
-        en: url,
-        pl: "/pl",
-      },
+      canonical: "/",
     },
   },
   "privacy-policy": {
@@ -102,7 +127,7 @@ export const structuredData = {
   "@type": "SoftwareCompany",
   name: title,
   url,
-  logo: "/logo.svg",
+  logo: "/icon.png",
   image: "/og-image-1200x630.png",
   description,
   address: {

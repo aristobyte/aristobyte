@@ -5,8 +5,8 @@ import localFont from "next/font/local";
 import { AppLayout } from "@/components";
 import { HtmlMeta, structuredData, viewport as viewportConfig } from "@/data";
 
-import "./globals.scss";
 import { TranslateProvider } from "@context";
+import "./globals.scss";
 
 const workSans = localFont({
   src: [
