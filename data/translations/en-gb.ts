@@ -13,6 +13,19 @@ export const EN_GB = {
       contact: "Contact",
     },
   },
+  footer: {
+    description:
+      "AristoByte builds modern products and developer systems with a focus on clean execution, performance, and long-term maintainability.",
+    columns: {
+      products: "Products",
+      company: "Company",
+      compliance: "Compliance",
+      contact: "Contact & Community",
+    },
+    complianceHub: "Compliance Hub",
+    copyPrefix: "Copyright © AristoByte",
+    copySuffix: "All rights reserved.",
+  },
   home: {
     hero: {
       title: "Smart. Scalable. Seamless.",

@@ -7,7 +7,7 @@ export default function Insights() {
     <>
       <Hero
         withGradient
-        icon="AristoByte"
+        icons={[{ id: "AristoByte", size: 200 }]}
         title="insights.hero.title"
         subtitle="insights.hero.subtitle"
         description="insights.hero.description"

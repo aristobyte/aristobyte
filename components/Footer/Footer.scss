@@ -1,0 +1,304 @@
+@use "../../styles/settings" as *;
+
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 34px;
+  padding-top: 8px;
+  position: relative;
+
+  &::before {
+    background:
+      radial-gradient(
+        500px 180px at 10% -40%,
+        rgba($logo-color-2, 0.12),
+        transparent
+      ),
+      radial-gradient(
+        520px 220px at 90% -60%,
+        rgba($logo-color-4, 0.1),
+        transparent
+      );
+    content: "";
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+  }
+
+  &__container {
+    @include container;
+    & {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 0 0;
+    position: relative;
+  }
+
+  &__brand {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 18px;
+  }
+
+  &__badge {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba($logo-color-2, 0.35);
+    border-radius: 999px;
+    color: rgba($white-color, 0.86);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    padding: 6px 10px;
+    text-transform: uppercase;
+    width: fit-content;
+  }
+
+  &__logo {
+    align-items: center;
+    display: inline-flex;
+    gap: 12px;
+    width: fit-content;
+  }
+
+  &__logo-icon {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 10px;
+    display: inline-flex;
+    height: 40px;
+    justify-content: center;
+    width: 40px;
+  }
+
+  &__logo-glyph {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  &__logo-text {
+    @include textRegularShadow;
+    color: $white-color;
+    font-family: $font-righteous;
+    font-size: clamp(22px, 4vw, 30px);
+  }
+
+  &__description {
+    @include description;
+    max-width: 580px;
+    text-align: left;
+  }
+
+  &__socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__social {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 10px;
+    display: inline-flex;
+    height: 34px;
+    justify-content: center;
+    transition: all 180ms ease;
+    width: 34px;
+
+    &:hover {
+      border-color: rgba($logo-color-2, 0.55);
+      transform: translateY(-2px);
+    }
+
+    img {
+      filter: brightness(0) invert(1);
+    }
+  }
+
+  &__social--github {
+    background: rgba(36, 41, 47, 0.9);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  &__social--stackoverflow {
+    background: rgba(244, 128, 36, 0.28);
+    border-color: rgba(244, 128, 36, 0.65);
+  }
+
+  &__social--npm {
+    background: rgba(203, 56, 55, 0.3);
+    border-color: rgba(203, 56, 55, 0.62);
+  }
+
+  &__social--email {
+    background: rgba(111, 128, 255, 0.25);
+    border-color: rgba(124, 154, 255, 0.65);
+  }
+
+  &__social--linkedin,
+  &__social--linkedin-2 {
+    background: rgba(10, 102, 194, 0.3);
+    border-color: rgba(10, 102, 194, 0.65);
+  }
+
+  &__social--instagram {
+    background: rgba(225, 48, 108, 0.3);
+    border-color: rgba(225, 48, 108, 0.65);
+  }
+
+  &__social--youtube {
+    background: rgba(255, 0, 0, 0.3);
+    border-color: rgba(255, 0, 0, 0.62);
+  }
+
+  &__social--open-collective {
+    background: rgba(123, 111, 255, 0.32);
+    border-color: rgba(123, 111, 255, 0.66);
+  }
+
+  &__social--patreon {
+    background: rgba(255, 66, 77, 0.3);
+    border-color: rgba(255, 66, 77, 0.65);
+  }
+
+  &__links {
+    border-top: 0;
+    display: grid;
+    gap: 22px;
+    grid-template-columns: 1fr;
+  }
+
+  &__column {
+    background:
+      linear-gradient(
+        165deg,
+        rgba(255, 255, 255, 0.03),
+        rgba(255, 255, 255, 0.008)
+      ),
+      rgba(11, 11, 16, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: $border-radius-standard;
+    overflow: hidden;
+    padding: 16px;
+    position: relative;
+    transition: all 220ms ease;
+
+    &::before {
+      background: linear-gradient(
+        180deg,
+        rgba($logo-color-2, 0.5),
+        rgba($logo-color-3, 0.1)
+      );
+      content: "";
+      height: 100%;
+      left: 0;
+      opacity: 0.8;
+      position: absolute;
+      top: 0;
+      width: 2px;
+    }
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.16);
+      transform: translateY(-2px);
+    }
+  }
+
+  &__heading {
+    color: $white-color;
+    font-family: $font-righteous;
+    font-size: 16px;
+    margin-bottom: 12px;
+    position: relative;
+
+    &::after {
+      background: $logo-gradient;
+      border-radius: 999px;
+      content: "";
+      display: block;
+      height: 2px;
+      margin-top: 8px;
+      opacity: 0.55;
+      width: 48px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__link {
+    color: $grey-dark-color;
+    font-size: 13px;
+    line-height: 1.45;
+    position: relative;
+    transition: color 180ms ease;
+
+    &::after {
+      color: rgba($white-color, 0.5);
+      content: "→";
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transform: translateX(-4px);
+      transition: all 200ms ease;
+    }
+
+    &:hover {
+      color: $white-color;
+
+      &::after {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: $grey-dark-color;
+    font-size: 12px;
+    padding-top: 14px;
+  }
+
+  @media screen and (min-width: $media-sm) {
+    &__links {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (min-width: $media-lg) {
+    &__panel {
+      align-items: start;
+      display: grid;
+      gap: 26px;
+      grid-template-columns: minmax(290px, 360px) 1fr;
+      padding-top: 14px;
+    }
+
+    &__brand {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    &__links {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+}

@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { Header, Splash } from "@/components";
+import { Footer, Header, Splash } from "@/components";
 
 import "./AppLayout.scss";
 
@@ -17,7 +17,12 @@ export const AppLayout = ({ children }: AppLayoutPropsType) => {
     <>
       {isReady && <Header />}
       <Splash isReady={isReady} setIsReady={setIsReady} />
-      {isReady && <main className="app-layout__main">{children}</main>}
+      {isReady && (
+        <>
+          <main className="app-layout__main">{children}</main>
+          <Footer />
+        </>
+      )}
     </>
   );
 };
