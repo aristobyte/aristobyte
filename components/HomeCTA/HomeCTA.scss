@@ -41,11 +41,13 @@
   }
 
   &__actions {
+    align-items: center;
+    justify-content: space-between;
     display: flex;
-    gap: 12px;
+    gap: 20px;
+    margin: auto 0 0;
     position: relative;
     z-index: 1;
-    flex-wrap: wrap;
   }
 
   &__mascot {
@@ -81,6 +83,11 @@
 
     &__mascot {
       display: block;
+    }
+
+    &__actions {
+      align-items: flex-end;
+      flex-direction: column;
     }
   }
 }

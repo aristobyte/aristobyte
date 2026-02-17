@@ -47,7 +47,9 @@
     justify-content: flex-start;
     min-height: 52px;
     padding: 8px 12px;
-    transition: border-color 180ms ease, background-color 180ms ease,
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease,
       transform 180ms ease;
     width: 100%;
 

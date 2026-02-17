@@ -26,10 +26,10 @@ export default function Home() {
       <Features />
       <HomeServices />
       <HomeProcess />
-      <UIComponentsPreview />
       <HomeStack />
       <HomeCommunity />
       <HomeCTA />
+      <UIComponentsPreview />
     </>
   );
 }

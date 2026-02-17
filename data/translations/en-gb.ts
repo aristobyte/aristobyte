@@ -135,13 +135,42 @@ export const EN_GB = {
     stack: {
       title: "Modern Stack, Future-Proof Choices",
       description:
-        "We build with proven technology and a sharp focus on performance and maintainability.",
+        "A curated stack across product engineering, cloud delivery, AI tooling, and design systems—picked for speed, reliability, and long-term maintainability.",
       groups: {
-        "product-core": {
-          title: "Product Core",
+        "frontend-product": {
+          title: "Frontend & Product UI",
+          description:
+            "Core technologies we use to build fast, scalable user experiences and component-driven product surfaces.",
         },
-        "platform-data": {
-          title: "Platform & Data",
+        "backend-data": {
+          title: "Backend, APIs & Data",
+          description:
+            "Server-side runtimes, API patterns, and data tooling that power resilient business logic and analytics.",
+        },
+        "mobile-cross-platform": {
+          title: "Mobile & Cross-Platform",
+          description:
+            "Native and cross-platform technologies for production-grade mobile delivery.",
+        },
+        "devops-cloud-observability": {
+          title: "DevOps, Cloud & Observability",
+          description:
+            "Infrastructure and operations stack for deployments, monitoring, and scalable system management.",
+        },
+        "delivery-testing-tooling": {
+          title: "Delivery & Testing Toolchain",
+          description:
+            "Build, package, and QA tooling used to keep releases stable and development velocity high.",
+        },
+        "design-creative": {
+          title: "Design & Creative Pipeline",
+          description:
+            "Design, motion, and creative tools used from concept and prototyping through production assets.",
+        },
+        "ai-llm-stack": {
+          title: "AI & LLM Toolkit",
+          description:
+            "Assistant, model, and integration tools used in day-to-day engineering and product iteration.",
         },
       },
     },
