@@ -406,6 +406,9 @@ export const EN_GB = {
       title: "Follow the Build",
       description:
         "Short updates, product launches, and team culture — all in one place.",
+      instagram: {
+        title: "Latest from Instagram",
+      },
       links: {
         instagram: "Instagram",
         facebook: "Facebook",

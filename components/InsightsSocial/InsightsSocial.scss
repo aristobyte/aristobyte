@@ -28,6 +28,12 @@
     max-width: 640px;
   }
 
+  &__sub-title {
+    color: $white-color;
+    font-family: $font-righteous;
+    font-size: clamp(18px, 3vw, 24px);
+  }
+
   &__grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -86,6 +92,47 @@
     font-weight: 600;
   }
 
+  &__slider {
+    @include regularShadow;
+    & {
+      backdrop-filter: blur(10px);
+      background:
+        radial-gradient(
+          180px 80px at 100% 0%,
+          rgba($logo-color-3, 0.14),
+          transparent
+        ),
+        linear-gradient(
+          170deg,
+          rgba(255, 255, 255, 0.05),
+          rgba(255, 255, 255, 0.015)
+        ),
+        rgba(12, 16, 26, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 12px;
+      transition: all 240ms ease;
+    }
+  }
+
+  &__embed {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    overflow: visible;
+    width: 100%;
+
+    .instagram-media {
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      margin: 0 !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+      width: 100% !important;
+    }
+  }
+
   @media screen and (min-width: $media-sm) {
     &__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -95,6 +142,12 @@
   @media screen and (min-width: $media-lg) {
     &__grid {
       grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (min-width: $media-md) {
+    &__slider {
+      padding: 14px;
     }
   }
 }

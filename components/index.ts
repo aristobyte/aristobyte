@@ -11,6 +11,7 @@ export { HomeProcess } from "./HomeProcess";
 export { HomeStack } from "./HomeStack";
 export { HomeCTA } from "./HomeCTA";
 export { CdnIcon } from "./CdnIcon";
+export { Slider, Slide } from "./Slider";
 export { Portal } from "./Portal";
 export { HomeCommunity } from "./HomeCommunity";
 export { AppsRoadmap } from "./AppsRoadmap";
