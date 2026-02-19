@@ -6,13 +6,15 @@ import { usePathname, useRouter } from "next/navigation";
 
 import { Icons } from "@aristobyte-ui/utils";
 import { type HeaderMenuItem, MenuList, useConfig } from "@config";
-import { CdnIcon, Portal } from "@/components";
+import { CdnIcon } from "@/components";
 import { useTranslate } from "@/context";
+import { DesktopDropdown } from "./DesktopDropdown";
 import { MenuListType } from "./MenuList";
 
 import "./Header.scss";
 
 export const Header = () => {
+  const headerId = React.useId();
   const config = useConfig();
   const { t } = useTranslate();
   const pathname = usePathname();
@@ -23,6 +25,10 @@ export const Header = () => {
   const [desktopDropdownList, setDesktopDropdownList] = React.useState<
     MenuList.APPS | MenuList.INSIGHTS | null
   >(null);
+  const [desktopDropdownRenderedList, setDesktopDropdownRenderedList] = React.useState<
+    MenuList.APPS | MenuList.INSIGHTS | null
+  >(null);
+  const [desktopDropdownContentKey, setDesktopDropdownContentKey] = React.useState(0);
   const [desktopDropdownPos, setDesktopDropdownPos] = React.useState({
     top: 0,
     left: 0,
@@ -31,8 +37,11 @@ export const Header = () => {
   const desktopButtonRefs = React.useRef<
     Partial<Record<MenuList.APPS | MenuList.INSIGHTS, HTMLButtonElement | null>>
   >({});
-  const dropdownRef = React.useRef<HTMLDivElement | null>(null);
   const currentListData = config.header.menuLists[currentList];
+  const getDesktopMenuId = React.useCallback(
+    (list: MenuList.APPS | MenuList.INSIGHTS) => `${headerId}-${list}-menu`,
+    [headerId],
+  );
 
   const mobileTitle = React.useMemo(() => {
     if (pathname === "/") return "AristoByte";
@@ -64,6 +73,7 @@ export const Header = () => {
     setMenuOpen(false);
     setCurrentList(MenuList.ROOT);
     setDesktopDropdownList(null);
+    setDesktopDropdownRenderedList(null);
   }, []);
 
   const closeDesktopDropdown = React.useCallback(() => {
@@ -129,33 +139,6 @@ export const Header = () => {
   }, [desktopDropdownList, isDesktop, updateDesktopDropdownPosition]);
 
   React.useEffect(() => {
-    if (!desktopDropdownList) return;
-
-    const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as Node;
-      const clickedTrigger = Object.values(desktopButtonRefs.current).some(
-        (button) => button?.contains(target),
-      );
-      const clickedDropdown = dropdownRef.current?.contains(target);
-      if (clickedTrigger || clickedDropdown) return;
-      closeDesktopDropdown();
-    };
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        closeDesktopDropdown();
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [desktopDropdownList, closeDesktopDropdown]);
-
-  React.useEffect(() => {
     document.body.classList.toggle("header-menu-open", menuOpen);
 
     return () => {
@@ -185,15 +168,29 @@ export const Header = () => {
 
         const nextDesktopList = item.nextList;
         updateDesktopDropdownPosition(nextDesktopList);
-        setDesktopDropdownList((value) =>
-          value === nextDesktopList ? null : nextDesktopList,
-        );
+
+        if (desktopDropdownList === nextDesktopList) {
+          setDesktopDropdownList(null);
+          return;
+        }
+
+        setDesktopDropdownRenderedList(nextDesktopList);
+        setDesktopDropdownContentKey((current) => current + 1);
+
+        if (!desktopDropdownList) {
+          requestAnimationFrame(() => {
+            setDesktopDropdownList(nextDesktopList);
+          });
+          return;
+        }
+
+        setDesktopDropdownList(nextDesktopList);
         return;
       }
 
       setCurrentList(item.nextList);
     },
-    [isDesktop, updateDesktopDropdownPosition],
+    [desktopDropdownList, isDesktop, updateDesktopDropdownPosition],
   );
 
   const handleGoBackClick = () => {
@@ -302,6 +299,25 @@ export const Header = () => {
               onLinkClick={closeMenu}
               onButtonAction={handleButtonAction}
               registerButtonRef={registerButtonRef}
+              getButtonId={(item) =>
+                item.nextList === MenuList.APPS || item.nextList === MenuList.INSIGHTS
+                  ? `${headerId}-${item.nextList}-button`
+                  : undefined
+              }
+              getButtonAriaControls={(item) =>
+                item.nextList === MenuList.APPS || item.nextList === MenuList.INSIGHTS
+                  ? getDesktopMenuId(item.nextList)
+                  : undefined
+              }
+              getButtonExpanded={(item) =>
+                Boolean(
+                  item.nextList &&
+                    (item.nextList === MenuList.APPS ||
+                      item.nextList === MenuList.INSIGHTS) &&
+                    isDesktop &&
+                    desktopDropdownList === item.nextList,
+                )
+              }
               isButtonActive={(item) =>
                 Boolean(
                   item.nextList &&
@@ -315,32 +331,18 @@ export const Header = () => {
           </ul>
         </nav>
       </div>
-      {isDesktop && (
-        <Portal>
-          <div
-            ref={dropdownRef}
-            className={`header__dropdown header__dropdown--${desktopDropdownList ? "open" : "closed"}`}
-            role="menu"
-            style={{
-              top: `${desktopDropdownPos.top}px`,
-              left: `${desktopDropdownPos.left}px`,
-              minWidth: `${desktopDropdownPos.minWidth}px`,
-            }}
-          >
-            <ul className="header__dropdown-list">
-              <MenuListType
-                items={
-                  config.header.menuLists[
-                    desktopDropdownList ?? MenuList.APPS
-                  ].menu
-                }
-                onChangeList={handleListChange}
-                onLinkClick={handleLinkClick}
-              />
-            </ul>
-          </div>
-        </Portal>
-      )}
+      <DesktopDropdown
+        isDesktop={isDesktop}
+        activeList={desktopDropdownList}
+        renderedList={desktopDropdownRenderedList}
+        position={desktopDropdownPos}
+        menuLists={config.header.menuLists}
+        triggerRefs={desktopButtonRefs}
+        onClose={closeDesktopDropdown}
+        onLinkClick={handleLinkClick}
+        getMenuId={getDesktopMenuId}
+        contentKey={desktopDropdownContentKey}
+      />
     </header>
   );
 };

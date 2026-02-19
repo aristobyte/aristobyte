@@ -33,6 +33,17 @@
   }
 }
 
+@keyframes header-dropdown-list-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .header {
   @include thinShadow;
   & {
@@ -480,7 +491,7 @@
   }
 
   &__item {
-    &--apps {
+    &--dropdown {
       position: relative;
 
       @media screen and (min-width: $media-md) {
@@ -579,17 +590,21 @@
     .header__arrow-icon {
       display: none;
     }
+
+    &--animated {
+      animation: header-dropdown-list-in 180ms $animation-accordion both;
+    }
   }
 
-  &__item--apps:hover .header__desktop-caret,
-  &__item--apps:focus-within .header__desktop-caret,
+  &__item--dropdown:hover .header__desktop-caret,
+  &__item--dropdown:focus-within .header__desktop-caret,
   .header__link--active .header__desktop-caret {
     color: rgba(255, 255, 255, 0.9);
     transform: translateY(1px);
   }
 
-  &__item--apps:hover > .header__link,
-  &__item--apps:focus-within > .header__link,
+  &__item--dropdown:hover > .header__link,
+  &__item--dropdown:focus-within > .header__link,
   .header__link--active {
     background: rgba(255, 255, 255, 0.05);
   }

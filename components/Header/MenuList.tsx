@@ -4,7 +4,7 @@ import * as React from "react";
 import NextLink from "next/link";
 
 import { Icons } from "@aristobyte-ui/utils";
-import type { HeaderMenuItem, MenuList } from "@config";
+import { MenuList, type HeaderMenuItem } from "@config";
 import { useTranslate } from "@/context";
 
 type HeaderMenuListProps = {
@@ -16,6 +16,9 @@ type HeaderMenuListProps = {
     item: HeaderMenuItem,
     element: HTMLButtonElement | null,
   ) => void;
+  getButtonId?: (item: HeaderMenuItem) => string | undefined;
+  getButtonAriaControls?: (item: HeaderMenuItem) => string | undefined;
+  getButtonExpanded?: (item: HeaderMenuItem) => boolean;
   isButtonActive?: (item: HeaderMenuItem) => boolean;
 };
 
@@ -25,6 +28,9 @@ export const MenuListType = ({
   onLinkClick,
   onButtonAction,
   registerButtonRef,
+  getButtonId,
+  getButtonAriaControls,
+  getButtonExpanded,
   isButtonActive,
 }: HeaderMenuListProps) => {
   const { t } = useTranslate();
@@ -35,12 +41,20 @@ export const MenuListType = ({
         const label = t(item.labelKey);
 
         if (item.type === "button") {
+          const isDropdownButton =
+            item.nextList === MenuList.APPS ||
+            item.nextList === MenuList.INSIGHTS;
+
           return (
-            <li key={item.id} className="header__item header__item--apps">
+            <li
+              key={item.id}
+              className={`header__item ${isDropdownButton ? "header__item--dropdown" : ""}`}
+            >
               <button
                 type="button"
                 className={`header__link header__link--button ${isButtonActive?.(item) ? "header__link--active" : ""}`}
                 ref={(element) => registerButtonRef?.(item, element)}
+                id={getButtonId?.(item)}
                 onClick={() => {
                   if (onButtonAction) {
                     onButtonAction(item);
@@ -51,7 +65,9 @@ export const MenuListType = ({
                     onChangeList(item.nextList);
                   }
                 }}
-                aria-haspopup="menu"
+                aria-haspopup={isDropdownButton ? "menu" : undefined}
+                aria-controls={getButtonAriaControls?.(item)}
+                aria-expanded={getButtonExpanded?.(item)}
               >
                 <span className="header__text">{label}</span>
                 <span className="header__desktop-caret" aria-hidden="true">
