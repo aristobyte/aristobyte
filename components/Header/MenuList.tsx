@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import NextLink from "next/link";
+import { usePathname } from "next/navigation";
 
 import { Icons } from "@aristobyte-ui/utils";
 import { MenuList, type HeaderMenuItem } from "@config";
@@ -34,11 +35,32 @@ export const MenuListType = ({
   isButtonActive,
 }: HeaderMenuListProps) => {
   const { t } = useTranslate();
+  const pathname = usePathname();
+
+  const isItemCurrent = React.useCallback(
+    (item: HeaderMenuItem) => {
+      if (!pathname) return false;
+
+      if (item.type === "button") {
+        if (item.nextList === MenuList.APPS) return pathname.startsWith("/apps");
+        if (item.nextList === MenuList.INSIGHTS) return pathname.startsWith("/insights");
+        return false;
+      }
+
+      if (!item.href) return false;
+      if (item.type === "external-link") return false;
+
+      if (item.href === "/") return pathname === "/";
+      return pathname === item.href || pathname.startsWith(`${item.href}/`);
+    },
+    [pathname],
+  );
 
   return (
     <>
       {items.map((item) => {
         const label = t(item.labelKey);
+        const isCurrent = isItemCurrent(item);
 
         if (item.type === "button") {
           const isDropdownButton =
@@ -52,7 +74,7 @@ export const MenuListType = ({
             >
               <button
                 type="button"
-                className={`header__link header__link--button ${isButtonActive?.(item) ? "header__link--active" : ""}`}
+                className={`header__link header__link--button ${isButtonActive?.(item) ? "header__link--active" : ""} ${isCurrent ? "header__link--current" : ""}`}
                 ref={(element) => registerButtonRef?.(item, element)}
                 id={getButtonId?.(item)}
                 onClick={() => {
@@ -85,7 +107,7 @@ export const MenuListType = ({
           return (
             <li key={item.id}>
               <a
-                className="header__link"
+                className={`header__link ${isCurrent ? "header__link--current" : ""}`}
                 href={item.href}
                 target="_blank"
                 rel="noreferrer"
@@ -104,9 +126,10 @@ export const MenuListType = ({
           return (
             <li key={item.id}>
               <NextLink
-                className="header__link"
+                className={`header__link ${isCurrent ? "header__link--current" : ""}`}
                 href={item.href}
                 onClick={onLinkClick}
+                aria-current={isCurrent ? "page" : undefined}
               >
                 <span className="header__text">{label}</span>
                 <span className="header__arrow-icon">
