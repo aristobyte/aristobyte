@@ -1,0 +1,85 @@
+@use "../../styles/settings" as *;
+
+.case-studies {
+  &__container {
+    @include container;
+    & {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+  }
+
+  &__title {
+    @include title;
+  }
+
+  &__subtitle {
+    color: $white-color;
+    font-family: $font-righteous;
+    font-size: clamp(16px, 2.6vw, 22px);
+  }
+
+  &__grid,
+  &__authors {
+    display: grid;
+    gap: 12px;
+  }
+
+  &__card,
+  &__author {
+    @include regularShadow;
+    & {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 12px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    p {
+      color: $grey-dark-color;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    strong {
+      color: $white-color;
+    }
+  }
+
+  &__author {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    h4 {
+      color: $white-color;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    p {
+      color: $logo-color-2;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    span {
+      color: $grey-dark-color;
+      font-size: 13px;
+    }
+  }
+
+  @media screen and (min-width: $media-md) {
+    &__grid,
+    &__authors {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}

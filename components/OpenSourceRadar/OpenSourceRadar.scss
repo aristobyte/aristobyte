@@ -1,0 +1,97 @@
+@use "../../styles/settings" as *;
+
+.open-source-radar {
+  &__container {
+    @include container;
+    & {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__title {
+    @include title;
+  }
+
+  &__description {
+    @include description;
+    max-width: 820px;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 14px;
+  }
+
+  &__section {
+    @include regularShadow;
+    & {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 14px;
+    }
+  }
+
+  &__section-title {
+    color: $white-color;
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+    transition: all 180ms ease;
+
+    &:hover {
+      border-color: rgba($logo-color-2, 0.55);
+      transform: translateY(-2px);
+    }
+
+    h4 {
+      color: $white-color;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    p {
+      color: $grey-dark-color;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    span {
+      color: $logo-color-2;
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
+
+  @media screen and (min-width: $media-md) {
+    &__grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}

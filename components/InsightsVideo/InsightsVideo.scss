@@ -1,0 +1,62 @@
+@use "../../styles/settings" as *;
+
+.insights-video {
+  &__container {
+    @include container;
+    & {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding-top: 0;
+    }
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__title {
+    color: $white-color;
+    font-family: $font-righteous;
+    font-size: clamp(18px, 2.8vw, 24px);
+  }
+
+  &__description {
+    color: $grey-dark-color;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  &__placeholder {
+    @include regularShadow;
+    & {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+    }
+  }
+
+  &__image {
+    display: block;
+    height: auto;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  &__badge {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    bottom: 12px;
+    color: $white-color;
+    font-size: 12px;
+    font-weight: 700;
+    left: 12px;
+    padding: 6px 10px;
+    position: absolute;
+  }
+}

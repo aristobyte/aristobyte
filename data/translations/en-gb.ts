@@ -10,6 +10,11 @@ export const EN_GB = {
       "aristo-repo": "AristoRepo",
       community: "Community",
       insights: "Insights",
+      "insights-overview": "Overview",
+      "insights-open-source-radar": "Open Source Radar",
+      "insights-engineering-notes": "Engineering Notes",
+      "insights-case-studies": "Case Studies",
+      "insights-newsletter": "Newsletter",
       contact: "Contact",
     },
   },
@@ -414,6 +419,38 @@ export const EN_GB = {
         facebook: "Facebook",
         "linked-in": "LinkedIn",
         twitter: "X (Twitter)",
+      },
+    },
+    "engineering-notes": {
+      hero: {
+        title: "Engineering Notes",
+        subtitle: "Releases, Decisions, and Migrations",
+        description:
+          "A focused timeline of package updates and architecture movement across @aristobyte and @aristobyte-ui namespaces.",
+      },
+    },
+    "open-source-radar": {
+      hero: {
+        title: "Open Source Radar",
+        subtitle: "Releases, Milestones, and Community Signals",
+        description:
+          "Track what is new across AristoByte repositories, roadmap progress, and active discussions from the open-source ecosystem.",
+      },
+    },
+    newsletter: {
+      hero: {
+        title: "Newsletter & Product Updates",
+        subtitle: "Get Release Notes in Your Inbox",
+        description:
+          "Subscribe for major launches, release notes, and practical engineering updates from AristoByte.",
+      },
+    },
+    "case-studies": {
+      hero: {
+        title: "Case Study Snapshots",
+        subtitle: "Problem, Approach, Outcome",
+        description:
+          "Compact case snapshots with clear outcomes and visible ownership.",
       },
     },
   },

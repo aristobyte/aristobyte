@@ -20,13 +20,17 @@ export const Header = () => {
   const [menuOpen, setMenuOpen] = React.useState(false);
   const [isDesktop, setIsDesktop] = React.useState(false);
   const [currentList, setCurrentList] = React.useState<MenuList>(MenuList.ROOT);
-  const [appsDropdownOpen, setAppsDropdownOpen] = React.useState(false);
-  const [appsDropdownPos, setAppsDropdownPos] = React.useState({
+  const [desktopDropdownList, setDesktopDropdownList] = React.useState<
+    MenuList.APPS | MenuList.INSIGHTS | null
+  >(null);
+  const [desktopDropdownPos, setDesktopDropdownPos] = React.useState({
     top: 0,
     left: 0,
     minWidth: 250,
   });
-  const appsButtonRef = React.useRef<HTMLButtonElement | null>(null);
+  const desktopButtonRefs = React.useRef<
+    Partial<Record<MenuList.APPS | MenuList.INSIGHTS, HTMLButtonElement | null>>
+  >({});
   const dropdownRef = React.useRef<HTMLDivElement | null>(null);
   const currentListData = config.header.menuLists[currentList];
 
@@ -37,6 +41,18 @@ export const Header = () => {
     if (pathname.startsWith("/apps/aristo-badges")) return "AristoBadges";
     if (pathname.startsWith("/apps/aristo-repo")) return "AristoRepo";
     if (pathname.startsWith("/apps")) return t("header.nav.apps");
+    if (pathname.startsWith("/insights/open-source-radar")) {
+      return t("header.nav.insights-open-source-radar");
+    }
+    if (pathname.startsWith("/insights/case-studies")) {
+      return t("header.nav.insights-case-studies");
+    }
+    if (pathname.startsWith("/insights/engineering-notes")) {
+      return t("header.nav.insights-engineering-notes");
+    }
+    if (pathname.startsWith("/insights/newsletter")) {
+      return t("header.nav.insights-newsletter");
+    }
     if (pathname.startsWith("/community")) return t("header.nav.community");
     if (pathname.startsWith("/insights")) return t("header.nav.insights");
     if (pathname.startsWith("/contact")) return t("header.nav.contact");
@@ -47,23 +63,26 @@ export const Header = () => {
   const closeMenu = React.useCallback(() => {
     setMenuOpen(false);
     setCurrentList(MenuList.ROOT);
-    setAppsDropdownOpen(false);
+    setDesktopDropdownList(null);
   }, []);
 
-  const closeAppsDropdown = React.useCallback(() => {
-    setAppsDropdownOpen(false);
+  const closeDesktopDropdown = React.useCallback(() => {
+    setDesktopDropdownList(null);
   }, []);
 
-  const updateAppsDropdownPosition = React.useCallback(() => {
-    const trigger = appsButtonRef.current;
-    if (!trigger) return;
-    const rect = trigger.getBoundingClientRect();
-    setAppsDropdownPos({
-      top: rect.bottom + 10,
-      left: rect.left + rect.width / 2,
-      minWidth: Math.max(250, rect.width + 90),
-    });
-  }, []);
+  const updateDesktopDropdownPosition = React.useCallback(
+    (list: MenuList.APPS | MenuList.INSIGHTS) => {
+      const trigger = desktopButtonRefs.current[list];
+      if (!trigger) return;
+      const rect = trigger.getBoundingClientRect();
+      setDesktopDropdownPos({
+        top: rect.bottom + 10,
+        left: rect.left + rect.width / 2,
+        minWidth: Math.max(250, rect.width + 90),
+      });
+    },
+    [],
+  );
 
   React.useEffect(() => {
     if (typeof window === "undefined") {
@@ -78,7 +97,7 @@ export const Header = () => {
       if (event.matches) {
         closeMenu();
       } else {
-        closeAppsDropdown();
+        closeDesktopDropdown();
       }
     };
 
@@ -89,39 +108,42 @@ export const Header = () => {
     mediaQuery.addEventListener("change", handleDesktopViewport);
     return () =>
       mediaQuery.removeEventListener("change", handleDesktopViewport);
-  }, [closeMenu, closeAppsDropdown]);
+  }, [closeMenu, closeDesktopDropdown]);
 
   React.useEffect(() => {
     closeMenu();
   }, [pathname, closeMenu]);
 
   React.useEffect(() => {
-    if (!appsDropdownOpen || !isDesktop) return;
+    if (!desktopDropdownList || !isDesktop) return;
 
-    updateAppsDropdownPosition();
-    const handlePosition = () => updateAppsDropdownPosition();
+    updateDesktopDropdownPosition(desktopDropdownList);
+    const handlePosition = () =>
+      updateDesktopDropdownPosition(desktopDropdownList);
     window.addEventListener("resize", handlePosition);
     window.addEventListener("scroll", handlePosition, true);
     return () => {
       window.removeEventListener("resize", handlePosition);
       window.removeEventListener("scroll", handlePosition, true);
     };
-  }, [appsDropdownOpen, isDesktop, updateAppsDropdownPosition]);
+  }, [desktopDropdownList, isDesktop, updateDesktopDropdownPosition]);
 
   React.useEffect(() => {
-    if (!appsDropdownOpen) return;
+    if (!desktopDropdownList) return;
 
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as Node;
-      const clickedTrigger = appsButtonRef.current?.contains(target);
+      const clickedTrigger = Object.values(desktopButtonRefs.current).some(
+        (button) => button?.contains(target),
+      );
       const clickedDropdown = dropdownRef.current?.contains(target);
       if (clickedTrigger || clickedDropdown) return;
-      closeAppsDropdown();
+      closeDesktopDropdown();
     };
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-        closeAppsDropdown();
+        closeDesktopDropdown();
       }
     };
 
@@ -131,7 +153,7 @@ export const Header = () => {
       document.removeEventListener("mousedown", handleClickOutside);
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [appsDropdownOpen, closeAppsDropdown]);
+  }, [desktopDropdownList, closeDesktopDropdown]);
 
   React.useEffect(() => {
     document.body.classList.toggle("header-menu-open", menuOpen);
@@ -151,24 +173,27 @@ export const Header = () => {
 
   const handleButtonAction = React.useCallback(
     (item: { id: string; nextList?: MenuList }) => {
-      if (item.id !== "apps") {
-        if (item.nextList) {
-          handleListChange(item.nextList);
-        }
-        return;
-      }
+      if (!item.nextList) return;
 
       if (isDesktop) {
-        updateAppsDropdownPosition();
-        setAppsDropdownOpen((value) => !value);
+        if (
+          item.nextList !== MenuList.APPS &&
+          item.nextList !== MenuList.INSIGHTS
+        ) {
+          return;
+        }
+
+        const nextDesktopList = item.nextList;
+        updateDesktopDropdownPosition(nextDesktopList);
+        setDesktopDropdownList((value) =>
+          value === nextDesktopList ? null : nextDesktopList,
+        );
         return;
       }
 
-      if (item.nextList) {
-        setCurrentList(item.nextList);
-      }
+      setCurrentList(item.nextList);
     },
-    [handleListChange, isDesktop, updateAppsDropdownPosition],
+    [isDesktop, updateDesktopDropdownPosition],
   );
 
   const handleGoBackClick = () => {
@@ -190,15 +215,15 @@ export const Header = () => {
 
   const handleLinkClick = () => {
     closeMenu();
-    closeAppsDropdown();
+    closeDesktopDropdown();
   };
 
   const registerButtonRef = (
     item: HeaderMenuItem,
     element: HTMLButtonElement | null,
   ) => {
-    if (item.id === "apps") {
-      appsButtonRef.current = element;
+    if (item.nextList === MenuList.APPS || item.nextList === MenuList.INSIGHTS) {
+      desktopButtonRefs.current[item.nextList] = element;
     }
   };
 
@@ -278,7 +303,13 @@ export const Header = () => {
               onButtonAction={handleButtonAction}
               registerButtonRef={registerButtonRef}
               isButtonActive={(item) =>
-                item.id === "apps" && isDesktop && appsDropdownOpen
+                Boolean(
+                  item.nextList &&
+                    (item.nextList === MenuList.APPS ||
+                      item.nextList === MenuList.INSIGHTS) &&
+                    isDesktop &&
+                    desktopDropdownList === item.nextList,
+                )
               }
             />
           </ul>
@@ -288,17 +319,21 @@ export const Header = () => {
         <Portal>
           <div
             ref={dropdownRef}
-            className={`header__dropdown header__dropdown--${appsDropdownOpen ? "open" : "closed"}`}
+            className={`header__dropdown header__dropdown--${desktopDropdownList ? "open" : "closed"}`}
             role="menu"
             style={{
-              top: `${appsDropdownPos.top}px`,
-              left: `${appsDropdownPos.left}px`,
-              minWidth: `${appsDropdownPos.minWidth}px`,
+              top: `${desktopDropdownPos.top}px`,
+              left: `${desktopDropdownPos.left}px`,
+              minWidth: `${desktopDropdownPos.minWidth}px`,
             }}
           >
             <ul className="header__dropdown-list">
               <MenuListType
-                items={config.header.menuLists[MenuList.APPS].menu}
+                items={
+                  config.header.menuLists[
+                    desktopDropdownList ?? MenuList.APPS
+                  ].menu
+                }
                 onChangeList={handleListChange}
                 onLinkClick={handleLinkClick}
               />

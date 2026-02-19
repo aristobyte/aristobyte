@@ -1,0 +1,322 @@
+@use "../../styles/settings" as *;
+
+.engineering-notes {
+  &__container {
+    @include container;
+    & {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__title {
+    @include title;
+  }
+
+  &__description {
+    @include description;
+    max-width: 820px;
+  }
+
+  &__namespaces {
+    display: grid;
+    gap: 14px;
+  }
+
+  &__highlights {
+    display: grid;
+    gap: 12px;
+  }
+
+  &__highlight {
+    @include regularShadow;
+    & {
+      background: linear-gradient(
+          140deg,
+          rgba($logo-color-2, 0.1),
+          rgba($logo-color-4, 0.08)
+        ),
+        rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 12px;
+    }
+  }
+
+  &__highlight-value {
+    color: $white-color;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  &__highlight-label {
+    color: $grey-dark-color;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  &__namespace {
+    @include regularShadow;
+    & {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 14px;
+    }
+  }
+
+  &__namespace-top {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    h3 {
+      color: $white-color;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    a {
+      color: $logo-color-2;
+      font-size: 13px;
+      font-weight: 700;
+    }
+  }
+
+  &__namespace p {
+    color: $grey-dark-color;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  &__namespace-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    a {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      color: $white-color;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 10px;
+    }
+  }
+
+  &__timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+
+    &::before {
+      background: linear-gradient(
+        180deg,
+        rgba($logo-color-2, 0.8),
+        rgba($logo-color-5, 0.3)
+      );
+      content: "";
+      left: 8px;
+      position: absolute;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+    }
+  }
+
+  &__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  &__filter {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 999px;
+    color: $grey-dark-color;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 7px 12px;
+    transition: all 180ms ease;
+
+    &[data-active="true"] {
+      background: rgba($logo-color-3, 0.2);
+      border-color: rgba($logo-color-2, 0.7);
+      color: $white-color;
+    }
+  }
+
+  &__item {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 18px 1fr;
+    position: relative;
+  }
+
+  &__point {
+    background: $logo-gradient;
+    border-radius: 999px;
+    height: 10px;
+    margin-top: 16px;
+    width: 10px;
+    z-index: 1;
+  }
+
+  &__content {
+    @include regularShadow;
+    & {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 12px;
+    }
+
+    h4 {
+      color: $white-color;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    p {
+      color: $grey-dark-color;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+
+  &__meta {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+
+    time {
+      color: $grey-dark-color;
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+
+  &__type {
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 999px;
+    color: $white-color;
+    display: inline-flex;
+    font-size: 11px;
+    font-weight: 700;
+    gap: 6px;
+    letter-spacing: 0.06em;
+    padding: 5px 10px;
+    text-transform: uppercase;
+
+    &--release {
+      border-color: rgba($logo-color-2, 0.5);
+      color: $logo-color-2;
+    }
+
+    &--decision {
+      border-color: rgba($logo-color-3, 0.5);
+      color: $logo-color-3;
+    }
+
+    &--migration {
+      border-color: rgba($logo-color-4, 0.5);
+      color: $logo-color-4;
+    }
+  }
+
+  &__footer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    span {
+      color: $grey-dark-color;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    a {
+      color: $logo-color-2;
+      font-size: 12px;
+      font-weight: 700;
+    }
+  }
+
+  &__deep-dives {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    h3 {
+      color: $white-color;
+      font-size: 18px;
+      font-weight: 700;
+    }
+  }
+
+  &__deep-grid {
+    display: grid;
+    gap: 10px;
+  }
+
+  &__deep-card {
+    @include regularShadow;
+    & {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 12px;
+    }
+
+    h4 {
+      color: $white-color;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    p {
+      color: $grey-dark-color;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+  }
+
+  @media screen and (min-width: $media-md) {
+    &__highlights {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    &__namespaces {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    &__deep-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}

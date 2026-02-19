@@ -7,3 +7,7 @@
 - move all constants into config/constants
 - move all types into config/types
 - What We Create - for this section we should be handling the mobile view in a way all the buttons are next to each other - maybe icons should be used or what?
+- Fix dropdown
+- fix Engineering Notes page (some of the info is malformed) - if possible fetch real time data
+- Fix the urls for Open Source Radar and add more components if possible
+- newsletter.md inside private folder

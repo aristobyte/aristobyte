@@ -1,0 +1,224 @@
+@use "../../styles/settings" as *;
+
+.insights-newsletter {
+  &__container {
+    @include container;
+  }
+
+  &__card {
+    @include regularShadow;
+    & {
+      background:
+        radial-gradient(
+          240px 120px at 100% 0%,
+          rgba($logo-color-3, 0.14),
+          transparent
+        ),
+        rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin: 0 auto;
+      max-width: 680px;
+      padding: 16px;
+    }
+  }
+
+  &__title {
+    color: $white-color;
+    font-size: 22px;
+    font-weight: 700;
+  }
+
+  &__description {
+    color: $grey-dark-color;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__label {
+    color: $white-color;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  &__input {
+    background: rgba(0, 0, 0, 0.26);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 10px;
+    color: $white-color;
+    min-height: 42px;
+    padding: 0 12px;
+  }
+
+  &__checks {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  &__button {
+    background: rgba($logo-color-2, 0.14);
+    border: 1px solid rgba($logo-color-2, 0.5);
+    border-radius: 10px;
+    color: $white-color;
+    font-size: 13px;
+    font-weight: 800;
+    min-height: 42px;
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      transform 120ms ease,
+      box-shadow 180ms ease;
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.6;
+    }
+
+    &:hover {
+      background: rgba($logo-color-2, 0.22);
+      border-color: rgba($logo-color-2, 0.7);
+      box-shadow: 0 8px 20px rgba($logo-color-2, 0.16);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+
+  &__consent {
+    margin-top: 2px;
+
+    &.insights-newsletter__check-option {
+      align-items: flex-start;
+      min-height: 0;
+      padding: 10px 12px;
+    }
+  }
+
+  &__check-option {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: $grey-dark-color;
+    cursor: pointer;
+    display: inline-flex;
+    gap: 10px;
+    min-height: 40px;
+    padding: 0 12px;
+    position: relative;
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease,
+      transform 120ms ease,
+      opacity 180ms ease;
+    user-select: none;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.035);
+      border-color: rgba($logo-color-2, 0.45);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+
+  &__check-input {
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    width: 1px;
+  }
+
+  &__check-box {
+    background: rgba(7, 14, 27, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    display: inline-block;
+    flex-shrink: 0;
+    height: 16px;
+    position: relative;
+    transition:
+      border-color 180ms ease,
+      background-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 120ms ease;
+    width: 16px;
+  }
+
+  &__check-text {
+    color: $grey-dark-color;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  &__check-input:focus-visible + &__check-box {
+    outline: 2px solid rgba($logo-color-2, 0.7);
+    outline-offset: 2px;
+  }
+
+  &__check-input:checked + &__check-box {
+    background: rgba($logo-color-2, 0.16);
+    border-color: rgba($logo-color-2, 0.85);
+    box-shadow: 0 0 0 3px rgba($logo-color-2, 0.12);
+  }
+
+  &__check-input:checked + &__check-box::after {
+    border-bottom: 2px solid #f4f7ff;
+    border-right: 2px solid #f4f7ff;
+    content: "";
+    height: 8px;
+    left: 5px;
+    position: absolute;
+    top: 1px;
+    transform: rotate(45deg);
+    width: 4px;
+  }
+
+  &__check-option:hover &__check-box {
+    border-color: rgba($logo-color-2, 0.5);
+    transform: scale(1.03);
+  }
+
+  &__check-input:disabled + &__check-box {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: none;
+    opacity: 0.7;
+  }
+
+  &__check-input:disabled ~ &__check-text {
+    opacity: 0.6;
+  }
+
+  &__check-input:disabled ~ &__check-box,
+  &__check-input:disabled ~ &__check-text {
+    cursor: not-allowed;
+  }
+
+  &__success {
+    color: $logo-color-2;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  &__error {
+    color: #ff8f8f;
+    font-size: 13px;
+    font-weight: 700;
+  }
+}

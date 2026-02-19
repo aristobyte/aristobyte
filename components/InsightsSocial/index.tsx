@@ -4,7 +4,7 @@ import * as React from "react";
 import NextLink from "next/link";
 import Script from "next/script";
 import { useTranslate } from "@/context";
-import { Config } from "@/config";
+import { Config, useConfig } from "@/config";
 import { CdnIcon, Slide, Slider } from "@/components";
 
 import "./InsightsSocial.scss";
@@ -16,47 +16,9 @@ const iconMap: Record<string, string> = {
   twitter: "mdi:twitter",
 };
 
-const instagramPosts = [
-  {
-    id: "DN-02IuCCTX",
-    url: "https://www.instagram.com/p/DN-02IuCCTX/",
-  },
-  {
-    id: "DN7kkx3jSCc",
-    url: "https://www.instagram.com/p/DN7kkx3jSCc/",
-  },
-  {
-    id: "DNvwMnx0Fhq",
-    url: "https://www.instagram.com/p/DNvwMnx0Fhq/",
-  },
-  {
-    id: "DQehf8BiO_H",
-    url: "https://www.instagram.com/p/DQehf8BiO_H/",
-  },
-  {
-    id: "DN3JuM1UNRH",
-    url: "https://www.instagram.com/p/DN3JuM1UNRH/",
-  },
-  {
-    id: "DNx2xFpUJRH",
-    url: "https://www.instagram.com/p/DNx2xFpUJRH/",
-  },
-  {
-    id: "DN5dBqdCJvy",
-    url: "https://www.instagram.com/p/DN5dBqdCJvy/",
-  },
-  {
-    id: "DORaiTAjQ9p",
-    url: "https://www.instagram.com/p/DORaiTAjQ9p/",
-  },
-  {
-    id: "DOO5bg5DTXo",
-    url: "https://www.instagram.com/p/DOO5bg5DTXo/",
-  },
-];
-
 export const InsightsSocial = () => {
   const { t } = useTranslate();
+  const { insights } = useConfig();
   const processEmbeds = React.useCallback(() => {
     if (typeof window === "undefined") return;
     const instgrm = (
@@ -121,7 +83,7 @@ export const InsightsSocial = () => {
             { minWidth: 1200, slidesToShow: 4, slidesToScroll: 2 },
           ]}
         >
-          {instagramPosts.map((post) => (
+          {insights.instagramPosts.map((post) => (
             <Slide key={post.id}>
               <div className="insights-social__embed">
                 <blockquote

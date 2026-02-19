@@ -5,6 +5,7 @@ import UsefulLinks from "@/useful_links.json";
 export enum MenuList {
   ROOT = "root",
   APPS = "apps",
+  INSIGHTS = "insights",
 }
 
 export type HeaderMenuItemType = "internal-link" | "external-link" | "button";
@@ -50,8 +51,8 @@ export const Config = {
           {
             id: "insights",
             labelKey: "header.nav.insights",
-            href: "/insights",
-            type: "internal-link",
+            type: "button",
+            nextList: MenuList.INSIGHTS,
           },
           {
             id: "contact",
@@ -92,6 +93,35 @@ export const Config = {
             id: "aristo-repo",
             labelKey: "header.nav.aristo-repo",
             href: "/apps/aristo-repo",
+            type: "internal-link",
+          },
+        ],
+      },
+      [MenuList.INSIGHTS]: {
+        goBack: MenuList.ROOT,
+        menu: [
+          {
+            id: "insights-overview",
+            labelKey: "header.nav.insights-overview",
+            href: "/insights",
+            type: "internal-link",
+          },
+          {
+            id: "insights-engineering-notes",
+            labelKey: "header.nav.insights-engineering-notes",
+            href: "/insights/engineering-notes",
+            type: "internal-link",
+          },
+          {
+            id: "insights-case-studies",
+            labelKey: "header.nav.insights-case-studies",
+            href: "/insights/case-studies",
+            type: "internal-link",
+          },
+          {
+            id: "insights-open-source-radar",
+            labelKey: "header.nav.insights-open-source-radar",
+            href: "/insights/open-source-radar",
             type: "internal-link",
           },
         ],
@@ -433,6 +463,44 @@ export const Config = {
       { id: "facebook", href: UsefulLinks["facebook-page"] },
       { id: "linked-in", href: UsefulLinks["linked-in-page"] },
       { id: "twitter", href: UsefulLinks["twitter-page"] },
+    ],
+    instagramPosts: [
+      {
+        id: "DN-02IuCCTX",
+        url: "https://www.instagram.com/p/DN-02IuCCTX/",
+      },
+      {
+        id: "DN7kkx3jSCc",
+        url: "https://www.instagram.com/p/DN7kkx3jSCc/",
+      },
+      {
+        id: "DNvwMnx0Fhq",
+        url: "https://www.instagram.com/p/DNvwMnx0Fhq/",
+      },
+      {
+        id: "DQehf8BiO_H",
+        url: "https://www.instagram.com/p/DQehf8BiO_H/",
+      },
+      {
+        id: "DN3JuM1UNRH",
+        url: "https://www.instagram.com/p/DN3JuM1UNRH/",
+      },
+      {
+        id: "DNx2xFpUJRH",
+        url: "https://www.instagram.com/p/DNx2xFpUJRH/",
+      },
+      {
+        id: "DN5dBqdCJvy",
+        url: "https://www.instagram.com/p/DN5dBqdCJvy/",
+      },
+      {
+        id: "DORaiTAjQ9p",
+        url: "https://www.instagram.com/p/DORaiTAjQ9p/",
+      },
+      {
+        id: "DOO5bg5DTXo",
+        url: "https://www.instagram.com/p/DOO5bg5DTXo/",
+      },
     ],
   },
   contact: {
