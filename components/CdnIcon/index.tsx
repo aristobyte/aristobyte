@@ -5,6 +5,7 @@ export type CdnIconProps = {
   size?: number;
   className?: string;
   title?: string;
+  color?: string;
 };
 
 const BASE_URL = "https://api.iconify.design";
@@ -14,10 +15,11 @@ export const CdnIcon = ({
   size = 20,
   className,
   title,
+  color,
 }: CdnIconProps) => (
   <img
     className={className}
-    src={`${BASE_URL}/${name}.svg`}
+    src={`${BASE_URL}/${name}.svg${color ? `?color=${encodeURIComponent(color)}` : ""}`}
     width={size}
     height={size}
     alt={title ?? name}

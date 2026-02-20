@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { usePathname } from "next/navigation";
 
 import { Footer, Header, Splash } from "@/components";
 
@@ -11,13 +12,23 @@ export type AppLayoutPropsType = {
 };
 
 export const AppLayout = ({ children }: AppLayoutPropsType) => {
-  const [isReady, setIsReady] = React.useState(false);
+  const pathname = usePathname();
+  const shouldShowSplash = pathname === "/";
+  const [isReady, setIsReady] = React.useState(pathname !== "/");
+
+  React.useEffect(() => {
+    if (pathname !== "/") {
+      setIsReady(true);
+    }
+  }, [pathname]);
+
+  const isAppReady = !shouldShowSplash || isReady;
 
   return (
     <>
-      {isReady && <Header />}
-      <Splash isReady={isReady} setIsReady={setIsReady} />
-      {isReady && (
+      {isAppReady && <Header />}
+      <Splash enabled={shouldShowSplash} isReady={isReady} setIsReady={setIsReady} />
+      {isAppReady && (
         <>
           <main className="app-layout__main">{children}</main>
           <Footer />

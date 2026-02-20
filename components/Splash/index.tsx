@@ -6,15 +6,22 @@ import "./Splash.scss";
 export type SplashPropsType = {
   setIsReady: (v: boolean) => void;
   isReady: boolean;
+  enabled: boolean;
 };
 
-export const Splash = ({ setIsReady, isReady }: SplashPropsType) => {
+export const Splash = ({ setIsReady, isReady, enabled }: SplashPropsType) => {
   const videoRef = React.useRef<HTMLVideoElement>(null);
   const [canPlay, setCanPlay] = React.useState<boolean | null>(null);
   const [isExiting, setIsExiting] = React.useState(false);
   const [isMounted, setIsMounted] = React.useState(true);
 
   React.useEffect(() => {
+    if (!enabled) {
+      setCanPlay(false);
+      setIsReady(true);
+      return;
+    }
+
     if (typeof window === "undefined") return;
     const seen = window.sessionStorage.getItem("ab_splash_seen");
     if (seen) {
@@ -23,9 +30,10 @@ export const Splash = ({ setIsReady, isReady }: SplashPropsType) => {
       return;
     }
     setCanPlay(true);
-  }, [setIsReady]);
+  }, [enabled, setIsReady]);
 
   React.useEffect(() => {
+    if (!enabled) return;
     const { current: video } = videoRef;
     if (!video || !canPlay) return;
 
@@ -45,14 +53,19 @@ export const Splash = ({ setIsReady, isReady }: SplashPropsType) => {
       video.removeEventListener("ended", handleEnd);
       video.removeEventListener("error", handleError);
     };
-  }, [setIsReady, canPlay]);
+  }, [enabled, setIsReady, canPlay]);
 
   React.useEffect(() => {
+    if (!enabled) {
+      document.body.classList.remove("splash-lock");
+      return;
+    }
+
     document.body.classList.toggle("splash-lock", !isReady);
     return () => {
       document.body.classList.remove("splash-lock");
     };
-  }, [isReady]);
+  }, [enabled, isReady]);
 
   React.useEffect(() => {
     if (!isReady) {
@@ -70,6 +83,7 @@ export const Splash = ({ setIsReady, isReady }: SplashPropsType) => {
   }, [isReady]);
 
   React.useEffect(() => {
+    if (!enabled) return;
     if (typeof window === "undefined") return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       window.sessionStorage.setItem("ab_splash_seen", "1");
@@ -81,13 +95,13 @@ export const Splash = ({ setIsReady, isReady }: SplashPropsType) => {
       setIsReady(true);
     }, 5000);
     return () => window.clearTimeout(timeoutId);
-  }, [setIsReady]);
+  }, [enabled, setIsReady]);
 
   if (canPlay === null) {
     return null;
   }
 
-  if (!canPlay || !isMounted) {
+  if (!enabled || !canPlay || !isMounted) {
     return null;
   }
 

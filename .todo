@@ -10,4 +10,4 @@
 - Fix dropdown
 - fix Engineering Notes page (some of the info is malformed) - if possible fetch real time data
 - Fix the urls for Open Source Radar and add more components if possible
-- newsletter.md inside private folder
+- newsletter - templates, other then subscribe
