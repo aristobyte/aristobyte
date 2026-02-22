@@ -9,6 +9,11 @@ export const EN_GB = {
       "aristo-badges": "AristoBadges",
       "aristo-repo": "AristoRepo",
       community: "Community",
+      "community-overview": "Overview",
+      "community-contribute": "Contribute",
+      "community-discussions": "Discussions",
+      "community-showcase": "Showcase",
+      "community-resources": "Resources",
       insights: "Insights",
       "insights-overview": "Overview",
       "insights-open-source-radar": "Open Source Radar",
@@ -407,6 +412,195 @@ export const EN_GB = {
         "aristobyte-ui-org": "AristoByteUI Org",
         "aristobyte-ui-packages": "AristoByteUI Packages",
         "open-collective": "Open Collective",
+      },
+    },
+    overview: {
+      section: {
+        title: "Community Overview",
+        description:
+          "Choose your path in the AristoByte ecosystem: contribute, discuss, explore community work, and access practical resources.",
+      },
+      items: {
+        contribute: {
+          title: "Contribute",
+          description:
+            "Help improve code, docs, and developer workflows across AristoByte projects.",
+          action: "Open contribute guide",
+        },
+        discussions: {
+          title: "Discussions",
+          description:
+            "Join conversations about roadmap priorities, implementation questions, and feedback.",
+          action: "Open discussion channels",
+        },
+        showcase: {
+          title: "Showcase",
+          description:
+            "See product surfaces and community-facing examples from the AristoByte ecosystem.",
+          action: "Open showcase",
+        },
+        resources: {
+          title: "Resources",
+          description:
+            "Access docs, repositories, packages, and media resources in one place.",
+          action: "Open resources",
+        },
+      },
+    },
+    contribute: {
+      hero: {
+        title: "Contribute to AristoByte",
+        subtitle: "Code, docs, design, and support",
+        description:
+          "Pick a contribution path and start with focused tasks that improve the ecosystem.",
+      },
+      section: {
+        title: "Contribution Paths",
+        description:
+          "Choose the area where you can provide the most impact and follow a clear action flow.",
+      },
+      items: {
+        issues: {
+          title: "Open Issues",
+          description:
+            "Find active tasks, bug reports, and implementation opportunities in the main website repository.",
+          action: "Open issue tracker",
+        },
+        docs: {
+          title: "Documentation",
+          description:
+            "Improve onboarding quality through docs, examples, and implementation notes.",
+          action: "Open documentation",
+        },
+        sponsor: {
+          title: "Sponsor Work",
+          description:
+            "Support long-term maintenance and roadmap execution through community funding.",
+          action: "Open sponsorship",
+        },
+        contact: {
+          title: "Coordinate with Team",
+          description:
+            "Reach out directly to align contribution scope and pick the right starting point.",
+          action: "Open contact",
+        },
+      },
+    },
+    discussions: {
+      hero: {
+        title: "Community Discussions",
+        subtitle: "Questions, feedback, and roadmap talk",
+        description:
+          "Use the channels below to ask technical questions and share ideas with the community.",
+      },
+      section: {
+        title: "Discussion Channels",
+        description:
+          "Pick the channel that matches your topic and join the ongoing conversation.",
+      },
+      items: {
+        github: {
+          title: "GitHub Discussions",
+          description:
+            "Long-form technical discussions, feature requests, and community proposals.",
+          action: "Open GitHub Discussions",
+        },
+        stackoverflow: {
+          title: "Stack Overflow",
+          description:
+            "Ask focused engineering questions and share implementation solutions.",
+          action: "Open Stack Overflow",
+        },
+        linkedin: {
+          title: "LinkedIn",
+          description:
+            "Follow updates, share product milestones, and connect with the broader network.",
+          action: "Open LinkedIn",
+        },
+        instagram: {
+          title: "Instagram",
+          description:
+            "Track visual updates, launches, and short highlights from the AristoByte journey.",
+          action: "Open Instagram",
+        },
+      },
+    },
+    showcase: {
+      hero: {
+        title: "Community Showcase",
+        subtitle: "Products and results in one view",
+        description:
+          "Explore key product surfaces and insight pages connected to community activity.",
+      },
+      section: {
+        title: "Showcase Highlights",
+        description:
+          "A focused set of entry points to explore what the ecosystem is shipping.",
+      },
+      items: {
+        ui: {
+          title: "AristoByte UI",
+          description:
+            "Production-ready UI system and design language for scalable product development.",
+          action: "Open AristoByte UI",
+        },
+        badges: {
+          title: "AristoBadges",
+          description:
+            "Minimal SVG badge toolkit for repository dashboards and technical storytelling.",
+          action: "Open AristoBadges",
+        },
+        repo: {
+          title: "AristoRepo",
+          description:
+            "Repository operations workspace for visibility across delivery and maintenance work.",
+          action: "Open AristoRepo",
+        },
+        "case-studies": {
+          title: "Case Studies",
+          description:
+            "Compact snapshots showing problem, approach, and measurable outcome.",
+          action: "Open case studies",
+        },
+      },
+    },
+    "resources-hub": {
+      hero: {
+        title: "Community Resources",
+        subtitle: "Docs, code, packages, and media",
+        description:
+          "Use this hub to access essential technical resources for building and contributing.",
+      },
+      section: {
+        title: "Resource Hub",
+        description:
+          "Curated links for documentation, repositories, packages, and learning content.",
+      },
+      items: {
+        docs: {
+          title: "Documentation",
+          description:
+            "Official documentation and practical guides for AristoByte UI and ecosystem workflows.",
+          action: "Open docs",
+        },
+        github: {
+          title: "GitHub",
+          description:
+            "Source code, issue trackers, and release activity across repositories.",
+          action: "Open GitHub",
+        },
+        npm: {
+          title: "NPM Packages",
+          description:
+            "Published packages and versioned artifacts available for integration.",
+          action: "Open NPM",
+        },
+        youtube: {
+          title: "YouTube",
+          description:
+            "Video explainers, demos, and public-facing updates from AristoByte.",
+          action: "Open YouTube",
+        },
       },
     },
   },

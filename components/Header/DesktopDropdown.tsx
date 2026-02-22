@@ -8,8 +8,8 @@ import { MenuListType } from "./MenuList";
 
 type DesktopDropdownProps = {
   isDesktop: boolean;
-  activeList: MenuList.APPS | MenuList.INSIGHTS | null;
-  renderedList: MenuList.APPS | MenuList.INSIGHTS | null;
+  activeList: MenuList.APPS | MenuList.COMMUNITY | MenuList.INSIGHTS | null;
+  renderedList: MenuList.APPS | MenuList.COMMUNITY | MenuList.INSIGHTS | null;
   position: {
     top: number;
     left: number;
@@ -17,11 +17,11 @@ type DesktopDropdownProps = {
   };
   menuLists: Record<MenuList, ConfigMenuListType>;
   triggerRefs: React.MutableRefObject<
-    Partial<Record<MenuList.APPS | MenuList.INSIGHTS, HTMLButtonElement | null>>
+    Partial<Record<MenuList.APPS | MenuList.COMMUNITY | MenuList.INSIGHTS, HTMLButtonElement | null>>
   >;
   onClose: () => void;
   onLinkClick: () => void;
-  getMenuId: (list: MenuList.APPS | MenuList.INSIGHTS) => string;
+  getMenuId: (list: MenuList.APPS | MenuList.COMMUNITY | MenuList.INSIGHTS) => string;
   contentKey: number;
 };
 

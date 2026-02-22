@@ -1,9 +1,9 @@
 import * as React from "react";
 
-import { Hero, CommunityResources, HomeCommunity } from "@/components";
+import { CommunityOverview, Hero } from "@/components";
 import { Config } from "@/config";
 
-export default function Community() {
+export default function CommunityOverviewPage() {
   return (
     <>
       <Hero
@@ -15,8 +15,7 @@ export default function Community() {
         linkText="community.hero.links"
         links={Config.community.hero.links}
       />
-      <CommunityResources />
-      <HomeCommunity />
+      <CommunityOverview />
     </>
   );
 }

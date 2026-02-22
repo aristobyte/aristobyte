@@ -1,0 +1,18 @@
+import * as React from "react";
+
+import { CommunityResourcesHub, Hero } from "@/components";
+
+export default function CommunityResourcesPage() {
+  return (
+    <>
+      <Hero
+        withGradient
+        icons={[{ id: "AristoByte", size: 200 }]}
+        title="community.resources-hub.hero.title"
+        subtitle="community.resources-hub.hero.subtitle"
+        description="community.resources-hub.hero.description"
+      />
+      <CommunityResourcesHub />
+    </>
+  );
+}

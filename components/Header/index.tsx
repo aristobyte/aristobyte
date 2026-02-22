@@ -23,10 +23,10 @@ export const Header = () => {
   const [isDesktop, setIsDesktop] = React.useState(false);
   const [currentList, setCurrentList] = React.useState<MenuList>(MenuList.ROOT);
   const [desktopDropdownList, setDesktopDropdownList] = React.useState<
-    MenuList.APPS | MenuList.INSIGHTS | null
+    MenuList.APPS | MenuList.COMMUNITY | MenuList.INSIGHTS | null
   >(null);
   const [desktopDropdownRenderedList, setDesktopDropdownRenderedList] = React.useState<
-    MenuList.APPS | MenuList.INSIGHTS | null
+    MenuList.APPS | MenuList.COMMUNITY | MenuList.INSIGHTS | null
   >(null);
   const [desktopDropdownContentKey, setDesktopDropdownContentKey] = React.useState(0);
   const [desktopDropdownPos, setDesktopDropdownPos] = React.useState({
@@ -35,11 +35,11 @@ export const Header = () => {
     minWidth: 250,
   });
   const desktopButtonRefs = React.useRef<
-    Partial<Record<MenuList.APPS | MenuList.INSIGHTS, HTMLButtonElement | null>>
+    Partial<Record<MenuList.APPS | MenuList.COMMUNITY | MenuList.INSIGHTS, HTMLButtonElement | null>>
   >({});
   const currentListData = config.header.menuLists[currentList];
   const getDesktopMenuId = React.useCallback(
-    (list: MenuList.APPS | MenuList.INSIGHTS) => `${headerId}-${list}-menu`,
+    (list: MenuList.APPS | MenuList.COMMUNITY | MenuList.INSIGHTS) => `${headerId}-${list}-menu`,
     [headerId],
   );
 
@@ -50,6 +50,18 @@ export const Header = () => {
     if (pathname.startsWith("/apps/aristo-badges")) return "AristoBadges";
     if (pathname.startsWith("/apps/aristo-repo")) return "AristoRepo";
     if (pathname.startsWith("/apps")) return t("header.nav.apps");
+    if (pathname.startsWith("/community/contribute")) {
+      return t("header.nav.community-contribute");
+    }
+    if (pathname.startsWith("/community/discussions")) {
+      return t("header.nav.community-discussions");
+    }
+    if (pathname.startsWith("/community/showcase")) {
+      return t("header.nav.community-showcase");
+    }
+    if (pathname.startsWith("/community/resources")) {
+      return t("header.nav.community-resources");
+    }
     if (pathname.startsWith("/insights/open-source-radar")) {
       return t("header.nav.insights-open-source-radar");
     }
@@ -81,7 +93,7 @@ export const Header = () => {
   }, []);
 
   const updateDesktopDropdownPosition = React.useCallback(
-    (list: MenuList.APPS | MenuList.INSIGHTS) => {
+    (list: MenuList.APPS | MenuList.COMMUNITY | MenuList.INSIGHTS) => {
       const trigger = desktopButtonRefs.current[list];
       if (!trigger) return;
       const rect = trigger.getBoundingClientRect();
@@ -161,6 +173,7 @@ export const Header = () => {
       if (isDesktop) {
         if (
           item.nextList !== MenuList.APPS &&
+          item.nextList !== MenuList.COMMUNITY &&
           item.nextList !== MenuList.INSIGHTS
         ) {
           return;
@@ -219,7 +232,11 @@ export const Header = () => {
     item: HeaderMenuItem,
     element: HTMLButtonElement | null,
   ) => {
-    if (item.nextList === MenuList.APPS || item.nextList === MenuList.INSIGHTS) {
+    if (
+      item.nextList === MenuList.APPS ||
+      item.nextList === MenuList.COMMUNITY ||
+      item.nextList === MenuList.INSIGHTS
+    ) {
       desktopButtonRefs.current[item.nextList] = element;
     }
   };
@@ -300,12 +317,16 @@ export const Header = () => {
               onButtonAction={handleButtonAction}
               registerButtonRef={registerButtonRef}
               getButtonId={(item) =>
-                item.nextList === MenuList.APPS || item.nextList === MenuList.INSIGHTS
+                item.nextList === MenuList.APPS ||
+                item.nextList === MenuList.COMMUNITY ||
+                item.nextList === MenuList.INSIGHTS
                   ? `${headerId}-${item.nextList}-button`
                   : undefined
               }
               getButtonAriaControls={(item) =>
-                item.nextList === MenuList.APPS || item.nextList === MenuList.INSIGHTS
+                item.nextList === MenuList.APPS ||
+                item.nextList === MenuList.COMMUNITY ||
+                item.nextList === MenuList.INSIGHTS
                   ? getDesktopMenuId(item.nextList)
                   : undefined
               }
@@ -313,6 +334,7 @@ export const Header = () => {
                 Boolean(
                   item.nextList &&
                     (item.nextList === MenuList.APPS ||
+                      item.nextList === MenuList.COMMUNITY ||
                       item.nextList === MenuList.INSIGHTS) &&
                     isDesktop &&
                     desktopDropdownList === item.nextList,
@@ -322,6 +344,7 @@ export const Header = () => {
                 Boolean(
                   item.nextList &&
                     (item.nextList === MenuList.APPS ||
+                      item.nextList === MenuList.COMMUNITY ||
                       item.nextList === MenuList.INSIGHTS) &&
                     isDesktop &&
                     desktopDropdownList === item.nextList,

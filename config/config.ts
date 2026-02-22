@@ -5,6 +5,7 @@ import UsefulLinks from "@/useful_links.json";
 export enum MenuList {
   ROOT = "root",
   APPS = "apps",
+  COMMUNITY = "community",
   INSIGHTS = "insights",
 }
 
@@ -45,8 +46,8 @@ export const Config = {
           {
             id: "community",
             labelKey: "header.nav.community",
-            href: "/community",
-            type: "internal-link",
+            type: "button",
+            nextList: MenuList.COMMUNITY,
           },
           {
             id: "insights",
@@ -93,6 +94,41 @@ export const Config = {
             id: "aristo-repo",
             labelKey: "header.nav.aristo-repo",
             href: "/apps/aristo-repo",
+            type: "internal-link",
+          },
+        ],
+      },
+      [MenuList.COMMUNITY]: {
+        goBack: MenuList.ROOT,
+        menu: [
+          {
+            id: "community-overview",
+            labelKey: "header.nav.community-overview",
+            href: "/community",
+            type: "internal-link",
+          },
+          {
+            id: "community-contribute",
+            labelKey: "header.nav.community-contribute",
+            href: "/community/contribute",
+            type: "internal-link",
+          },
+          {
+            id: "community-discussions",
+            labelKey: "header.nav.community-discussions",
+            href: "/community/discussions",
+            type: "internal-link",
+          },
+          {
+            id: "community-showcase",
+            labelKey: "header.nav.community-showcase",
+            href: "/community/showcase",
+            type: "internal-link",
+          },
+          {
+            id: "community-resources",
+            labelKey: "header.nav.community-resources",
+            href: "/community/resources",
             type: "internal-link",
           },
         ],
@@ -435,6 +471,36 @@ export const Config = {
         id: "open-collective",
         href: UsefulLinks["open-collective"],
       },
+    ],
+    overview: [
+      { id: "contribute", href: "/community/contribute" },
+      { id: "discussions", href: "/community/discussions" },
+      { id: "showcase", href: "/community/showcase" },
+      { id: "resources", href: "/community/resources" },
+    ],
+    contribute: [
+      { id: "issues", href: "https://github.com/aristobyte/aristobyte.com/issues" },
+      { id: "docs", href: "/apps/aristobyte-ui" },
+      { id: "sponsor", href: UsefulLinks["open-collective"] },
+      { id: "contact", href: "/contact" },
+    ],
+    discussions: [
+      { id: "github", href: "https://github.com/orgs/aristobyte/discussions" },
+      { id: "stackoverflow", href: UsefulLinks.stackoverflow },
+      { id: "linkedin", href: UsefulLinks["linked-in-page"] },
+      { id: "instagram", href: UsefulLinks["instagram-page"] },
+    ],
+    showcase: [
+      { id: "ui", href: "/apps/aristobyte-ui" },
+      { id: "badges", href: "/apps/aristo-badges" },
+      { id: "repo", href: "/apps/aristo-repo" },
+      { id: "case-studies", href: "/insights/case-studies" },
+    ],
+    resourcesHub: [
+      { id: "docs", href: UsefulLinks["aristobyte-ui-documentation-website"] },
+      { id: "github", href: UsefulLinks.github },
+      { id: "npm", href: UsefulLinks["aristobyte-ui-npm-registry-packages"] },
+      { id: "youtube", href: "https://www.youtube.com/@aristobyte" },
     ],
   },
   insights: {

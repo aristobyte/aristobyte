@@ -43,6 +43,7 @@ export const MenuListType = ({
 
       if (item.type === "button") {
         if (item.nextList === MenuList.APPS) return pathname.startsWith("/apps");
+        if (item.nextList === MenuList.COMMUNITY) return pathname.startsWith("/community");
         if (item.nextList === MenuList.INSIGHTS) return pathname.startsWith("/insights");
         return false;
       }
@@ -65,6 +66,7 @@ export const MenuListType = ({
         if (item.type === "button") {
           const isDropdownButton =
             item.nextList === MenuList.APPS ||
+            item.nextList === MenuList.COMMUNITY ||
             item.nextList === MenuList.INSIGHTS;
 
           return (
