@@ -3,6 +3,7 @@ import { hasResendAudienceConfig, upsertResendAudienceContact } from "@/lib/news
 import { hasSubscriber, upsertSubscriber } from "@/lib/newsletter/store";
 import { buildSubscriberWelcomeEmail } from "@/lib/newsletter/template";
 import { sendEmailViaResend } from "@/lib/newsletter/send";
+import { tNewsletter } from "@/lib/newsletter/i18n";
 import { NewsletterTopicsType } from "@/lib/newsletter/types";
 
 export const runtime = "nodejs";
@@ -31,7 +32,11 @@ export async function POST(request: NextRequest) {
 
     if (!emailRegex.test(email)) {
       return NextResponse.json(
-        { ok: false, code: "invalid_email", message: "Invalid email format." },
+        {
+          ok: false,
+          code: "invalid_email",
+          message: tNewsletter("newsletter.api.invalid-email"),
+        },
         { status: 400 },
       );
     }
@@ -41,7 +46,7 @@ export async function POST(request: NextRequest) {
         {
           ok: false,
           code: "consent_required",
-          message: "Consent is required to subscribe.",
+          message: tNewsletter("newsletter.api.consent-required"),
         },
         { status: 400 },
       );
@@ -60,7 +65,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         ok: true,
         code: "already_subscribed",
-        message: "This email is already subscribed.",
+        message: tNewsletter("newsletter.api.already-subscribed"),
       });
     }
 
@@ -82,12 +87,12 @@ export async function POST(request: NextRequest) {
       if (notifyEmail) {
         await sendEmailViaResend({
           to: notifyEmail,
-          subject: `New newsletter subscriber: ${email}`,
+          subject: `${tNewsletter("newsletter.notify.subject-prefix")}: ${email}`,
           html: `<div style="font-family:Arial,sans-serif;font-size:14px;line-height:1.6;">
-              <p><strong>New subscription</strong></p>
-              <p>Email: ${email}</p>
-              <p>Topics: releaseNotes=${topics.releaseNotes}, majorPosts=${topics.majorPosts}</p>
-              <p>Source: ${source}</p>
+              <p><strong>${tNewsletter("newsletter.notify.new-subscription")}</strong></p>
+              <p>${tNewsletter("newsletter.notify.email-label")}: ${email}</p>
+              <p>${tNewsletter("newsletter.notify.topics-label")}: releaseNotes=${topics.releaseNotes}, majorPosts=${topics.majorPosts}</p>
+              <p>${tNewsletter("newsletter.notify.source-label")}: ${source}</p>
             </div>`,
         });
       }
@@ -98,12 +103,16 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       ok: true,
       code: "subscribed",
-      message: "Subscription successful.",
+      message: tNewsletter("newsletter.api.subscribed-success"),
     });
   } catch (error) {
     console.error("Newsletter subscribe error:", error);
     return NextResponse.json(
-      { ok: false, code: "internal_error", message: "Something went wrong." },
+      {
+        ok: false,
+        code: "internal_error",
+        message: tNewsletter("newsletter.api.internal-error"),
+      },
       { status: 500 },
     );
   }

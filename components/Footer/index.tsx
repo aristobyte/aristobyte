@@ -12,55 +12,55 @@ import "./Footer.scss";
 const socialLinks = [
   {
     id: "github",
-    label: "GitHub",
+    labelKey: "footer.social.github",
     href: "https://github.com/aristobyte",
     icon: "mdi:github",
   },
   {
     id: "stackoverflow",
-    label: "Stack Overflow",
+    labelKey: "footer.social.stackoverflow",
     href: "https://stackoverflow.com/users/30507294/aristobyte",
     icon: "mdi:stack-overflow",
   },
   {
     id: "npm",
-    label: "NPM",
+    labelKey: "footer.social.npm",
     href: "https://www.npmjs.com/~aristobyte_team",
     icon: "mdi:npm",
   },
   {
     id: "email",
-    label: "Email",
+    labelKey: "footer.social.email",
     href: "mailto:info.aristobyte@gmail.com",
     icon: "mdi:email-outline",
   },
   {
     id: "linkedin",
-    label: "LinkedIn",
+    labelKey: "footer.social.linkedin",
     href: "http://linkedin.com/company/aristobyte/",
     icon: "mdi:linkedin",
   },
   {
     id: "instagram",
-    label: "Instagram",
+    labelKey: "footer.social.instagram",
     href: "https://www.instagram.com/aristo_byte/",
     icon: "mdi:instagram",
   },
   {
     id: "youtube",
-    label: "YouTube",
+    labelKey: "footer.social.youtube",
     href: "https://www.youtube.com/@aristobyte",
     icon: "mdi:youtube",
   },
   {
     id: "open-collective",
-    label: "Open Collective",
+    labelKey: "footer.social.open-collective",
     href: "https://opencollective.com/aristobyte",
     icon: "simple-icons:opencollective",
   },
   {
     id: "patreon",
-    label: "Patreon",
+    labelKey: "footer.social.patreon",
     href: "https://www.patreon.com/c/aristobyte",
     icon: "mdi:patreon",
   },
@@ -72,29 +72,29 @@ export const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="footer" aria-label="Footer">
+    <footer className="footer" aria-label={t("footer.aria.label")}>
       <div className="footer__container">
         <div className="footer__panel">
           <div className="footer__brand">
-            <span className="footer__badge">AristoByte Network</span>
+            <span className="footer__badge">{t("footer.badge")}</span>
             <NextLink href="/" className="footer__logo">
               <span className="footer__logo-icon">
                 <span className="footer__logo-glyph">
                   {config.header.logo({ size: 22 })}
                 </span>
               </span>
-              <span className="footer__logo-text">AristoByte</span>
+              <span className="footer__logo-text">{t("header.brand")}</span>
             </NextLink>
             <p className="footer__description">{t("footer.description")}</p>
             <div className="footer__socials">
-              {socialLinks.map(({ id, href, icon, label }) => (
+              {socialLinks.map(({ id, href, icon, labelKey }) => (
                 <a
                   key={id}
                   href={href}
                   target={href.startsWith("http") ? "_blank" : undefined}
                   rel={href.startsWith("http") ? "noreferrer" : undefined}
                   className={`footer__social footer__social--${id}`}
-                  aria-label={label}
+                  aria-label={t(labelKey)}
                 >
                   <CdnIcon name={icon} size={16} />
                 </a>

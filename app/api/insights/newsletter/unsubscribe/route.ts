@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { hasResendAudienceConfig, removeResendAudienceContact } from "@/lib/newsletter/audience";
 import { removeSubscriber } from "@/lib/newsletter/store";
 import { verifyUnsubscribeToken } from "@/lib/newsletter/token";
+import { tNewsletter } from "@/lib/newsletter/i18n";
 
 const getSiteUrl = () =>
   process.env.NEXT_PUBLIC_SITE_URL ?? process.env.SITE_URL ?? "https://aristobyte.com";
@@ -12,7 +13,7 @@ const performUnsubscribe = async (token: string) => {
     return {
       ok: false,
       code: "invalid_token",
-      message: "Unsubscribe link is invalid or expired.",
+      message: tNewsletter("newsletter.api.invalid-unsubscribe"),
     };
   }
 
@@ -27,8 +28,8 @@ const performUnsubscribe = async (token: string) => {
     ok: true,
     code: removed ? "unsubscribed" : "already_unsubscribed",
     message: removed
-      ? "You have been unsubscribed."
-      : "This email is already unsubscribed.",
+      ? tNewsletter("newsletter.api.unsubscribed")
+      : tNewsletter("newsletter.api.already-unsubscribed"),
   };
 };
 
@@ -57,7 +58,11 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(result, { status: result.ok ? 200 : 400 });
   } catch {
     return NextResponse.json(
-      { ok: false, code: "internal_error", message: "Something went wrong." },
+      {
+        ok: false,
+        code: "internal_error",
+        message: tNewsletter("newsletter.api.internal-error"),
+      },
       { status: 500 },
     );
   }

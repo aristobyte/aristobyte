@@ -1,3 +1,4 @@
+import { useTranslate } from "@/context";
 import Image from "next/image";
 import { Section } from "@/components/Section";
 import { SectionNamespace, Align, Title } from "@/config";
@@ -5,6 +6,8 @@ import { SectionNamespace, Align, Title } from "@/config";
 import "./InsightsVideo.scss";
 
 export const InsightsVideo = () => {
+  const { t } = useTranslate();
+
   return (
     <Section
       namespace={SectionNamespace.InsightsVideo}
@@ -18,12 +21,12 @@ export const InsightsVideo = () => {
       <div className="insights-video__placeholder">
         <Image
           src="/og-image-1200x630.png"
-          alt="Video placeholder"
+          alt={t("insights.video.image-alt")}
           width={1200}
           height={630}
           className="insights-video__image"
         />
-        <div className="insights-video__badge">Video Placeholder</div>
+        <div className="insights-video__badge">{t("insights.video.badge")}</div>
       </div>
     </Section>
   );

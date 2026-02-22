@@ -1,6 +1,13 @@
 export const EN_GB = {
   header: {
+    brand: "AristoByte",
     logo: { id: "logo", href: "/" },
+    actions: {
+      "go-back": "Go back",
+      "go-home": "Go to homepage",
+      "toggle-navigation": "Toggle navigation",
+      "primary-nav": "Primary",
+    },
     nav: {
       apps: "Apps",
       "apps-overview": "Overview",
@@ -21,9 +28,25 @@ export const EN_GB = {
       "insights-case-studies": "Case Studies",
       "insights-newsletter": "Newsletter",
       contact: "Contact",
+      compliance: "Compliance",
     },
   },
   footer: {
+    badge: "AristoByte Network",
+    aria: {
+      label: "Footer",
+    },
+    social: {
+      github: "GitHub",
+      stackoverflow: "Stack Overflow",
+      npm: "NPM",
+      email: "Email",
+      linkedin: "LinkedIn",
+      instagram: "Instagram",
+      youtube: "YouTube",
+      "open-collective": "Open Collective",
+      patreon: "Patreon",
+    },
     description:
       "AristoByte builds modern products and developer systems with a focus on clean execution, performance, and long-term maintainability.",
     columns: {
@@ -74,6 +97,9 @@ export const EN_GB = {
       title: "What We Create",
       description:
         "We design and build digital products end-to-end — from early strategy through launch and growth. Every engagement is tailored to product goals, industry needs, and user expectations.",
+      aria: {
+        list: "Services",
+      },
       cards: {
         "product-strategy": {
           title: "Product Strategy",
@@ -159,6 +185,85 @@ export const EN_GB = {
       title: "Modern Stack, Future-Proof Choices",
       description:
         "A curated stack across product engineering, cloud delivery, AI tooling, and design systems—picked for speed, reliability, and long-term maintainability.",
+      items: {
+        "next-js": "Next.js",
+        react: "React",
+        typescript: "TypeScript",
+        javascript: "JavaScript",
+        redux: "Redux",
+        html5: "HTML5",
+        css3: "CSS3",
+        sass: "Sass",
+        less: "Less",
+        bootstrap: "Bootstrap",
+        graphql: "GraphQL",
+        "rest-api": "REST API",
+        webpack: "Webpack",
+        babel: "Babel",
+        vite: "Vite",
+        "node-js": "Node.js",
+        "express-js": "Express.js",
+        "socket-io": "Socket.IO",
+        python: "Python",
+        django: "Django",
+        go: "Go",
+        java: "Java",
+        "c-plus-plus": "C++",
+        "c-sharp": "C#",
+        dotnet: ".NET",
+        postgresql: "PostgreSQL",
+        mongodb: "MongoDB",
+        mariadb: "MariaDB",
+        redis: "Redis",
+        numpy: "NumPy",
+        pandas: "Pandas",
+        matlab: "MATLAB",
+        latex: "LaTeX",
+        "react-native": "React Native",
+        swift: "Swift",
+        kotlin: "Kotlin",
+        docker: "Docker",
+        aws: "AWS",
+        terraform: "Terraform",
+        ansible: "Ansible",
+        jenkins: "Jenkins",
+        splunk: "Splunk",
+        vercel: "Vercel",
+        heroku: "Heroku",
+        git: "Git",
+        github: "GitHub",
+        gitlab: "GitLab",
+        bash: "Bash",
+        npm: "NPM",
+        pnpm: "PNPM",
+        turborepo: "Turborepo",
+        jest: "Jest",
+        playwright: "Playwright",
+        cypress: "Cypress",
+        vitest: "Vitest",
+        postman: "Postman",
+        jupyter: "Jupyter",
+        figma: "Figma",
+        sketch: "Sketch",
+        photoshop: "Photoshop",
+        "lightroom-classic": "Lightroom Classic",
+        illustrator: "Illustrator",
+        "premiere-pro": "Premiere Pro",
+        "davinci-resolve": "DaVinci Resolve",
+        blender: "Blender",
+        gimp: "GIMP",
+        "openai-api": "OpenAI API",
+        chatgpt: "ChatGPT",
+        "github-copilot": "GitHub Copilot",
+        cursor: "Cursor",
+        claude: "Claude",
+        gemini: "Gemini",
+        perplexity: "Perplexity",
+        "hugging-face": "Hugging Face",
+        langchain: "LangChain",
+        ollama: "Ollama",
+        "vercel-ai-sdk": "Vercel AI SDK",
+      },
       groups: {
         "frontend-product": {
           title: "Frontend & Product UI",
@@ -239,6 +344,7 @@ export const EN_GB = {
       title: "Product Overview",
       description:
         "A quick tour of the system, animated components, and the workflow behind AristoByteUI.",
+      "video-title": "AristoByte UI Product Overview",
     },
     suite: {
       title: "Everything You Need to Ship Faster",
@@ -259,6 +365,18 @@ export const EN_GB = {
       title: "CLI Experience",
       description:
         "Scaffold, install, and update components with a developer-friendly CLI.",
+      links: {
+        "cli-docs": "CLI Docs",
+        "gh-package-cli": "GH Package CLI",
+        "source-code": "Source Code",
+        npm: "NPM",
+      },
+      terminal: {
+        title: "bash",
+        hint: "Scroll to explore",
+        "error-title": "ERROR",
+        "error-description": "failed to load cli.ansi",
+      },
     },
     idee: {
       title: "We Build the System, You Build the Experience",
@@ -328,6 +446,29 @@ export const EN_GB = {
             title: "AristoByte UI CLI",
             description:
               "The command-line workflow for scaffolding, installing, and maintaining AristoByte UI packages and components directly in your project.",
+            links: {
+              "cli-docs": "CLI Docs",
+              "gh-package-cli": "GH Package CLI",
+              "source-code": "Source Code",
+              npm: "NPM",
+            },
+            features: {
+              "scaffold-fast": {
+                title: "Scaffold Fast",
+                description:
+                  "Generate consistent UI primitives and project structure quickly, with less setup friction.",
+              },
+              "package-aware": {
+                title: "Package-Aware",
+                description:
+                  "Install and update package-level resources using a single workflow aligned with the AristoByte UI ecosystem.",
+              },
+              "team-consistency": {
+                title: "Team Consistency",
+                description:
+                  "Keep naming, structure, and upgrade flow predictable across developers and repositories.",
+              },
+            },
           },
         },
         "aristo-badges": {
@@ -341,6 +482,27 @@ export const EN_GB = {
             title: "AristoBadges",
             description:
               "A badge toolkit for README dashboards with lightweight SVG output and clean visual defaults for repositories, packages, and release streams.",
+            links: {
+              website: "Website",
+              github: "GitHub",
+            },
+            features: {
+              "readme-focused": {
+                title: "README Focused",
+                description:
+                  "Generate concise status and metrics badges intended for maintainers and open-source teams.",
+              },
+              "svg-native": {
+                title: "SVG-Native",
+                description:
+                  "Output is optimized for repository docs and web rendering without raster artifacts.",
+              },
+              composable: {
+                title: "Composable",
+                description:
+                  "Use badges individually or combine multiple metrics for compact project dashboards.",
+              },
+            },
           },
         },
         "aristo-repo": {
@@ -354,6 +516,27 @@ export const EN_GB = {
             title: "AristoRepo",
             description:
               "Repository operations workspace for organizing project health, release flow, and collaboration signals across active codebases.",
+            links: {
+              "github-repo": "GitHub Repo",
+              "aristobyte-github-org": "AristoByte GitHub Org",
+            },
+            features: {
+              "repository-pulse": {
+                title: "Repository Pulse",
+                description:
+                  "Track essential activity indicators like delivery rhythm, change volume, and contribution trends.",
+              },
+              "maintainer-workflows": {
+                title: "Maintainer Workflows",
+                description:
+                  "Support maintainers with clear checkpoints for triage, release preparation, and follow-up tasks.",
+              },
+              "execution-visibility": {
+                title: "Execution Visibility",
+                description:
+                  "Surface operational context in one place for both engineering and product stakeholders.",
+              },
+            },
           },
         },
       },
@@ -623,6 +806,12 @@ export const EN_GB = {
       instagram: {
         title: "Latest from Instagram",
       },
+      slider: {
+        "item-label": "Instagram post",
+        "go-to": "Go to",
+        previous: "Previous",
+        next: "Next",
+      },
       links: {
         instagram: "Instagram",
         facebook: "Facebook",
@@ -634,12 +823,31 @@ export const EN_GB = {
       section: {
         title: "Featured Insights",
       },
+      items: {
+        "1": {
+          topic: "Engineering",
+          title: "Config-first header architecture for multi-level navigation",
+          meta: "6 min read · Feb 2026",
+        },
+        "2": {
+          topic: "Design System",
+          title: "Building a reusable Slider primitive for app-wide consistency",
+          meta: "8 min read · Feb 2026",
+        },
+        "3": {
+          topic: "Product",
+          title: "How Insights routes were grouped for clarity and scale",
+          meta: "5 min read · Feb 2026",
+        },
+      },
     },
     video: {
       section: {
         title: "Video & Demo",
         description: "Placeholder section for product demos and explainers.",
       },
+      badge: "Video Placeholder",
+      "image-alt": "Video placeholder",
     },
     "engineering-notes": {
       hero: {
@@ -652,6 +860,92 @@ export const EN_GB = {
         title: "Engineering Notes",
         description:
           "Release updates, architecture decisions, and migration checkpoints across AristoByte package namespaces.",
+      },
+      highlights: {
+        namespaces: "Active NPM Namespaces",
+        "release-title": "Release",
+        "release-description":
+          "Notes focus on shipping outcomes and package changes",
+        "policy-title": "Policy",
+        "policy-description":
+          "Migrations include impact summary and clear transition path",
+      },
+      actions: {
+        open: "Open",
+        source: "Source",
+      },
+      filters: {
+        all: "All",
+        release: "Releases",
+        decision: "Decisions",
+        migration: "Migrations",
+      },
+      "namespace-labels": {
+        aristobyte: "@aristobyte",
+        "aristobyte-ui": "@aristobyte-ui",
+      },
+      namespaces: {
+        "aristobyte-ui": {
+          title: "@aristobyte-ui",
+          description:
+            "UI system packages: components, CLI tooling, and shared utilities for design-consistent product development.",
+          links: {
+            "npm-org": "NPM Org",
+            "cli-package": "CLI Package",
+            "github-packages": "GitHub Packages",
+          },
+        },
+        aristobyte: {
+          title: "@aristobyte",
+          description:
+            "Core ecosystem namespace for foundational packages and shared engineering modules used across AristoByte products.",
+          links: {
+            "namespace-search": "Namespace Search",
+            "team-profile": "Team Profile",
+          },
+        },
+      },
+      notes: {
+        "note-1": {
+          title: "CLI workflow updates for faster local setup",
+          description:
+            "Improved command flow and package publishing alignment for the CLI package to reduce setup friction.",
+        },
+        "note-2": {
+          title: "Unified slider architecture across app features",
+          description:
+            "Adopted a single reusable slider/slide primitive to standardize interaction behavior and simplify future package extraction.",
+        },
+        "note-3": {
+          title: "Header navigation moved to config-driven list routing",
+          description:
+            "Replaced hardcoded nav branching with list-based menu state to support multi-level app/insights navigation.",
+        },
+        "note-4": {
+          title: "Namespace indexing and package discovery cleanup",
+          description:
+            "Aligned package naming and discovery pages for clearer separation between @aristobyte and @aristobyte-ui scopes.",
+        },
+      },
+      "deep-dives": {
+        title: "Tooling Deep Dives",
+        items: {
+          d1: {
+            title: "CLI flow patterns",
+            description:
+              "Command orchestration and terminal UX decisions used in package tooling.",
+          },
+          d2: {
+            title: "Design system implementation",
+            description:
+              "Reusable component patterns, token usage, and consistency rules in production.",
+          },
+          d3: {
+            title: "CI and release discipline",
+            description:
+              "Versioning guardrails, deployment checks, and migration-safe rollout strategy.",
+          },
+        },
       },
     },
     "open-source-radar": {
@@ -666,6 +960,59 @@ export const EN_GB = {
         description:
           "A structured view of what is shipping, what is planned, and where community conversations are happening right now.",
       },
+      sections: {
+        releases: {
+          title: "Releases",
+          items: {
+            "ui-cli-release": {
+              title: "@aristobyte-ui/cli",
+              description:
+                "Latest CLI package updates, publish history, and distribution visibility.",
+              cta: "View package",
+            },
+            "ui-releases": {
+              title: "Repository Releases",
+              description:
+                "Version tags and release notes from the main aristobyte-ui repository.",
+              cta: "Open releases",
+            },
+          },
+        },
+        milestones: {
+          title: "Roadmap Milestones",
+          items: {
+            "project-board": {
+              title: "Roadmap Board",
+              description:
+                "Delivery milestones and planned work streams tracked in the public project board.",
+              cta: "Open roadmap",
+            },
+            "apps-overview": {
+              title: "Product Surface",
+              description:
+                "Current app landscape and package ecosystem visible from the products overview.",
+              cta: "See products",
+            },
+          },
+        },
+        discussions: {
+          title: "Discussions",
+          items: {
+            "org-discussions": {
+              title: "GitHub Discussions",
+              description:
+                "Feature requests, proposals, and community threads across AristoByte spaces.",
+              cta: "Join discussion",
+            },
+            "community-route": {
+              title: "Community Hub",
+              description:
+                "Entry point for ecosystem links, contribution channels, and community resources.",
+              cta: "Open community",
+            },
+          },
+        },
+      },
     },
     newsletter: {
       hero: {
@@ -673,6 +1020,26 @@ export const EN_GB = {
         subtitle: "Get Release Notes in Your Inbox",
         description:
           "Subscribe for major launches, release notes, and practical engineering updates from AristoByte.",
+      },
+      form: {
+        title: "Subscribe to Updates",
+        description:
+          "Release notes, major posts, and engineering highlights. No spam.",
+        "email-label": "Work email",
+        "email-placeholder": "you@company.com",
+        "release-notes": "Release notes",
+        "major-posts": "Major posts",
+        consent: "I agree to receive product updates and release notes.",
+        subscribing: "Subscribing...",
+        subscribe: "Subscribe",
+      },
+      messages: {
+        unsubscribed: "You have been unsubscribed from newsletter updates.",
+        "already-unsubscribed": "This email was already unsubscribed.",
+        "invalid-unsubscribe": "Unsubscribe link is invalid or expired.",
+        "subscription-failed": "Subscription failed.",
+        "subscribed-success": "Subscribed successfully.",
+        "subscription-failed-try-again": "Subscription failed. Please try again.",
       },
     },
     "case-studies": {
@@ -684,6 +1051,77 @@ export const EN_GB = {
       },
       section: {
         title: "Case Study Snapshots",
+      },
+      labels: {
+        problem: "Problem",
+        approach: "Approach",
+        outcome: "Outcome",
+        snapshot: "Snapshot",
+        internal: "AristoByte Internal",
+      },
+      snapshots: {
+        "1": {
+          title: "Design System Unification",
+          tag: "UI Architecture",
+          metric: "Delivery time -28%",
+          problem: "Inconsistent cross-page UI patterns slowed delivery.",
+          approach: "Unified shared components and route structure.",
+          outcome: "Faster iteration and lower implementation overhead.",
+        },
+        "2": {
+          title: "CLI Onboarding Flow",
+          tag: "Developer Experience",
+          metric: "Setup friction -41%",
+          problem: "CLI onboarding lacked clarity for first-time users.",
+          approach: "Reworked docs and terminal-first demo experience.",
+          outcome: "Reduced setup friction and improved adoption confidence.",
+        },
+        "3": {
+          title: "Product Surface Alignment",
+          tag: "Product Strategy",
+          metric: "Navigation clarity +32%",
+          problem: "Multiple product surfaces felt disconnected.",
+          approach: "Aligned visual language and information hierarchy.",
+          outcome: "Clearer user journey and stronger product narrative.",
+        },
+      },
+      separators: {
+        notes: {
+          kicker: "Insights Track",
+          title: "Engineering Notes",
+          description:
+            "Architecture decisions, migrations, and release-level implementation updates.",
+          cta: "Open Engineering Notes",
+        },
+        apps: {
+          kicker: "Product Surface",
+          title: "Explore AristoByte Apps",
+          description:
+            "Review all products and how each stream connects with the case studies above.",
+          "primary-cta": "Open Product Overview",
+          "secondary-cta": "Open Source Radar",
+        },
+      },
+      authors: {
+        title: "Authors",
+        "active-stream": "Active on this stream",
+        items: {
+          "1": {
+            name: "AristoByte Team",
+            role: "Engineering",
+            focus: "DX & architecture",
+          },
+          "2": {
+            name: "AristoByte Team",
+            role: "Design",
+            focus: "UI systems & usability",
+          },
+          "3": {
+            name: "AristoByte Team",
+            role: "Product",
+            focus: "Roadmap & delivery",
+          },
+        },
       },
     },
   },
@@ -740,5 +1178,74 @@ export const EN_GB = {
     description:
       "It might have been moved, deleted, or the link is incorrect.\nUse the navigation to go back or return to the homepage.",
     button: "Go back",
+  },
+  newsletter: {
+    api: {
+      "invalid-email": "Invalid email format.",
+      "consent-required": "Consent is required to subscribe.",
+      "already-subscribed": "This email is already subscribed.",
+      "subscribed-success": "Subscription successful.",
+      "invalid-unsubscribe": "Unsubscribe link is invalid or expired.",
+      unsubscribed: "You have been unsubscribed.",
+      "already-unsubscribed": "This email is already unsubscribed.",
+      "internal-error": "Something went wrong.",
+    },
+    notify: {
+      "subject-prefix": "New newsletter subscriber",
+      "new-subscription": "New subscription",
+      "email-label": "Email",
+      "topics-label": "Topics",
+      "source-label": "Source",
+    },
+    email: {
+      subject: "Welcome to AristoByte Updates",
+      title: "AristoByte Newsletter",
+      preheader:
+        "Subscription confirmed. You will receive AristoByte release notes and major updates.",
+      "header-brand": "AristoNews · The Newsletter of AristoByte",
+      "status-label": "Subscription Status",
+      "confirmed-title": "Subscription Confirmed",
+      "subscribed-with": "You're now subscribed with",
+      "updates-description":
+        "You will receive major release notes, roadmap milestones, and curated engineering updates from the AristoByte ecosystem.",
+      "release-notes-label": "Release notes",
+      "roadmap-signals-label": "Roadmap signals",
+      "product-updates-label": "Product updates",
+      "explore-insights": "Explore Insights",
+      "unsubscribe-anytime": "You can unsubscribe at any time:",
+      unsubscribe: "Unsubscribe",
+      "network-title": "AristoByte Network",
+      "network-description":
+        "Modern products and developer systems with a focus on clean execution, performance, and maintainability.",
+      "external-label": "External",
+      social: {
+        github: "GitHub",
+        stackoverflow: "Stack Overflow",
+        npm: "NPM",
+        email: "Email",
+        linkedin: "LinkedIn",
+        instagram: "Instagram",
+        youtube: "YouTube",
+        "open-collective": "Open Collective",
+        patreon: "Patreon",
+      },
+      "compliance-label": "Compliance",
+      compliance: {
+        "privacy-policy": "Privacy Policy",
+        "terms-and-conditions": "Terms & Conditions",
+        "cookie-policy": "Cookie Policy",
+        "return-policy": "Return Policy",
+        "acceptable-use-policy": "Acceptable Use Policy",
+        disclaimer: "Disclaimer",
+        eula: "EULA",
+        dsar: "DSAR",
+      },
+      "compliance-center": "Compliance Center",
+      topics: {
+        "release-notes": "Release notes",
+        "major-posts": "Major posts",
+        "general-updates": "General updates",
+      },
+    },
   },
 };

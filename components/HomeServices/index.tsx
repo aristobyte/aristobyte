@@ -129,7 +129,7 @@ export const HomeServices = () => {
         <ul
           className="home-services__list"
           role="tablist"
-          aria-label="Services"
+          aria-label={t("home.services.aria.list")}
         >
           {Config.home.services.cards.map(({ id }) => {
             const isActive = id === activeId;

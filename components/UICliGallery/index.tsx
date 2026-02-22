@@ -42,7 +42,7 @@ export const UICliGallery = () => {
       // eslint-disable-next-line no-console
       console.error("Failed to load ANSI file:", err);
       const esc = "\u001b";
-      const fallback = `${esc}[31mERROR${esc}[0m ${esc}[90mfailed to load cli.ansi${esc}[0m\\n`;
+      const fallback = `${esc}[31m${t("ui.cli.terminal.error-title")}${esc}[0m ${esc}[90m${t("ui.cli.terminal.error-description")}${esc}[0m\\n`;
       if (isMounted) {
         setHtml(ansiUp.ansi_to_html(fallback));
       }
@@ -51,7 +51,7 @@ export const UICliGallery = () => {
     return () => {
       isMounted = false;
     };
-  }, [ansiUp, normalizeAnsi]);
+  }, [ansiUp, normalizeAnsi, t]);
 
   return (
     <Section namespace={SectionNamespace.UICli}>
@@ -72,7 +72,7 @@ export const UICliGallery = () => {
           rel="noreferrer"
         >
           <CdnIcon name="mdi:book-open-variant" size={16} />
-          <span>CLI Docs</span>
+          <span>{t("ui.cli.links.cli-docs")}</span>
         </a>
         <a
           className="ui-cli__button"
@@ -81,7 +81,7 @@ export const UICliGallery = () => {
           rel="noreferrer"
         >
           <CdnIcon name="mdi:package-variant" size={16} />
-          <span>GH Package CLI</span>
+          <span>{t("ui.cli.links.gh-package-cli")}</span>
         </a>
         <a
           className="ui-cli__button"
@@ -90,7 +90,7 @@ export const UICliGallery = () => {
           rel="noreferrer"
         >
           <CdnIcon name="mdi:github" size={16} />
-          <span>Source code</span>
+          <span>{t("ui.cli.links.source-code")}</span>
         </a>
         <a
           className="ui-cli__button"
@@ -99,7 +99,7 @@ export const UICliGallery = () => {
           rel="noreferrer"
         >
           <CdnIcon name="simple-icons:npm" size={16} />
-          <span>NPM</span>
+          <span>{t("ui.cli.links.npm")}</span>
         </a>
       </div>
       <div className="ui-cli__terminal">
@@ -107,8 +107,8 @@ export const UICliGallery = () => {
           <span className="ui-cli__terminal-dot ui-cli__terminal-dot--red" />
           <span className="ui-cli__terminal-dot ui-cli__terminal-dot--yellow" />
           <span className="ui-cli__terminal-dot ui-cli__terminal-dot--green" />
-          <span className="ui-cli__terminal-title">bash</span>
-          <span className="ui-cli__terminal-hint">Scroll to explore</span>
+          <span className="ui-cli__terminal-title">{t("ui.cli.terminal.title")}</span>
+          <span className="ui-cli__terminal-hint">{t("ui.cli.terminal.hint")}</span>
         </div>
         <pre
           className="ui-cli__terminal-body"

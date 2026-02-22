@@ -16,27 +16,30 @@ export default function AristoBadgesPage() {
         titleKey="apps.products.pages.aristo-badges.details.title"
         descriptionKey="apps.products.pages.aristo-badges.details.description"
         links={[
-          { label: "Website", href: "https://badges.aristobyte.com" },
           {
-            label: "GitHub",
+            label: "apps.products.pages.aristo-badges.details.links.website",
+            href: "https://badges.aristobyte.com",
+          },
+          {
+            label: "apps.products.pages.aristo-badges.details.links.github",
             href: "https://github.com/aristobyte-ui/aristo-badges",
           },
         ]}
         features={[
           {
-            title: "README Focused",
-            description:
-              "Generate concise status and metrics badges intended for maintainers and open-source teams.",
+            titleKey: "apps.products.pages.aristo-badges.details.features.readme-focused.title",
+            descriptionKey:
+              "apps.products.pages.aristo-badges.details.features.readme-focused.description",
           },
           {
-            title: "SVG-Native",
-            description:
-              "Output is optimized for repository docs and web rendering without raster artifacts.",
+            titleKey: "apps.products.pages.aristo-badges.details.features.svg-native.title",
+            descriptionKey:
+              "apps.products.pages.aristo-badges.details.features.svg-native.description",
           },
           {
-            title: "Composable",
-            description:
-              "Use badges individually or combine multiple metrics for compact project dashboards.",
+            titleKey: "apps.products.pages.aristo-badges.details.features.composable.title",
+            descriptionKey:
+              "apps.products.pages.aristo-badges.details.features.composable.description",
           },
         ]}
       />

@@ -3,11 +3,14 @@
 import { Section } from "@/components/Section";
 import { SectionNamespace, Align } from "@/config";
 import { SmartLink } from "@/components/ui";
+import { useTranslate } from "@/context";
 import { sections } from "./constants";
 
 import "./OpenSourceRadar.scss";
 
 export const OpenSourceRadar = () => {
+  const { t } = useTranslate();
+
   return (
     <Section
       namespace={SectionNamespace.OpenSourceRadar}
@@ -21,7 +24,7 @@ export const OpenSourceRadar = () => {
         {sections.map((section) => (
           <article key={section.id} className="open-source-radar__section">
             <h3 className="open-source-radar__section-title">
-              {section.title}
+              {t(section.titleKey)}
             </h3>
             <div className="open-source-radar__items">
               {section.items.map((item) => (
@@ -30,9 +33,9 @@ export const OpenSourceRadar = () => {
                   href={item.href}
                   className="open-source-radar__item"
                 >
-                  <h4>{item.title}</h4>
-                  <p>{item.description}</p>
-                  <span>{item.cta}</span>
+                  <h4>{t(item.titleKey)}</h4>
+                  <p>{t(item.descriptionKey)}</p>
+                  <span>{t(item.ctaKey)}</span>
                 </SmartLink>
               ))}
             </div>

@@ -17,37 +17,37 @@ export default function AristoByteUICLIPage() {
         descriptionKey="apps.products.pages.aristobyte-ui-cli.details.description"
         links={[
           {
-            label: "CLI Docs",
+            label: "apps.products.pages.aristobyte-ui-cli.details.links.cli-docs",
             href: "https://ui.aristobyte.com/get-started/aristobyte-ui-cli",
           },
           {
-            label: "GH Package CLI",
+            label: "apps.products.pages.aristobyte-ui-cli.details.links.gh-package-cli",
             href: "https://github.com/aristobyte-ui/aristobyte-ui/pkgs/npm/cli",
           },
           {
-            label: "Source Code",
+            label: "apps.products.pages.aristobyte-ui-cli.details.links.source-code",
             href: "https://github.com/aristobyte-ui/aristobyte-ui/tree/master/packages/cli",
           },
           {
-            label: "NPM",
+            label: "apps.products.pages.aristobyte-ui-cli.details.links.npm",
             href: "https://www.npmjs.com/package/@aristobyte-ui/cli",
           },
         ]}
         features={[
           {
-            title: "Scaffold Fast",
-            description:
-              "Generate consistent UI primitives and project structure quickly, with less setup friction.",
+            titleKey: "apps.products.pages.aristobyte-ui-cli.details.features.scaffold-fast.title",
+            descriptionKey:
+              "apps.products.pages.aristobyte-ui-cli.details.features.scaffold-fast.description",
           },
           {
-            title: "Package-Aware",
-            description:
-              "Install and update package-level resources using a single workflow aligned with the AristoByte UI ecosystem.",
+            titleKey: "apps.products.pages.aristobyte-ui-cli.details.features.package-aware.title",
+            descriptionKey:
+              "apps.products.pages.aristobyte-ui-cli.details.features.package-aware.description",
           },
           {
-            title: "Team Consistency",
-            description:
-              "Keep naming, structure, and upgrade flow predictable across developers and repositories.",
+            titleKey: "apps.products.pages.aristobyte-ui-cli.details.features.team-consistency.title",
+            descriptionKey:
+              "apps.products.pages.aristobyte-ui-cli.details.features.team-consistency.description",
           },
         ]}
       />

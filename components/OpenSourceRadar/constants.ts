@@ -1,71 +1,90 @@
 type RadarItemType = {
   id: string;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   href: string;
-  cta: string;
+  ctaKey: string;
 };
 
 const releases: RadarItemType[] = [
   {
     id: "ui-cli-release",
-    title: "@aristobyte-ui/cli",
-    description:
-      "Latest CLI package updates, publish history, and distribution visibility.",
+    titleKey: "insights.open-source-radar.sections.releases.items.ui-cli-release.title",
+    descriptionKey:
+      "insights.open-source-radar.sections.releases.items.ui-cli-release.description",
     href: "https://www.npmjs.com/package/@aristobyte-ui/cli",
-    cta: "View package",
+    ctaKey: "insights.open-source-radar.sections.releases.items.ui-cli-release.cta",
   },
   {
     id: "ui-releases",
-    title: "Repository Releases",
-    description:
-      "Version tags and release notes from the main aristobyte-ui repository.",
+    titleKey: "insights.open-source-radar.sections.releases.items.ui-releases.title",
+    descriptionKey:
+      "insights.open-source-radar.sections.releases.items.ui-releases.description",
     href: "https://github.com/aristobyte-ui/aristobyte-ui/releases",
-    cta: "Open releases",
+    ctaKey: "insights.open-source-radar.sections.releases.items.ui-releases.cta",
   },
 ];
 
 const milestones: RadarItemType[] = [
   {
     id: "project-board",
-    title: "Roadmap Board",
-    description:
-      "Delivery milestones and planned work streams tracked in the public project board.",
+    titleKey:
+      "insights.open-source-radar.sections.milestones.items.project-board.title",
+    descriptionKey:
+      "insights.open-source-radar.sections.milestones.items.project-board.description",
     href: "https://github.com/orgs/aristobyte-ui/projects/2/views/1?filterQuery=",
-    cta: "Open roadmap",
+    ctaKey:
+      "insights.open-source-radar.sections.milestones.items.project-board.cta",
   },
   {
     id: "apps-overview",
-    title: "Product Surface",
-    description:
-      "Current app landscape and package ecosystem visible from the products overview.",
+    titleKey:
+      "insights.open-source-radar.sections.milestones.items.apps-overview.title",
+    descriptionKey:
+      "insights.open-source-radar.sections.milestones.items.apps-overview.description",
     href: "/apps",
-    cta: "See products",
+    ctaKey:
+      "insights.open-source-radar.sections.milestones.items.apps-overview.cta",
   },
 ];
 
 const discussions: RadarItemType[] = [
   {
     id: "org-discussions",
-    title: "GitHub Discussions",
-    description:
-      "Feature requests, proposals, and community threads across AristoByte spaces.",
+    titleKey:
+      "insights.open-source-radar.sections.discussions.items.org-discussions.title",
+    descriptionKey:
+      "insights.open-source-radar.sections.discussions.items.org-discussions.description",
     href: "https://github.com/orgs/aristobyte-ui/discussions",
-    cta: "Join discussion",
+    ctaKey:
+      "insights.open-source-radar.sections.discussions.items.org-discussions.cta",
   },
   {
     id: "community-route",
-    title: "Community Hub",
-    description:
-      "Entry point for ecosystem links, contribution channels, and community resources.",
+    titleKey:
+      "insights.open-source-radar.sections.discussions.items.community-route.title",
+    descriptionKey:
+      "insights.open-source-radar.sections.discussions.items.community-route.description",
     href: "/community",
-    cta: "Open community",
+    ctaKey:
+      "insights.open-source-radar.sections.discussions.items.community-route.cta",
   },
 ];
 
 export const sections = [
-  { id: "releases", title: "Releases", items: releases },
-  { id: "milestones", title: "Roadmap Milestones", items: milestones },
-  { id: "discussions", title: "Discussions", items: discussions },
+  {
+    id: "releases",
+    titleKey: "insights.open-source-radar.sections.releases.title",
+    items: releases,
+  },
+  {
+    id: "milestones",
+    titleKey: "insights.open-source-radar.sections.milestones.title",
+    items: milestones,
+  },
+  {
+    id: "discussions",
+    titleKey: "insights.open-source-radar.sections.discussions.title",
+    items: discussions,
+  },
 ];
-

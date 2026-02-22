@@ -5,6 +5,7 @@ import { CdnIcon } from "@/components";
 import { Section } from "@/components/Section";
 import { SectionNamespace, Align } from "@/config";
 import { SmartLink } from "@/components/ui";
+import { useTranslate } from "@/context";
 import {
   deepDives,
   filters,
@@ -17,6 +18,7 @@ import {
 import "./EngineeringNotes.scss";
 
 export const EngineeringNotes = () => {
+  const { t } = useTranslate();
   const [activeFilter, setActiveFilter] = React.useState<FilterType>("all");
   const filteredNotes =
     activeFilter === "all"
@@ -36,19 +38,23 @@ export const EngineeringNotes = () => {
         <article className="engineering-notes__highlight">
           <span className="engineering-notes__highlight-value">2</span>
           <span className="engineering-notes__highlight-label">
-            Active NPM Namespaces
+            {t("insights.engineering-notes.highlights.namespaces")}
           </span>
         </article>
         <article className="engineering-notes__highlight">
-          <span className="engineering-notes__highlight-value">Release</span>
+          <span className="engineering-notes__highlight-value">
+            {t("insights.engineering-notes.highlights.release-title")}
+          </span>
           <span className="engineering-notes__highlight-label">
-            Notes focus on shipping outcomes and package changes
+            {t("insights.engineering-notes.highlights.release-description")}
           </span>
         </article>
         <article className="engineering-notes__highlight">
-          <span className="engineering-notes__highlight-value">Policy</span>
+          <span className="engineering-notes__highlight-value">
+            {t("insights.engineering-notes.highlights.policy-title")}
+          </span>
           <span className="engineering-notes__highlight-label">
-            Migrations include impact summary and clear transition path
+            {t("insights.engineering-notes.highlights.policy-description")}
           </span>
         </article>
       </div>
@@ -57,17 +63,19 @@ export const EngineeringNotes = () => {
         {namespaces.map((namespace) => (
           <article key={namespace.id} className="engineering-notes__namespace">
             <div className="engineering-notes__namespace-top">
-              <h3>{namespace.title}</h3>
-              <SmartLink href={namespace.href}>Open</SmartLink>
+              <h3>{t(namespace.titleKey)}</h3>
+              <SmartLink href={namespace.href}>
+                {t("insights.engineering-notes.actions.open")}
+              </SmartLink>
             </div>
-            <p>{namespace.description}</p>
+            <p>{t(namespace.descriptionKey)}</p>
             <div className="engineering-notes__namespace-links">
               {namespace.links.map((link) => (
                 <SmartLink
-                  key={`${namespace.id}-${link.label}`}
+                  key={`${namespace.id}-${link.labelKey}`}
                   href={link.href}
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </SmartLink>
               ))}
             </div>
@@ -84,7 +92,7 @@ export const EngineeringNotes = () => {
             data-active={activeFilter === filter.id}
             onClick={() => setActiveFilter(filter.id)}
           >
-            {filter.label}
+            {t(filter.label)}
           </button>
         ))}
       </div>
@@ -99,16 +107,18 @@ export const EngineeringNotes = () => {
                   className={`engineering-notes__type engineering-notes__type--${note.type}`}
                 >
                   <CdnIcon name={noteTypeIcon[note.type]} size={14} />
-                  {note.type}
+                  {t(`insights.engineering-notes.filters.${note.type}`)}
                 </span>
                 <time dateTime={note.date}>{note.date}</time>
               </div>
-              <h4>{note.title}</h4>
-              <p>{note.description}</p>
+              <h4>{t(note.titleKey)}</h4>
+              <p>{t(note.descriptionKey)}</p>
               <div className="engineering-notes__footer">
-                <span>{note.namespace}</span>
+                <span>{t(note.namespaceKey)}</span>
                 {note.href ? (
-                  <SmartLink href={note.href}>Source</SmartLink>
+                  <SmartLink href={note.href}>
+                    {t("insights.engineering-notes.actions.source")}
+                  </SmartLink>
                 ) : null}
               </div>
             </div>
@@ -117,12 +127,12 @@ export const EngineeringNotes = () => {
       </div>
 
       <div className="engineering-notes__deep-dives">
-        <h3>Tooling Deep Dives</h3>
+        <h3>{t("insights.engineering-notes.deep-dives.title")}</h3>
         <div className="engineering-notes__deep-grid">
           {deepDives.map((dive) => (
             <article key={dive.id} className="engineering-notes__deep-card">
-              <h4>{dive.title}</h4>
-              <p>{dive.description}</p>
+              <h4>{t(dive.titleKey)}</h4>
+              <p>{t(dive.descriptionKey)}</p>
             </article>
           ))}
         </div>

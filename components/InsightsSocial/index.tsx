@@ -62,7 +62,12 @@ export const InsightsSocial = () => {
       <Slider
         className="insights-social__slider"
         title={t("insights.social.instagram.title")}
-        itemLabel="Instagram post"
+        itemLabel={t("insights.social.slider.item-label")}
+        labels={{
+          goTo: t("insights.social.slider.go-to"),
+          previous: t("insights.social.slider.previous"),
+          next: t("insights.social.slider.next"),
+        }}
         slidesToShow={1}
         slidesToScroll={1}
         gap={14}

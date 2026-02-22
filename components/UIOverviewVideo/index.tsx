@@ -3,10 +3,13 @@
 import * as React from "react";
 import { Section } from "@/components/Section";
 import { SectionNamespace, Align } from "@/config";
+import { useTranslate } from "@/context";
 
 import "./UIOverviewVideo.scss";
 
 export const UIOverviewVideo = () => {
+  const { t } = useTranslate();
+
   return (
     <Section
       namespace={SectionNamespace.UIOverview}
@@ -17,7 +20,7 @@ export const UIOverviewVideo = () => {
         <iframe
           className="ui-overview__video"
           src="https://www.youtube.com/embed/aKAhw2RkZfA"
-          title="AristoByte UI Product Overview"
+          title={t("ui.overview.video-title")}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerPolicy="strict-origin-when-cross-origin"
           allowFullScreen

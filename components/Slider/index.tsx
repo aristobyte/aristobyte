@@ -41,6 +41,11 @@ type SliderPropsType = {
   pauseOnHover?: boolean;
   transitionMs?: number;
   itemLabel?: string;
+  labels?: {
+    previous?: string;
+    next?: string;
+    goTo?: string;
+  };
 };
 
 type SlidePropsType = {
@@ -79,7 +84,8 @@ export const Slider = ({
   autoplayInterval = 5200,
   pauseOnHover = true,
   transitionMs = DEFAULT_TRANSITION_MS,
-  itemLabel = "slide",
+  itemLabel = "",
+  labels,
 }: SliderPropsType) => {
   const viewportRef = React.useRef<HTMLDivElement | null>(null);
   const [viewportWidth, setViewportWidth] = React.useState(0);
@@ -432,7 +438,7 @@ export const Slider = ({
                 role="tab"
                 className="slider__dot"
                 data-active={dotActive}
-                aria-label={`Go to ${itemLabel} ${index + 1}`}
+                aria-label={`${labels?.goTo ?? ""} ${itemLabel} ${index + 1}`.trim()}
                 onClick={() => onDotClick(index)}
               />
             );
@@ -447,7 +453,7 @@ export const Slider = ({
             type="button"
             onClick={previous}
             disabled={hideControls || (!infinite && isAtStart)}
-            aria-label={`Previous ${itemLabel}`}
+            aria-label={`${labels?.previous ?? ""} ${itemLabel}`.trim()}
           >
             <Icons.ArrowLeft size={18} />
           </button>
@@ -459,7 +465,7 @@ export const Slider = ({
             type="button"
             onClick={next}
             disabled={hideControls || (!infinite && isAtEnd)}
-            aria-label={`Next ${itemLabel}`}
+            aria-label={`${labels?.next ?? ""} ${itemLabel}`.trim()}
           >
             <Icons.ArrowRight size={18} />
           </button>

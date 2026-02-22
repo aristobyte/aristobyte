@@ -4,73 +4,49 @@ import NextLink from "next/link";
 import { CdnIcon } from "@/components";
 import { Section } from "@/components/Section";
 import { SectionNamespace, Align } from "@/config";
+import { useTranslate } from "@/context";
 
 import "./CaseStudies.scss";
 
 const snapshots = [
   {
     id: "1",
-    title: "Design System Unification",
-    tag: "UI Architecture",
-    metric: "Delivery time -28%",
     icon: "mdi:shape-outline",
     image: "/images/what-we-create/ux-ui-designs.png",
-    problem: "Inconsistent cross-page UI patterns slowed delivery.",
-    approach: "Unified shared components and route structure.",
-    outcome: "Faster iteration and lower implementation overhead.",
   },
   {
     id: "2",
-    title: "CLI Onboarding Flow",
-    tag: "Developer Experience",
-    metric: "Setup friction -41%",
     icon: "mdi:console",
     image: "/images/what-we-create/ai-automation.png",
-    problem: "CLI onboarding lacked clarity for first-time users.",
-    approach: "Reworked docs and terminal-first demo experience.",
-    outcome: "Reduced setup friction and improved adoption confidence.",
   },
   {
     id: "3",
-    title: "Product Surface Alignment",
-    tag: "Product Strategy",
-    metric: "Navigation clarity +32%",
     icon: "mdi:view-grid-outline",
     image: "/images/what-we-create/product-strategy.png",
-    problem: "Multiple product surfaces felt disconnected.",
-    approach: "Aligned visual language and information hierarchy.",
-    outcome: "Clearer user journey and stronger product narrative.",
   },
 ];
 
 const authors = [
   {
     id: "1",
-    name: "AristoByte Team",
-    role: "Engineering",
-    focus: "DX & architecture",
     icon: "mdi:code-tags",
     accentIcon: "mdi:source-branch",
   },
   {
     id: "2",
-    name: "AristoByte Team",
-    role: "Design",
-    focus: "UI systems & usability",
     icon: "mdi:palette-outline",
     accentIcon: "mdi:vector-square",
   },
   {
     id: "3",
-    name: "AristoByte Team",
-    role: "Product",
-    focus: "Roadmap & delivery",
     icon: "mdi:compass-outline",
     accentIcon: "mdi:target",
   },
 ];
 
 export const CaseStudies = () => {
+  const { t } = useTranslate();
+
   return (
     <Section
       namespace={SectionNamespace.CaseStudies}
@@ -93,10 +69,10 @@ export const CaseStudies = () => {
                 />
               </div>
               <div className="case-studies__card-meta">
-                <span className="case-studies__tag">{item.tag}</span>
-                <h3>{item.title}</h3>
+                <span className="case-studies__tag">{t(`insights.case-studies.snapshots.${item.id}.tag`)}</span>
+                <h3>{t(`insights.case-studies.snapshots.${item.id}.title`)}</h3>
               </div>
-              <span className="case-studies__metric">{item.metric}</span>
+              <span className="case-studies__metric">{t(`insights.case-studies.snapshots.${item.id}.metric`)}</span>
             </header>
 
             <div className="case-studies__flow">
@@ -105,27 +81,27 @@ export const CaseStudies = () => {
                   <span className="case-studies__flow-icon">
                     <CdnIcon name="mdi:alert-circle-outline" size={14} color="#f18f34" />
                   </span>
-                  Problem
+                  {t("insights.case-studies.labels.problem")}
                 </strong>
-                {item.problem}
+                {t(`insights.case-studies.snapshots.${item.id}.problem`)}
               </p>
               <p>
                 <strong>
                   <span className="case-studies__flow-icon">
                     <CdnIcon name="mdi:lightbulb-on-outline" size={14} color="#f18f34" />
                   </span>
-                  Approach
+                  {t("insights.case-studies.labels.approach")}
                 </strong>
-                {item.approach}
+                {t(`insights.case-studies.snapshots.${item.id}.approach`)}
               </p>
               <p>
                 <strong>
                   <span className="case-studies__flow-icon">
                     <CdnIcon name="mdi:check-decagram-outline" size={14} color="#f18f34" />
                   </span>
-                  Outcome
+                  {t("insights.case-studies.labels.outcome")}
                 </strong>
-                {item.outcome}
+                {t(`insights.case-studies.snapshots.${item.id}.outcome`)}
               </p>
             </div>
 
@@ -134,26 +110,26 @@ export const CaseStudies = () => {
                 <span className="case-studies__foot-icon">
                   <CdnIcon name={item.icon} size={14} color="#f18f34" />
                 </span>
-                Snapshot {item.id}
+                {t("insights.case-studies.labels.snapshot")} {item.id}
               </span>
-              <span>AristoByte Internal</span>
+              <span>{t("insights.case-studies.labels.internal")}</span>
             </div>
           </article>
         ))}
       </div>
 
         <section className="case-studies__separator case-studies__separator--notes">
-          <span className="case-studies__separator-kicker">Insights Track</span>
-          <h3>Engineering Notes</h3>
-          <p>Architecture decisions, migrations, and release-level implementation updates.</p>
+          <span className="case-studies__separator-kicker">{t("insights.case-studies.separators.notes.kicker")}</span>
+          <h3>{t("insights.case-studies.separators.notes.title")}</h3>
+          <p>{t("insights.case-studies.separators.notes.description")}</p>
           <span className="case-studies__separator-line" aria-hidden="true" />
           <NextLink className="case-studies__separator-cta" href="/insights/engineering-notes">
-            Open Engineering Notes
+            {t("insights.case-studies.separators.notes.cta")}
             <CdnIcon name="mdi:arrow-right" size={14} color="#f18f34" />
           </NextLink>
         </section>
 
-      <h3 className="case-studies__subtitle">Authors</h3>
+      <h3 className="case-studies__subtitle">{t("insights.case-studies.authors.title")}</h3>
       <div className="case-studies__authors">
         {authors.map((author) => (
           <article key={author.id} className="case-studies__author">
@@ -167,16 +143,16 @@ export const CaseStudies = () => {
                 </span>
               </div>
               <div>
-                <h4>{author.name}</h4>
-                <p>{author.role}</p>
+                <h4>{t(`insights.case-studies.authors.items.${author.id}.name`)}</h4>
+                <p>{t(`insights.case-studies.authors.items.${author.id}.role`)}</p>
               </div>
             </div>
-            <span>{author.focus}</span>
+            <span>{t(`insights.case-studies.authors.items.${author.id}.focus`)}</span>
             <i>
               <span className="case-studies__flow-icon">
                 <CdnIcon name={author.icon} size={14} color="#f18f34" />
               </span>
-              Active on this stream
+              {t("insights.case-studies.authors.active-stream")}
             </i>
           </article>
         ))}
@@ -184,17 +160,17 @@ export const CaseStudies = () => {
 
         <section className="case-studies__separator case-studies__separator--apps">
           <div className="case-studies__separator-main">
-            <span className="case-studies__separator-kicker">Product Surface</span>
-            <h3>Explore AristoByte Apps</h3>
-            <p>Review all products and how each stream connects with the case studies above.</p>
+            <span className="case-studies__separator-kicker">{t("insights.case-studies.separators.apps.kicker")}</span>
+            <h3>{t("insights.case-studies.separators.apps.title")}</h3>
+            <p>{t("insights.case-studies.separators.apps.description")}</p>
           </div>
           <div className="case-studies__separator-actions">
             <NextLink className="case-studies__separator-cta" href="/apps">
-              Open Product Overview
+              {t("insights.case-studies.separators.apps.primary-cta")}
               <CdnIcon name="mdi:arrow-right" size={14} color="#f18f34" />
             </NextLink>
             <NextLink className="case-studies__separator-cta case-studies__separator-cta--subtle" href="/insights/open-source-radar">
-              Open Source Radar
+              {t("insights.case-studies.separators.apps.secondary-cta")}
               <CdnIcon name="mdi:arrow-right" size={14} color="#f18f34" />
             </NextLink>
           </div>

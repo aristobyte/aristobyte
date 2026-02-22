@@ -17,29 +17,29 @@ export default function AristoRepoPage() {
         descriptionKey="apps.products.pages.aristo-repo.details.description"
         links={[
           {
-            label: "GitHub Repo",
+            label: "apps.products.pages.aristo-repo.details.links.github-repo",
             href: "https://github.com/aristobyte-ui/aristo-repo",
           },
           {
-            label: "AristoByte GitHub Org",
+            label: "apps.products.pages.aristo-repo.details.links.aristobyte-github-org",
             href: "https://github.com/aristobyte",
           },
         ]}
         features={[
           {
-            title: "Repository Pulse",
-            description:
-              "Track essential activity indicators like delivery rhythm, change volume, and contribution trends.",
+            titleKey: "apps.products.pages.aristo-repo.details.features.repository-pulse.title",
+            descriptionKey:
+              "apps.products.pages.aristo-repo.details.features.repository-pulse.description",
           },
           {
-            title: "Maintainer Workflows",
-            description:
-              "Support maintainers with clear checkpoints for triage, release preparation, and follow-up tasks.",
+            titleKey: "apps.products.pages.aristo-repo.details.features.maintainer-workflows.title",
+            descriptionKey:
+              "apps.products.pages.aristo-repo.details.features.maintainer-workflows.description",
           },
           {
-            title: "Execution Visibility",
-            description:
-              "Surface operational context in one place for both engineering and product stakeholders.",
+            titleKey: "apps.products.pages.aristo-repo.details.features.execution-visibility.title",
+            descriptionKey:
+              "apps.products.pages.aristo-repo.details.features.execution-visibility.description",
           },
         ]}
       />

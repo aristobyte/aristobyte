@@ -44,11 +44,11 @@ export const Header = () => {
   );
 
   const mobileTitle = React.useMemo(() => {
-    if (pathname === "/") return "AristoByte";
-    if (pathname.startsWith("/apps/aristobyte-ui-cli")) return "AristoByte UI CLI";
-    if (pathname.startsWith("/apps/aristobyte-ui")) return "AristoByte UI";
-    if (pathname.startsWith("/apps/aristo-badges")) return "AristoBadges";
-    if (pathname.startsWith("/apps/aristo-repo")) return "AristoRepo";
+    if (pathname === "/") return t("header.brand");
+    if (pathname.startsWith("/apps/aristobyte-ui-cli")) return t("header.nav.aristobyte-ui-cli");
+    if (pathname.startsWith("/apps/aristobyte-ui")) return t("header.nav.aristobyte-ui");
+    if (pathname.startsWith("/apps/aristo-badges")) return t("header.nav.aristo-badges");
+    if (pathname.startsWith("/apps/aristo-repo")) return t("header.nav.aristo-repo");
     if (pathname.startsWith("/apps")) return t("header.nav.apps");
     if (pathname.startsWith("/community/contribute")) {
       return t("header.nav.community-contribute");
@@ -77,8 +77,8 @@ export const Header = () => {
     if (pathname.startsWith("/community")) return t("header.nav.community");
     if (pathname.startsWith("/insights")) return t("header.nav.insights");
     if (pathname.startsWith("/contact")) return t("header.nav.contact");
-    if (pathname.startsWith("/compliance")) return "Compliance";
-    return "AristoByte";
+    if (pathname.startsWith("/compliance")) return t("header.nav.compliance");
+    return t("header.brand");
   }, [pathname, t]);
 
   const closeMenu = React.useCallback(() => {
@@ -248,7 +248,7 @@ export const Header = () => {
           <button
             type="button"
             className={`header__mobile-square header__mobile-square--left ${menuOpen ? "header__mobile-square--open" : ""}`}
-            aria-label={menuOpen ? "Go back" : "Go to homepage"}
+            aria-label={menuOpen ? t("header.actions.go-back") : t("header.actions.go-home")}
             disabled={menuOpen && !currentListData.goBack}
             onClick={() => {
               if (menuOpen) {
@@ -281,7 +281,7 @@ export const Header = () => {
               </span>
             </span>
           </span>
-          <span className="header__logo-text">AristoByte</span>
+          <span className="header__logo-text">{t("header.brand")}</span>
         </NextLink>
 
         <button
@@ -289,7 +289,7 @@ export const Header = () => {
           type="button"
           aria-controls="header-nav"
           aria-expanded={menuOpen}
-          aria-label="Toggle navigation"
+          aria-label={t("header.actions.toggle-navigation")}
           onClick={handleToggleClick}
         >
           <span className="header__toggle-icon-wrap">
@@ -306,7 +306,7 @@ export const Header = () => {
           </span>
         </button>
 
-        <nav id="header-nav" className="header__nav" aria-label="Primary">
+        <nav id="header-nav" className="header__nav" aria-label={t("header.actions.primary-nav")}>
           <ul
             className={`header__list header__list--${menuOpen ? "opened" : "closed"}`}
           >

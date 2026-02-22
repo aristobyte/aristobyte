@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AristoByte Newsletter</title>
+    <title>{{EMAIL_TITLE}}</title>
   </head>
   <body
     style="
@@ -15,8 +15,7 @@
     "
   >
     <div style="display: none; max-height: 0; overflow: hidden; opacity: 0">
-      Subscription confirmed. You will receive AristoByte release notes and
-      major updates.
+      {{PREHEADER}}
     </div>
 
     <table
@@ -71,7 +70,7 @@
                         letter-spacing: 0.02em;
                       "
                     >
-                      AristoNews · The Newsletter of AristoByte
+                      {{HEADER_BRAND}}
                     </td>
                   </tr>
                 </table>
@@ -98,7 +97,7 @@
                     text-transform: uppercase;
                   "
                 >
-                  Subscription Status
+                  {{STATUS_LABEL}}
                 </p>
                 <h1
                   style="
@@ -110,7 +109,7 @@
                     letter-spacing: -0.02em;
                   "
                 >
-                  Subscription Confirmed
+                  {{CONFIRMED_TITLE}}
                 </h1>
                 <p
                   style="
@@ -120,7 +119,7 @@
                     line-height: 1.5;
                   "
                 >
-                  You're now subscribed with
+                  {{SUBSCRIBED_WITH}}
                   <strong style="color: #ffffff">{{EMAIL}}</strong>
                 </p>
               </td>
@@ -174,9 +173,7 @@
                         line-height: 1.6;
                       "
                     >
-                      You will receive major release notes, roadmap milestones,
-                      and curated engineering updates from the AristoByte
-                      ecosystem.
+                      {{UPDATES_DESCRIPTION}}
                     </td>
                   </tr>
                 </table>
@@ -212,7 +209,7 @@
                               line-height: 1.5;
                             "
                           >
-                            Release notes
+                            {{RELEASE_NOTES_LABEL}}
                           </td>
                         </tr>
                       </table>
@@ -236,7 +233,7 @@
                               line-height: 1.5;
                             "
                           >
-                            Roadmap signals
+                            {{ROADMAP_SIGNALS_LABEL}}
                           </td>
                         </tr>
                       </table>
@@ -260,7 +257,7 @@
                               line-height: 1.5;
                             "
                           >
-                            Product updates
+                            {{PRODUCT_UPDATES_LABEL}}
                           </td>
                         </tr>
                       </table>
@@ -292,7 +289,7 @@
                     letter-spacing: 0.01em;
                   "
                 >
-                  Explore Insights
+                  {{EXPLORE_INSIGHTS}}
                 </a>
               </td>
             </tr>
@@ -307,11 +304,11 @@
                     line-height: 1.6;
                   "
                 >
-                  You can unsubscribe at any time:
+                  {{UNSUBSCRIBE_ANYTIME}}
                   <a
                     href="{{UNSUBSCRIBE_URL}}"
                     style="color: #ff9b76; text-decoration: none"
-                    >Unsubscribe</a
+                    >{{UNSUBSCRIBE}}</a
                   >
                 </p>
               </td>
@@ -337,7 +334,7 @@
                         padding-bottom: 8px;
                       "
                     >
-                      AristoByte Network
+                      {{NETWORK_TITLE}}
                     </td>
                   </tr>
                   <tr>
@@ -349,8 +346,7 @@
                         padding-bottom: 12px;
                       "
                     >
-                      Modern products and developer systems with a focus on
-                      clean execution, performance, and maintainability.
+                      {{NETWORK_DESCRIPTION}}
                     </td>
                   </tr>
                   <tr>
@@ -364,7 +360,7 @@
                         padding-bottom: 8px;
                       "
                     >
-                      External
+                      {{EXTERNAL_LABEL}}
                     </td>
                   </tr>
                   <tr>
@@ -376,7 +372,7 @@
                           font-size: 12px;
                           text-decoration: none;
                         "
-                        >GitHub</a
+                        >{{SOCIAL_GITHUB}}</a
                       >
                       <span style="color: #5f6e8e; padding: 0 6px">·</span>
                       <a
@@ -386,7 +382,7 @@
                           font-size: 12px;
                           text-decoration: none;
                         "
-                        >Stack Overflow</a
+                        >{{SOCIAL_STACKOVERFLOW}}</a
                       >
                       <span style="color: #5f6e8e; padding: 0 6px">·</span>
                       <a
@@ -396,7 +392,7 @@
                           font-size: 12px;
                           text-decoration: none;
                         "
-                        >NPM</a
+                        >{{SOCIAL_NPM}}</a
                       >
                       <span style="color: #5f6e8e; padding: 0 6px">·</span>
                       <a
@@ -406,7 +402,7 @@
                           font-size: 12px;
                           text-decoration: none;
                         "
-                        >Email</a
+                        >{{SOCIAL_EMAIL}}</a
                       >
                       <span style="color: #5f6e8e; padding: 0 6px">·</span>
                       <a
@@ -416,7 +412,7 @@
                           font-size: 12px;
                           text-decoration: none;
                         "
-                        >LinkedIn</a
+                        >{{SOCIAL_LINKEDIN}}</a
                       >
                       <span style="color: #5f6e8e; padding: 0 6px">·</span>
                       <a
@@ -426,7 +422,7 @@
                           font-size: 12px;
                           text-decoration: none;
                         "
-                        >Instagram</a
+                        >{{SOCIAL_INSTAGRAM}}</a
                       >
                       <span style="color: #5f6e8e; padding: 0 6px">·</span>
                       <a
@@ -436,7 +432,7 @@
                           font-size: 12px;
                           text-decoration: none;
                         "
-                        >YouTube</a
+                        >{{SOCIAL_YOUTUBE}}</a
                       >
                       <span style="color: #5f6e8e; padding: 0 6px">·</span>
                       <a
@@ -446,7 +442,7 @@
                           font-size: 12px;
                           text-decoration: none;
                         "
-                        >Open Collective</a
+                        >{{SOCIAL_OPEN_COLLECTIVE}}</a
                       >
                       <span style="color: #5f6e8e; padding: 0 6px">·</span>
                       <a
@@ -456,7 +452,7 @@
                           font-size: 12px;
                           text-decoration: none;
                         "
-                        >Patreon</a
+                        >{{SOCIAL_PATREON}}</a
                       >
                     </td>
                   </tr>
@@ -472,7 +468,7 @@
                         padding-top: 18px;
                       "
                     >
-                      Compliance
+                      {{COMPLIANCE_LABEL}}
                     </td>
                   </tr>
                   <tr>
@@ -484,7 +480,7 @@
                           font-size: 12px;
                           text-decoration: none;
                         "
-                        >Privacy Policy</a
+                        >{{COMPLIANCE_PRIVACY_POLICY}}</a
                       >
                       <span style="color: #5f6e8e; padding: 0 6px">·</span>
                       <a
@@ -494,7 +490,7 @@
                           font-size: 12px;
                           text-decoration: none;
                         "
-                        >Terms &amp; Conditions</a
+                        >{{COMPLIANCE_TERMS_AND_CONDITIONS}}</a
                       >
                       <span style="color: #5f6e8e; padding: 0 6px">·</span>
                       <a
@@ -504,7 +500,7 @@
                           font-size: 12px;
                           text-decoration: none;
                         "
-                        >Cookie Policy</a
+                        >{{COMPLIANCE_COOKIE_POLICY}}</a
                       >
                       <span style="color: #5f6e8e; padding: 0 6px">·</span>
                       <a
@@ -514,7 +510,7 @@
                           font-size: 12px;
                           text-decoration: none;
                         "
-                        >Return Policy</a
+                        >{{COMPLIANCE_RETURN_POLICY}}</a
                       >
                       <span style="color: #5f6e8e; padding: 0 6px">·</span>
                       <a
@@ -524,7 +520,7 @@
                           font-size: 12px;
                           text-decoration: none;
                         "
-                        >Acceptable Use Policy</a
+                        >{{COMPLIANCE_ACCEPTABLE_USE_POLICY}}</a
                       >
                       <span style="color: #5f6e8e; padding: 0 6px">·</span>
                       <a
@@ -534,7 +530,7 @@
                           font-size: 12px;
                           text-decoration: none;
                         "
-                        >Disclaimer</a
+                        >{{COMPLIANCE_DISCLAIMER}}</a
                       >
                       <span style="color: #5f6e8e; padding: 0 6px">·</span>
                       <a
@@ -544,7 +540,7 @@
                           font-size: 12px;
                           text-decoration: none;
                         "
-                        >EULA</a
+                        >{{COMPLIANCE_EULA}}</a
                       >
                       <span style="color: #5f6e8e; padding: 0 6px">·</span>
                       <a
@@ -554,7 +550,7 @@
                           font-size: 12px;
                           text-decoration: none;
                         "
-                        >DSAR</a
+                        >{{COMPLIANCE_DSAR}}</a
                       >
                     </td>
                   </tr>
@@ -562,11 +558,11 @@
                     <td
                       style="color: #7e8ca9; font-size: 11px; line-height: 1.6"
                     >
-                      © {{YEAR}} AristoByte ·
+                      © {{YEAR}} {{BRAND_NAME}} ·
                       <a
                         href="{{SITE_URL}}/compliance"
                         style="color: #9bb2d8; text-decoration: none"
-                        >Compliance Center</a
+                        >{{COMPLIANCE_CENTER}}</a
                       >
                     </td>
                   </tr>

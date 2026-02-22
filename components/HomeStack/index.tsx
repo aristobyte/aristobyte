@@ -37,7 +37,7 @@ export const HomeStack = () => {
                   className="home-stack__group-toggle"
                   aria-expanded={openGroupId === id}
                   aria-controls={`home-stack-panel-${id}`}
-                  aria-label={`Open ${t(`home.stack.groups.${id}.title`)}`}
+                  aria-label={t(`home.stack.groups.${id}.title`)}
                   onClick={() => {
                     if (openGroupId === id) return;
                     setOpenGroupId(id);
@@ -59,7 +59,7 @@ export const HomeStack = () => {
                 <div className="home-stack__badges">
                   {items.map((item) => (
                     <span key={item} className="home-stack__badge">
-                      {item}
+                      {t(`home.stack.items.${item}`)}
                     </span>
                   ))}
                 </div>

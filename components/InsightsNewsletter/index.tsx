@@ -3,10 +3,12 @@
 import * as React from "react";
 import { Section } from "@/components/Section";
 import { SectionNamespace } from "@/config";
+import { useTranslate } from "@/context";
 
 import "./InsightsNewsletter.scss";
 
 export const InsightsNewsletter = () => {
+  const { t } = useTranslate();
   const [email, setEmail] = React.useState("");
   const [releaseNotes, setReleaseNotes] = React.useState(true);
   const [majorPosts, setMajorPosts] = React.useState(true);
@@ -23,21 +25,21 @@ export const InsightsNewsletter = () => {
     const newsletterStatus = params.get("newsletter");
     if (newsletterStatus === "unsubscribed") {
       setStatus("success");
-      setMessage("You have been unsubscribed from newsletter updates.");
+      setMessage(t("insights.newsletter.messages.unsubscribed"));
       return;
     }
 
     if (newsletterStatus === "already_unsubscribed") {
       setStatus("success");
-      setMessage("This email was already unsubscribed.");
+      setMessage(t("insights.newsletter.messages.already-unsubscribed"));
       return;
     }
 
     if (newsletterStatus === "error") {
       setStatus("error");
-      setMessage("Unsubscribe link is invalid or expired.");
+      setMessage(t("insights.newsletter.messages.invalid-unsubscribe"));
     }
-  }, []);
+  }, [t]);
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -70,16 +72,16 @@ export const InsightsNewsletter = () => {
 
       if (!response.ok || !data.ok) {
         setStatus("error");
-        setMessage(data.message ?? "Subscription failed.");
+        setMessage(data.message ?? t("insights.newsletter.messages.subscription-failed"));
         return;
       }
 
       setStatus("success");
-      setMessage(data.message ?? "Subscribed successfully.");
+      setMessage(data.message ?? t("insights.newsletter.messages.subscribed-success"));
       setEmail("");
     } catch {
       setStatus("error");
-      setMessage("Subscription failed. Please try again.");
+      setMessage(t("insights.newsletter.messages.subscription-failed-try-again"));
     } finally {
       setIsSubmitting(false);
     }
@@ -88,20 +90,20 @@ export const InsightsNewsletter = () => {
   return (
     <Section namespace={SectionNamespace.InsightsNewsletter}>
       <div className="insights-newsletter__card">
-        <h2 className="insights-newsletter__title">Subscribe to Updates</h2>
+        <h2 className="insights-newsletter__title">{t("insights.newsletter.form.title")}</h2>
         <p className="insights-newsletter__description">
-          Release notes, major posts, and engineering highlights. No spam.
+          {t("insights.newsletter.form.description")}
         </p>
 
         <form className="insights-newsletter__form" onSubmit={onSubmit}>
           <label htmlFor="newsletter-email" className="insights-newsletter__label">
-            Work email
+            {t("insights.newsletter.form.email-label")}
           </label>
           <input
             id="newsletter-email"
             type="email"
             className="insights-newsletter__input"
-            placeholder="you@company.com"
+            placeholder={t("insights.newsletter.form.email-placeholder")}
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             disabled={isSubmitting}
@@ -118,7 +120,9 @@ export const InsightsNewsletter = () => {
                 disabled={isSubmitting}
               />
               <span className="insights-newsletter__check-box" aria-hidden="true" />
-              <span className="insights-newsletter__check-text">Release notes</span>
+              <span className="insights-newsletter__check-text">
+                {t("insights.newsletter.form.release-notes")}
+              </span>
             </label>
             <label className="insights-newsletter__check-option">
               <input
@@ -129,7 +133,9 @@ export const InsightsNewsletter = () => {
                 disabled={isSubmitting}
               />
               <span className="insights-newsletter__check-box" aria-hidden="true" />
-              <span className="insights-newsletter__check-text">Major posts</span>
+              <span className="insights-newsletter__check-text">
+                {t("insights.newsletter.form.major-posts")}
+              </span>
             </label>
           </div>
 
@@ -143,7 +149,7 @@ export const InsightsNewsletter = () => {
             />
             <span className="insights-newsletter__check-box" aria-hidden="true" />
             <span className="insights-newsletter__check-text">
-              I agree to receive product updates and release notes.
+              {t("insights.newsletter.form.consent")}
             </span>
           </label>
 
@@ -152,7 +158,9 @@ export const InsightsNewsletter = () => {
             className="insights-newsletter__button"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Subscribing..." : "Subscribe"}
+            {isSubmitting
+              ? t("insights.newsletter.form.subscribing")
+              : t("insights.newsletter.form.subscribe")}
           </button>
         </form>
 

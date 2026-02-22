@@ -1,18 +1,19 @@
 export type NamespaceType = {
   id: string;
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   href: string;
-  links: Array<{ label: string; href: string }>;
+  links: Array<{ labelKey: string; href: string }>;
 };
 
 export type NoteType = {
   id: string;
   date: string;
   type: "release" | "decision" | "migration";
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
   namespace: "@aristobyte" | "@aristobyte-ui";
+  namespaceKey: string;
   href?: string;
 };
 
@@ -21,34 +22,44 @@ export type FilterType = "all" | NoteType["type"];
 export const namespaces: NamespaceType[] = [
   {
     id: "aristobyte-ui",
-    title: "@aristobyte-ui",
-    description:
-      "UI system packages: components, CLI tooling, and shared utilities for design-consistent product development.",
+    titleKey: "insights.engineering-notes.namespaces.aristobyte-ui.title",
+    descriptionKey:
+      "insights.engineering-notes.namespaces.aristobyte-ui.description",
     href: "https://www.npmjs.com/org/aristobyte-ui",
     links: [
-      { label: "NPM Org", href: "https://www.npmjs.com/org/aristobyte-ui" },
       {
-        label: "CLI Package",
+        labelKey: "insights.engineering-notes.namespaces.aristobyte-ui.links.npm-org",
+        href: "https://www.npmjs.com/org/aristobyte-ui",
+      },
+      {
+        labelKey:
+          "insights.engineering-notes.namespaces.aristobyte-ui.links.cli-package",
         href: "https://www.npmjs.com/package/@aristobyte-ui/cli",
       },
       {
-        label: "GitHub Packages",
+        labelKey:
+          "insights.engineering-notes.namespaces.aristobyte-ui.links.github-packages",
         href: "https://github.com/aristobyte-ui/aristobyte-ui/pkgs/npm/cli",
       },
     ],
   },
   {
     id: "aristobyte",
-    title: "@aristobyte",
-    description:
-      "Core ecosystem namespace for foundational packages and shared engineering modules used across AristoByte products.",
+    titleKey: "insights.engineering-notes.namespaces.aristobyte.title",
+    descriptionKey:
+      "insights.engineering-notes.namespaces.aristobyte.description",
     href: "https://www.npmjs.com/search?q=%40aristobyte",
     links: [
       {
-        label: "Namespace Search",
+        labelKey:
+          "insights.engineering-notes.namespaces.aristobyte.links.namespace-search",
         href: "https://www.npmjs.com/search?q=%40aristobyte",
       },
-      { label: "Team Profile", href: "https://www.npmjs.com/~aristobyte_team" },
+      {
+        labelKey:
+          "insights.engineering-notes.namespaces.aristobyte.links.team-profile",
+        href: "https://www.npmjs.com/~aristobyte_team",
+      },
     ],
   },
 ];
@@ -59,9 +70,9 @@ export const notes: NoteType[] = [
     date: "2026-02-10",
     type: "release",
     namespace: "@aristobyte-ui",
-    title: "CLI workflow updates for faster local setup",
-    description:
-      "Improved command flow and package publishing alignment for the CLI package to reduce setup friction.",
+    namespaceKey: "insights.engineering-notes.namespace-labels.aristobyte-ui",
+    titleKey: "insights.engineering-notes.notes.note-1.title",
+    descriptionKey: "insights.engineering-notes.notes.note-1.description",
     href: "https://www.npmjs.com/package/@aristobyte-ui/cli",
   },
   {
@@ -69,36 +80,36 @@ export const notes: NoteType[] = [
     date: "2026-02-06",
     type: "decision",
     namespace: "@aristobyte-ui",
-    title: "Unified slider architecture across app features",
-    description:
-      "Adopted a single reusable slider/slide primitive to standardize interaction behavior and simplify future package extraction.",
+    namespaceKey: "insights.engineering-notes.namespace-labels.aristobyte-ui",
+    titleKey: "insights.engineering-notes.notes.note-2.title",
+    descriptionKey: "insights.engineering-notes.notes.note-2.description",
   },
   {
     id: "note-3",
     date: "2026-01-31",
     type: "migration",
     namespace: "@aristobyte-ui",
-    title: "Header navigation moved to config-driven list routing",
-    description:
-      "Replaced hardcoded nav branching with list-based menu state to support multi-level app/insights navigation.",
+    namespaceKey: "insights.engineering-notes.namespace-labels.aristobyte-ui",
+    titleKey: "insights.engineering-notes.notes.note-3.title",
+    descriptionKey: "insights.engineering-notes.notes.note-3.description",
   },
   {
     id: "note-4",
     date: "2026-01-24",
     type: "release",
     namespace: "@aristobyte",
-    title: "Namespace indexing and package discovery cleanup",
-    description:
-      "Aligned package naming and discovery pages for clearer separation between @aristobyte and @aristobyte-ui scopes.",
+    namespaceKey: "insights.engineering-notes.namespace-labels.aristobyte",
+    titleKey: "insights.engineering-notes.notes.note-4.title",
+    descriptionKey: "insights.engineering-notes.notes.note-4.description",
     href: "https://www.npmjs.com/search?q=%40aristobyte",
   },
 ];
 
 export const filters: Array<{ id: FilterType; label: string }> = [
-  { id: "all", label: "All" },
-  { id: "release", label: "Releases" },
-  { id: "decision", label: "Decisions" },
-  { id: "migration", label: "Migrations" },
+  { id: "all", label: "insights.engineering-notes.filters.all" },
+  { id: "release", label: "insights.engineering-notes.filters.release" },
+  { id: "decision", label: "insights.engineering-notes.filters.decision" },
+  { id: "migration", label: "insights.engineering-notes.filters.migration" },
 ];
 
 export const noteTypeIcon: Record<NoteType["type"], string> = {
@@ -110,21 +121,20 @@ export const noteTypeIcon: Record<NoteType["type"], string> = {
 export const deepDives = [
   {
     id: "d1",
-    title: "CLI flow patterns",
-    description:
-      "Command orchestration and terminal UX decisions used in package tooling.",
+    titleKey: "insights.engineering-notes.deep-dives.items.d1.title",
+    descriptionKey:
+      "insights.engineering-notes.deep-dives.items.d1.description",
   },
   {
     id: "d2",
-    title: "Design system implementation",
-    description:
-      "Reusable component patterns, token usage, and consistency rules in production.",
+    titleKey: "insights.engineering-notes.deep-dives.items.d2.title",
+    descriptionKey:
+      "insights.engineering-notes.deep-dives.items.d2.description",
   },
   {
     id: "d3",
-    title: "CI and release discipline",
-    description:
-      "Versioning guardrails, deployment checks, and migration-safe rollout strategy.",
+    titleKey: "insights.engineering-notes.deep-dives.items.d3.title",
+    descriptionKey:
+      "insights.engineering-notes.deep-dives.items.d3.description",
   },
 ];
-

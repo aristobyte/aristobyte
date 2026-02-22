@@ -7,19 +7,20 @@ import { Section } from "@/components/Section";
 import { SectionNamespace, Align } from "@/config";
 import { SmartLink } from "@/components/ui";
 import { type CommonLinkType } from "@/config";
+import { useTranslate } from "@/context";
 
 import "./ProductDetails.scss";
 
 type ProductFeature = {
-  title: string;
-  description: string;
+  titleKey: string;
+  descriptionKey: string;
 };
 
 export type ProductDetailsProps = {
   titleKey: string;
   descriptionKey: string;
   features: ProductFeature[];
-  links: CommonLinkType[];
+  links: Array<CommonLinkType & { labelKey?: string }>;
 };
 
 export const ProductDetails = ({
@@ -28,6 +29,8 @@ export const ProductDetails = ({
   features,
   links,
 }: ProductDetailsProps) => {
+  const { t } = useTranslate();
+
   return (
     <Section
       namespace={SectionNamespace.ProductDetails}
@@ -35,7 +38,7 @@ export const ProductDetails = ({
       description={{ text: descriptionKey }}
     >
       <div className="product-details__actions">
-        {links.map(({ label, href }) => (
+        {links.map(({ label, labelKey, href }) => (
           <SmartLink
             key={href}
             className="product-details__action"
@@ -45,16 +48,16 @@ export const ProductDetails = ({
             <span className="product-details__action-icon">
               <CdnIcon name="lucide:arrow-up-right" size={16} />
             </span>
-            <span>{label}</span>
+            <span>{t(labelKey ?? label)}</span>
           </SmartLink>
         ))}
       </div>
 
       <ul className="product-details__grid">
-        {features.map(({ title: featureTitle, description: featureDesc }) => (
+        {features.map(({ titleKey: featureTitle, descriptionKey: featureDesc }) => (
           <li key={featureTitle} className="product-details__card">
-            <h3 className="product-details__card-title">{featureTitle}</h3>
-            <p className="product-details__card-description">{featureDesc}</p>
+            <h3 className="product-details__card-title">{t(featureTitle)}</h3>
+            <p className="product-details__card-description">{t(featureDesc)}</p>
           </li>
         ))}
       </ul>
