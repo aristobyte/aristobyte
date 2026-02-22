@@ -13,8 +13,8 @@ export default function AristoRepoPage() {
         description="apps.products.pages.aristo-repo.hero.description"
       />
       <ProductDetails
-        title="AristoRepo"
-        description="Repository operations workspace for organizing project health, release flow, and collaboration signals across active codebases."
+        titleKey="apps.products.pages.aristo-repo.details.title"
+        descriptionKey="apps.products.pages.aristo-repo.details.description"
         links={[
           {
             label: "GitHub Repo",

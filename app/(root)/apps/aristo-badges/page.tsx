@@ -13,8 +13,8 @@ export default function AristoBadgesPage() {
         description="apps.products.pages.aristo-badges.hero.description"
       />
       <ProductDetails
-        title="AristoBadges"
-        description="A badge toolkit for README dashboards with lightweight SVG output and clean visual defaults for repositories, packages, and release streams."
+        titleKey="apps.products.pages.aristo-badges.details.title"
+        descriptionKey="apps.products.pages.aristo-badges.details.description"
         links={[
           { label: "Website", href: "https://badges.aristobyte.com" },
           {

@@ -13,8 +13,8 @@ export default function AristoByteUICLIPage() {
         description="apps.products.pages.aristobyte-ui-cli.hero.description"
       />
       <ProductDetails
-        title="AristoByte UI CLI"
-        description="The command-line workflow for scaffolding, installing, and maintaining AristoByte UI packages and components directly in your project."
+        titleKey="apps.products.pages.aristobyte-ui-cli.details.title"
+        descriptionKey="apps.products.pages.aristobyte-ui-cli.details.description"
         links={[
           {
             label: "CLI Docs",

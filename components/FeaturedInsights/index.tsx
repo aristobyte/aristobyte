@@ -1,3 +1,6 @@
+import { Section } from "@/components/Section";
+import { SectionNamespace, Align, Title } from "@/config";
+
 import "./FeaturedInsights.scss";
 
 const items = [
@@ -23,19 +26,23 @@ const items = [
 
 export const FeaturedInsights = () => {
   return (
-    <section className="featured-insights">
-      <div className="featured-insights__container">
-        <h3 className="featured-insights__title">Featured Insights</h3>
-        <div className="featured-insights__grid">
-          {items.map((item) => (
-            <article key={item.id} className="featured-insights__card">
-              <span className="featured-insights__topic">{item.topic}</span>
-              <h4>{item.title}</h4>
-              <p>{item.meta}</p>
-            </article>
-          ))}
-        </div>
+    <Section
+      namespace={SectionNamespace.FeaturedInsights}
+      title={{
+        text: "insights.featured.section.title",
+        align: Align.LEFT,
+        as: Title.H3,
+      }}
+    >
+      <div className="featured-insights__grid">
+        {items.map((item) => (
+          <article key={item.id} className="featured-insights__card">
+            <span className="featured-insights__topic">{item.topic}</span>
+            <h4>{item.title}</h4>
+            <p>{item.meta}</p>
+          </article>
+        ))}
       </div>
-    </section>
+    </Section>
   );
 };

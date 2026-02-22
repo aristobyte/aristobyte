@@ -2,6 +2,8 @@ import Image from "next/image";
 import NextLink from "next/link";
 
 import { CdnIcon } from "@/components";
+import { Section } from "@/components/Section";
+import { SectionNamespace, Align } from "@/config";
 
 import "./CaseStudies.scss";
 
@@ -70,71 +72,75 @@ const authors = [
 
 export const CaseStudies = () => {
   return (
-    <section className="case-studies">
-      <div className="case-studies__container">
-        <h2 className="case-studies__title">Case Study Snapshots</h2>
-        <div className="case-studies__grid">
-          {snapshots.map((item) => (
-            <article key={item.id} className="case-studies__card">
-              <header className="case-studies__card-head">
-                <div className="case-studies__card-image-wrap" aria-hidden="true">
-                  <Image
-                    className="case-studies__card-image"
-                    src={item.image}
-                    alt=""
-                    width={64}
-                    height={64}
-                  />
-                </div>
-                <div className="case-studies__card-meta">
-                  <span className="case-studies__tag">{item.tag}</span>
-                  <h3>{item.title}</h3>
-                </div>
-                <span className="case-studies__metric">{item.metric}</span>
-              </header>
-
-              <div className="case-studies__flow">
-                <p>
-                  <strong>
-                    <span className="case-studies__flow-icon">
-                      <CdnIcon name="mdi:alert-circle-outline" size={14} color="#f18f34" />
-                    </span>
-                    Problem
-                  </strong>
-                  {item.problem}
-                </p>
-                <p>
-                  <strong>
-                    <span className="case-studies__flow-icon">
-                      <CdnIcon name="mdi:lightbulb-on-outline" size={14} color="#f18f34" />
-                    </span>
-                    Approach
-                  </strong>
-                  {item.approach}
-                </p>
-                <p>
-                  <strong>
-                    <span className="case-studies__flow-icon">
-                      <CdnIcon name="mdi:check-decagram-outline" size={14} color="#f18f34" />
-                    </span>
-                    Outcome
-                  </strong>
-                  {item.outcome}
-                </p>
+    <Section
+      namespace={SectionNamespace.CaseStudies}
+      title={{
+        text: "insights.case-studies.section.title",
+        align: Align.LEFT,
+      }}
+    >
+      <div className="case-studies__grid">
+        {snapshots.map((item) => (
+          <article key={item.id} className="case-studies__card">
+            <header className="case-studies__card-head">
+              <div className="case-studies__card-image-wrap" aria-hidden="true">
+                <Image
+                  className="case-studies__card-image"
+                  src={item.image}
+                  alt=""
+                  width={64}
+                  height={64}
+                />
               </div>
+              <div className="case-studies__card-meta">
+                <span className="case-studies__tag">{item.tag}</span>
+                <h3>{item.title}</h3>
+              </div>
+              <span className="case-studies__metric">{item.metric}</span>
+            </header>
 
-              <div className="case-studies__card-foot">
-                <span>
-                  <span className="case-studies__foot-icon">
-                    <CdnIcon name={item.icon} size={14} color="#f18f34" />
+            <div className="case-studies__flow">
+              <p>
+                <strong>
+                  <span className="case-studies__flow-icon">
+                    <CdnIcon name="mdi:alert-circle-outline" size={14} color="#f18f34" />
                   </span>
-                  Snapshot {item.id}
+                  Problem
+                </strong>
+                {item.problem}
+              </p>
+              <p>
+                <strong>
+                  <span className="case-studies__flow-icon">
+                    <CdnIcon name="mdi:lightbulb-on-outline" size={14} color="#f18f34" />
+                  </span>
+                  Approach
+                </strong>
+                {item.approach}
+              </p>
+              <p>
+                <strong>
+                  <span className="case-studies__flow-icon">
+                    <CdnIcon name="mdi:check-decagram-outline" size={14} color="#f18f34" />
+                  </span>
+                  Outcome
+                </strong>
+                {item.outcome}
+              </p>
+            </div>
+
+            <div className="case-studies__card-foot">
+              <span>
+                <span className="case-studies__foot-icon">
+                  <CdnIcon name={item.icon} size={14} color="#f18f34" />
                 </span>
-                <span>AristoByte Internal</span>
-              </div>
-            </article>
-          ))}
-        </div>
+                Snapshot {item.id}
+              </span>
+              <span>AristoByte Internal</span>
+            </div>
+          </article>
+        ))}
+      </div>
 
         <section className="case-studies__separator case-studies__separator--notes">
           <span className="case-studies__separator-kicker">Insights Track</span>
@@ -147,34 +153,34 @@ export const CaseStudies = () => {
           </NextLink>
         </section>
 
-        <h3 className="case-studies__subtitle">Authors</h3>
-        <div className="case-studies__authors">
-          {authors.map((author) => (
-            <article key={author.id} className="case-studies__author">
-              <div className="case-studies__author-head">
-                <div className="case-studies__author-icon-wrap" aria-hidden="true">
-                  <span className="case-studies__author-icon case-studies__author-icon--primary">
-                    <CdnIcon name={author.icon} size={16} color="#f18f34" />
-                  </span>
-                  <span className="case-studies__author-icon case-studies__author-icon--accent">
-                    <CdnIcon name={author.accentIcon} size={14} color="#ffd3bf" />
-                  </span>
-                </div>
-                <div>
-                  <h4>{author.name}</h4>
-                  <p>{author.role}</p>
-                </div>
-              </div>
-              <span>{author.focus}</span>
-              <i>
-                <span className="case-studies__flow-icon">
-                  <CdnIcon name={author.icon} size={14} color="#f18f34" />
+      <h3 className="case-studies__subtitle">Authors</h3>
+      <div className="case-studies__authors">
+        {authors.map((author) => (
+          <article key={author.id} className="case-studies__author">
+            <div className="case-studies__author-head">
+              <div className="case-studies__author-icon-wrap" aria-hidden="true">
+                <span className="case-studies__author-icon case-studies__author-icon--primary">
+                  <CdnIcon name={author.icon} size={16} color="#f18f34" />
                 </span>
-                Active on this stream
-              </i>
-            </article>
-          ))}
-        </div>
+                <span className="case-studies__author-icon case-studies__author-icon--accent">
+                  <CdnIcon name={author.accentIcon} size={14} color="#ffd3bf" />
+                </span>
+              </div>
+              <div>
+                <h4>{author.name}</h4>
+                <p>{author.role}</p>
+              </div>
+            </div>
+            <span>{author.focus}</span>
+            <i>
+              <span className="case-studies__flow-icon">
+                <CdnIcon name={author.icon} size={14} color="#f18f34" />
+              </span>
+              Active on this stream
+            </i>
+          </article>
+        ))}
+      </div>
 
         <section className="case-studies__separator case-studies__separator--apps">
           <div className="case-studies__separator-main">
@@ -193,7 +199,6 @@ export const CaseStudies = () => {
             </NextLink>
           </div>
         </section>
-      </div>
-    </section>
+    </Section>
   );
 };

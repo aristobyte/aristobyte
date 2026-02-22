@@ -11,12 +11,6 @@
     }
   }
 
-  &__head {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
   &__title {
     color: $white-color;
     font-family: $font-righteous;

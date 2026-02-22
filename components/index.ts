@@ -3,7 +3,7 @@ export { Footer } from "./Footer";
 export { Features } from "./Features";
 export { Header } from "./Header";
 export { Gradient } from "./Gradient";
-export { ScrollLink } from "./ScrollLink";
+export { Section } from "./Section";
 export { UIComponentsPreview } from "./UIComponentsPreview";
 export { ContactSection } from "./Contact";
 export { HomeServices } from "./HomeServices";
@@ -32,6 +32,7 @@ export { UIOverviewVideo } from "./UIOverviewVideo";
 export { NotFound } from "./NotFound";
 export { Splash } from "./Splash";
 export { AppLayout } from "./AppLayout";
+export { SmartLink } from "./ui";
 export {
   Disclaimer,
   PrivacyPolicy,

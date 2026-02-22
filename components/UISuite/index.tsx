@@ -1,11 +1,13 @@
 "use client";
 
 import * as React from "react";
-import NextLink from "next/link";
 import { useTranslate } from "@/context";
 import { Config } from "@/config";
 import { Icons } from "@aristobyte-ui/utils";
 import { CdnIcon } from "@/components";
+import { Section } from "@/components/Section";
+import { SectionNamespace, Align } from "@/config";
+import { SmartLink } from "@/components/ui";
 
 import "./UISuite.scss";
 
@@ -24,36 +26,26 @@ export const UISuite = () => {
   const { t } = useTranslate();
 
   return (
-    <section className="ui-suite">
-      <div className="ui-suite__container">
-        <div className="ui-suite__content">
-          <span className="ui-suite__logo">
-            <span className="ui-suite__logo-glyph">
-              <Icons.AristoByteUI size={100} />
+    <Section
+      namespace={SectionNamespace.UISuite}
+      title={{ text: "ui.suite.title", align: Align.LEFT }}
+      description={{ text: "ui.suite.description" }}
+    >
+      <span className="ui-suite__logo">
+        <span className="ui-suite__logo-glyph">
+          <Icons.AristoByteUI size={100} />
+        </span>
+      </span>
+      <div className="ui-suite__grid">
+        {Config.ui.links.map(({ id, href }) => (
+          <SmartLink key={id} href={href} className="ui-suite__card">
+            <span className="ui-suite__icon">
+              <CdnIcon name={iconMap[id] ?? "mdi:link"} size={22} />
             </span>
-          </span>
-          <h2 className="ui-suite__title">{t("ui.suite.title")}</h2>
-          <p className="ui-suite__description">{t("ui.suite.description")}</p>
-        </div>
-        <div className="ui-suite__grid">
-          {Config.ui.links.map(({ id, href }) => (
-            <NextLink
-              key={id}
-              href={href}
-              className="ui-suite__card"
-              target={href.startsWith("http") ? "_blank" : undefined}
-              rel={href.startsWith("http") ? "noreferrer" : undefined}
-            >
-              <span className="ui-suite__icon">
-                <CdnIcon name={iconMap[id] ?? "mdi:link"} size={22} />
-              </span>
-              <span className="ui-suite__label">
-                {t(`ui.suite.links.${id}`)}
-              </span>
-            </NextLink>
-          ))}
-        </div>
+            <span className="ui-suite__label">{t(`ui.suite.links.${id}`)}</span>
+          </SmartLink>
+        ))}
       </div>
-    </section>
+    </Section>
   );
 };

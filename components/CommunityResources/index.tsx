@@ -1,10 +1,12 @@
 "use client";
 
 import * as React from "react";
-import NextLink from "next/link";
-import { useTranslate } from "@/context";
-import { Config } from "@/config";
 import { CdnIcon } from "@/components";
+import { Section } from "@/components/Section";
+import { SectionNamespace, Align } from "@/config";
+import { Config } from "@/config";
+import { useTranslate } from "@/context";
+import { SmartLink } from "@/components/ui";
 
 import "./CommunityResources.scss";
 
@@ -19,36 +21,25 @@ export const CommunityResources = () => {
   const { t } = useTranslate();
 
   return (
-    <section className="community-resources">
-      <div className="community-resources__container">
-        <div className="community-resources__content">
-          <h2 className="community-resources__title">
-            {t("community.resources.title")}
-          </h2>
-          <p className="community-resources__description">
-            {t("community.resources.description")}
-          </p>
-        </div>
-
-        <div className="community-resources__grid">
-          {Config.community.links.map(({ id, href }) => (
-            <NextLink
-              key={id}
-              href={href}
-              className="community-resources__card"
-              target={href.startsWith("http") ? "_blank" : undefined}
-              rel={href.startsWith("http") ? "noreferrer" : undefined}
-            >
-              <span className="community-resources__icon">
-                <CdnIcon name={iconMap[id] ?? "mdi:link"} size={22} />
-              </span>
-              <span className="community-resources__label">
-                {t(`community.resources.links.${id}`)}
-              </span>
-            </NextLink>
-          ))}
-        </div>
+    <Section
+      namespace={SectionNamespace.CommunityResources}
+      title={{ text: "community.resources.title",
+        align: Align.LEFT,
+      }}
+      description={{ text: "community.resources.description" }}
+    >
+      <div className="community-resources__grid">
+        {Config.community.links.map(({ id, href }) => (
+          <SmartLink key={id} href={href} className="community-resources__card">
+            <span className="community-resources__icon">
+              <CdnIcon name={iconMap[id] ?? "mdi:link"} size={22} />
+            </span>
+            <span className="community-resources__label">
+              {t(`community.resources.links.${id}`)}
+            </span>
+          </SmartLink>
+        ))}
       </div>
-    </section>
+    </Section>
   );
 };

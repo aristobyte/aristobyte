@@ -6,6 +6,8 @@ import NextLink from "next/link";
 import { useTranslate } from "@/context";
 import { Config } from "@/config";
 import { CdnIcon } from "@/components/CdnIcon";
+import { Section } from "@/components/Section";
+import { SectionNamespace, Align } from "@/config";
 
 import "./HomeServices.scss";
 
@@ -105,107 +107,106 @@ export const HomeServices = () => {
         : "home-services__anim home-services__anim--idle";
 
   return (
-    <section className="home-services">
-      <div className="home-services__container">
-        <div className="home-services__content">
-          <h2 className="home-services__title">{t("home.services.title")}</h2>
-          <p className="home-services__description">
-            {t("home.services.description")}
-          </p>
-        </div>
+    <Section
+      namespace={SectionNamespace.HomeServices}
+      title={{ text: "home.services.title", align: Align.LEFT }}
+      description={{ text: "home.services.description" }}
+    >
+      <div className="home-services__layout">
+        {displayedService && (
+          <div className={`home-services__mobile-active ${animationClass}`}>
+            <h3 className="home-services__mobile-active-title">
+              {t(`home.services.cards.${displayedService.id}.title`)}
+            </h3>
+            <p className="home-services__mobile-active-description">
+              {t(
+                `home.services.cards.${displayedService.id}.previewDescription`,
+              )}
+            </p>
+          </div>
+        )}
 
-        <div className="home-services__layout">
-          {displayedService && (
-            <div className={`home-services__mobile-active ${animationClass}`}>
-              <h3 className="home-services__mobile-active-title">
-                {t(`home.services.cards.${displayedService.id}.title`)}
-              </h3>
-              <p className="home-services__mobile-active-description">
-                {t(`home.services.cards.${displayedService.id}.previewDescription`)}
-              </p>
-            </div>
-          )}
+        <ul
+          className="home-services__list"
+          role="tablist"
+          aria-label="Services"
+        >
+          {Config.home.services.cards.map(({ id }) => {
+            const isActive = id === activeId;
 
-          <ul
-            className="home-services__list"
-            role="tablist"
-            aria-label="Services"
-          >
-            {Config.home.services.cards.map(({ id }) => {
-              const isActive = id === activeId;
-
-              return (
-                <li key={id} className="home-services__item">
-                  <button
-                    type="button"
-                    role="tab"
-                    aria-selected={isActive}
-                    aria-controls={`home-service-panel-${id}`}
-                    className={`home-services__tab${isActive ? " home-services__tab--active" : ""}`}
-                    onClick={() => handleTabClick(id)}
+            return (
+              <li key={id} className="home-services__item">
+                <button
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  aria-controls={`home-service-panel-${id}`}
+                  className={`home-services__tab${isActive ? " home-services__tab--active" : ""}`}
+                  onClick={() => handleTabClick(id)}
+                >
+                  <span className="home-services__tab-icon" aria-hidden>
+                    <CdnIcon
+                      name={serviceIconById[id] ?? "mdi:shape-outline"}
+                      size={18}
+                    />
+                  </span>
+                  <span className="home-services__tab-title">
+                    {t(`home.services.cards.${id}.title`)}
+                  </span>
+                  <span
+                    className={`home-services__tab-description${isActive ? " home-services__tab-description--active" : ""}`}
                   >
-                    <span className="home-services__tab-icon" aria-hidden>
-                      <CdnIcon
-                        name={serviceIconById[id] ?? "mdi:shape-outline"}
-                        size={18}
-                      />
-                    </span>
-                    <span className="home-services__tab-title">
-                      {t(`home.services.cards.${id}.title`)}
-                    </span>
-                    <span
-                      className={`home-services__tab-description${isActive ? " home-services__tab-description--active" : ""}`}
-                    >
-                      {t(`home.services.cards.${id}.description`)}
-                    </span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
+                    {t(`home.services.cards.${id}.description`)}
+                  </span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
 
-          {displayedService && (
-            <aside
-              id={`home-service-panel-${displayedService.id}`}
-              className={`home-services__panel ${animationClass}`}
-              role="tabpanel"
-            >
-              <span className="home-services__panel-index">
-                {String(displayedIndex + 1).padStart(2, "0")}
-              </span>
+        {displayedService && (
+          <aside
+            id={`home-service-panel-${displayedService.id}`}
+            className={`home-services__panel ${animationClass}`}
+            role="tabpanel"
+          >
+            <span className="home-services__panel-index">
+              {String(displayedIndex + 1).padStart(2, "0")}
+            </span>
 
-              <div className="home-services__panel-media">
-                <div className="home-services__panel-bg">
-                  <img
-                    src={panelBackgroundSrc}
-                    alt=""
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
-                <div className="home-services__panel-icon">
-                  <img
-                    src={serviceImageById[displayedService.id]}
-                    alt={t(`home.services.cards.${displayedService.id}.title`)}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </div>
+            <div className="home-services__panel-media">
+              <div className="home-services__panel-bg">
+                <img
+                  src={panelBackgroundSrc}
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
+              <div className="home-services__panel-icon">
+                <img
+                  src={serviceImageById[displayedService.id]}
+                  alt={t(`home.services.cards.${displayedService.id}.title`)}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
 
-              <h3 className="home-services__panel-title">
-                {t(`home.services.cards.${displayedService.id}.title`)}
-              </h3>
-              <p className="home-services__panel-description">
-                {t(`home.services.cards.${displayedService.id}.previewDescription`)}
-              </p>
-              <NextLink href="/contact" className="home-services__panel-link">
-                <span>{t("home.cta.primary")}</span>
-              </NextLink>
-            </aside>
-          )}
-        </div>
+            <h3 className="home-services__panel-title">
+              {t(`home.services.cards.${displayedService.id}.title`)}
+            </h3>
+            <p className="home-services__panel-description">
+              {t(
+                `home.services.cards.${displayedService.id}.previewDescription`,
+              )}
+            </p>
+            <NextLink href="/contact" className="home-services__panel-link">
+              <span>{t("home.cta.primary")}</span>
+            </NextLink>
+          </aside>
+        )}
       </div>
-    </section>
+    </Section>
   );
 };

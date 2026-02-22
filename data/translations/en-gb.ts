@@ -319,6 +319,11 @@ export const EN_GB = {
             description:
               "Scaffold, install, and maintain UI packages with a single command surface.",
           },
+          details: {
+            title: "AristoByte UI CLI",
+            description:
+              "The command-line workflow for scaffolding, installing, and maintaining AristoByte UI packages and components directly in your project.",
+          },
         },
         "aristo-badges": {
           hero: {
@@ -327,6 +332,11 @@ export const EN_GB = {
             description:
               "Generate clean, lightweight SVG badges for project visibility and technical storytelling.",
           },
+          details: {
+            title: "AristoBadges",
+            description:
+              "A badge toolkit for README dashboards with lightweight SVG output and clean visual defaults for repositories, packages, and release streams.",
+          },
         },
         "aristo-repo": {
           hero: {
@@ -334,6 +344,11 @@ export const EN_GB = {
             subtitle: "Repository operations workspace",
             description:
               "A focused environment for repository health, release flow, and maintainer execution.",
+          },
+          details: {
+            title: "AristoRepo",
+            description:
+              "Repository operations workspace for organizing project health, release flow, and collaboration signals across active codebases.",
           },
         },
       },
@@ -421,12 +436,28 @@ export const EN_GB = {
         twitter: "X (Twitter)",
       },
     },
+    featured: {
+      section: {
+        title: "Featured Insights",
+      },
+    },
+    video: {
+      section: {
+        title: "Video & Demo",
+        description: "Placeholder section for product demos and explainers.",
+      },
+    },
     "engineering-notes": {
       hero: {
         title: "Engineering Notes",
         subtitle: "Releases, Decisions, and Migrations",
         description:
           "A focused timeline of package updates and architecture movement across @aristobyte and @aristobyte-ui namespaces.",
+      },
+      section: {
+        title: "Engineering Notes",
+        description:
+          "Release updates, architecture decisions, and migration checkpoints across AristoByte package namespaces.",
       },
     },
     "open-source-radar": {
@@ -435,6 +466,11 @@ export const EN_GB = {
         subtitle: "Releases, Milestones, and Community Signals",
         description:
           "Track what is new across AristoByte repositories, roadmap progress, and active discussions from the open-source ecosystem.",
+      },
+      section: {
+        title: "Open Source Radar",
+        description:
+          "A structured view of what is shipping, what is planned, and where community conversations are happening right now.",
       },
     },
     newsletter: {
@@ -451,6 +487,9 @@ export const EN_GB = {
         subtitle: "Problem, Approach, Outcome",
         description:
           "Compact case snapshots with clear outcomes and visible ownership.",
+      },
+      section: {
+        title: "Case Study Snapshots",
       },
     },
   },

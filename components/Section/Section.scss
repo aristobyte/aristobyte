@@ -1,0 +1,10 @@
+@use "../../styles/settings" as *;
+@use "./namespaces/engineering-notes";
+@use "./namespaces/open-source-radar";
+@use "./namespaces/insights-video";
+
+.section {
+  &__container {
+    @include container;
+  }
+}
