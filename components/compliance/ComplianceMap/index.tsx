@@ -5,9 +5,8 @@ import NextLink from "next/link";
 
 import { Icons } from "@aristobyte-ui/utils";
 import { useTranslate } from "@/context";
-import { Config } from "@/config";
-import { Section } from "@/components/Section";
-import { SectionNamespace } from "@/config";
+import { Section } from "@/components";
+import { SectionNamespace, Config } from "@/config";
 
 import "./ComplianceMap.scss";
 
@@ -19,7 +18,9 @@ export const ComplianceMap = () => {
       namespace={SectionNamespace.ComplianceMap}
       heading={
         <div className="compliance-map__content">
-          <h1 className="compliance-map__title">{t("compliance.main.title")}</h1>
+          <h1 className="compliance-map__title">
+            {t("compliance.main.title")}
+          </h1>
           <h2 className="compliance-map__title-small">
             {t("compliance.main.titleSmall")}
           </h2>

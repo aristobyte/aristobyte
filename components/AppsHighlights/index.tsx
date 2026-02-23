@@ -1,8 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { Section } from "@/components/Section";
-import { SectionNamespace, Align } from "@/config";
+import { Section } from "@/components";
+import { SectionNamespace } from "@/config";
+import { useTranslate } from "@context";
 
 import "./AppsHighlights.scss";
 
@@ -13,12 +14,21 @@ const highlights = [
 ];
 
 export const AppsHighlights = () => {
+  const { t } = useTranslate();
   return (
     <Section
       namespace={SectionNamespace.AppsHighlights}
-      title={{ text: "apps.highlights.title", align: Align.LEFT }}
+      title={{ text: "apps.highlights.title" }}
       description={{ text: "apps.highlights.description" }}
     >
+      <a
+        className="apps-highlights__button"
+        href="https://github.com/apps/aristo-bot"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <span>{t("apps.highlights.button")}</span>
+      </a>
       <div className="apps-highlights__grid">
         {highlights.map((src, index) => (
           <div key={src} className="apps-highlights__card">

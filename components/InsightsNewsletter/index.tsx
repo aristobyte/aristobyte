@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Section } from "@/components/Section";
+import { Section } from "@/components";
 import { SectionNamespace } from "@/config";
 import { useTranslate } from "@/context";
 
@@ -72,16 +72,22 @@ export const InsightsNewsletter = () => {
 
       if (!response.ok || !data.ok) {
         setStatus("error");
-        setMessage(data.message ?? t("insights.newsletter.messages.subscription-failed"));
+        setMessage(
+          data.message ?? t("insights.newsletter.messages.subscription-failed"),
+        );
         return;
       }
 
       setStatus("success");
-      setMessage(data.message ?? t("insights.newsletter.messages.subscribed-success"));
+      setMessage(
+        data.message ?? t("insights.newsletter.messages.subscribed-success"),
+      );
       setEmail("");
     } catch {
       setStatus("error");
-      setMessage(t("insights.newsletter.messages.subscription-failed-try-again"));
+      setMessage(
+        t("insights.newsletter.messages.subscription-failed-try-again"),
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -90,13 +96,18 @@ export const InsightsNewsletter = () => {
   return (
     <Section namespace={SectionNamespace.InsightsNewsletter}>
       <div className="insights-newsletter__card">
-        <h2 className="insights-newsletter__title">{t("insights.newsletter.form.title")}</h2>
+        <h2 className="insights-newsletter__title">
+          {t("insights.newsletter.form.title")}
+        </h2>
         <p className="insights-newsletter__description">
           {t("insights.newsletter.form.description")}
         </p>
 
         <form className="insights-newsletter__form" onSubmit={onSubmit}>
-          <label htmlFor="newsletter-email" className="insights-newsletter__label">
+          <label
+            htmlFor="newsletter-email"
+            className="insights-newsletter__label"
+          >
             {t("insights.newsletter.form.email-label")}
           </label>
           <input
@@ -119,7 +130,10 @@ export const InsightsNewsletter = () => {
                 onChange={(event) => setReleaseNotes(event.target.checked)}
                 disabled={isSubmitting}
               />
-              <span className="insights-newsletter__check-box" aria-hidden="true" />
+              <span
+                className="insights-newsletter__check-box"
+                aria-hidden="true"
+              />
               <span className="insights-newsletter__check-text">
                 {t("insights.newsletter.form.release-notes")}
               </span>
@@ -132,7 +146,10 @@ export const InsightsNewsletter = () => {
                 onChange={(event) => setMajorPosts(event.target.checked)}
                 disabled={isSubmitting}
               />
-              <span className="insights-newsletter__check-box" aria-hidden="true" />
+              <span
+                className="insights-newsletter__check-box"
+                aria-hidden="true"
+              />
               <span className="insights-newsletter__check-text">
                 {t("insights.newsletter.form.major-posts")}
               </span>
@@ -147,7 +164,10 @@ export const InsightsNewsletter = () => {
               onChange={(event) => setConsent(event.target.checked)}
               disabled={isSubmitting}
             />
-            <span className="insights-newsletter__check-box" aria-hidden="true" />
+            <span
+              className="insights-newsletter__check-box"
+              aria-hidden="true"
+            />
             <span className="insights-newsletter__check-text">
               {t("insights.newsletter.form.consent")}
             </span>

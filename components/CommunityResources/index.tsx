@@ -1,12 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { CdnIcon } from "@/components";
-import { Section } from "@/components/Section";
-import { SectionNamespace, Align } from "@/config";
-import { Config } from "@/config";
+import { CdnIcon, Section, SmartLink } from "@/components";
+import { SectionNamespace, Config } from "@/config";
 import { useTranslate } from "@/context";
-import { SmartLink } from "@/components/ui";
 
 import "./CommunityResources.scss";
 
@@ -16,9 +13,7 @@ export const CommunityResources = () => {
   return (
     <Section
       namespace={SectionNamespace.CommunityResources}
-      title={{ text: "community.resources.title",
-        align: Align.LEFT,
-      }}
+      title={{ text: "community.resources.title" }}
       description={{ text: "community.resources.description" }}
     >
       <div className="community-resources__grid">
@@ -27,9 +22,7 @@ export const CommunityResources = () => {
             <span className="community-resources__icon">
               <CdnIcon name={iconName} size={22} />
             </span>
-            <span className="community-resources__label">
-              {t(labelKey)}
-            </span>
+            <span className="community-resources__label">{t(labelKey)}</span>
           </SmartLink>
         ))}
       </div>

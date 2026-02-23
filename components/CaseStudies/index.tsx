@@ -2,9 +2,8 @@
 import Image from "next/image";
 import NextLink from "next/link";
 
-import { CdnIcon } from "@/components";
-import { Section } from "@/components/Section";
-import { SectionNamespace, Align, useConfig } from "@/config";
+import { CdnIcon, Section } from "@/components";
+import { SectionNamespace, useConfig } from "@/config";
 import { useTranslate } from "@/context";
 
 import "./CaseStudies.scss";
@@ -16,10 +15,7 @@ export const CaseStudies = () => {
   return (
     <Section
       namespace={SectionNamespace.CaseStudies}
-      title={{
-        text: "insights.case-studies.section.title",
-        align: Align.LEFT,
-      }}
+      title={{ text: "insights.case-studies.section.title" }}
     >
       <div className="case-studies__grid">
         {insights.caseStudies.snapshots.map((item) => (

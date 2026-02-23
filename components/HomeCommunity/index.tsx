@@ -2,11 +2,8 @@
 
 import * as React from "react";
 import { useTranslate } from "@/context";
-import { Config } from "@/config";
-import { CdnIcon } from "@/components";
-import { Section } from "@/components/Section";
-import { SectionNamespace, Align } from "@/config";
-import { SmartLink } from "@/components/ui";
+import { CdnIcon, Section, SmartLink } from "@/components";
+import { SectionNamespace, Align, Config } from "@/config";
 
 import "./HomeCommunity.scss";
 
@@ -25,9 +22,7 @@ export const HomeCommunity = () => {
             <span className="home-community__icon">
               <CdnIcon name={iconName} size={22} />
             </span>
-            <span className="home-community__label">
-              {t(labelKey)}
-            </span>
+            <span className="home-community__label">{t(labelKey)}</span>
           </SmartLink>
         ))}
       </div>

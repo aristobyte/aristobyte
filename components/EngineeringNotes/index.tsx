@@ -1,10 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { CdnIcon } from "@/components";
-import { Section } from "@/components/Section";
-import { SectionNamespace, Align, useConfig } from "@/config";
-import { SmartLink } from "@/components/ui";
+import { CdnIcon, Section, SmartLink } from "@/components";
+import { SectionNamespace, useConfig } from "@/config";
 import { useTranslate } from "@/context";
 
 import "./EngineeringNotes.scss";
@@ -18,15 +16,14 @@ export const EngineeringNotes = () => {
   const filteredNotes =
     activeFilter === "all"
       ? insights.engineeringNotes.notes
-      : insights.engineeringNotes.notes.filter((note) => note.type === activeFilter);
+      : insights.engineeringNotes.notes.filter(
+          (note) => note.type === activeFilter,
+        );
 
   return (
     <Section
       namespace={SectionNamespace.EngineeringNotes}
-      title={{
-        text: "insights.engineering-notes.section.title",
-        align: Align.LEFT,
-      }}
+      title={{ text: "insights.engineering-notes.section.title" }}
       description={{ text: "insights.engineering-notes.section.description" }}
     >
       <div className="engineering-notes__highlights">

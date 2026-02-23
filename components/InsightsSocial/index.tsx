@@ -3,11 +3,8 @@
 import * as React from "react";
 import Script from "next/script";
 import { useTranslate } from "@/context";
-import { Config, useConfig } from "@/config";
-import { CdnIcon, Slide, Slider } from "@/components";
-import { Section } from "@/components/Section";
-import { SectionNamespace, Align } from "@/config";
-import { SmartLink } from "@/components/ui";
+import { CdnIcon, Slide, Slider, Section, SmartLink } from "@/components";
+import { SectionNamespace, Config, useConfig } from "@/config";
 
 import "./InsightsSocial.scss";
 
@@ -31,7 +28,7 @@ export const InsightsSocial = () => {
   return (
     <Section
       namespace={SectionNamespace.InsightsSocial}
-      title={{ text: "insights.social.title", align: Align.LEFT }}
+      title={{ text: "insights.social.title" }}
       description={{ text: "insights.social.description" }}
     >
       <Script
@@ -45,9 +42,7 @@ export const InsightsSocial = () => {
             <span className="insights-social__icon">
               <CdnIcon name={iconName} size={22} />
             </span>
-            <span className="insights-social__label">
-              {t(labelKey)}
-            </span>
+            <span className="insights-social__label">{t(labelKey)}</span>
           </SmartLink>
         ))}
       </div>

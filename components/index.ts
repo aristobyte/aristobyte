@@ -37,7 +37,7 @@ export { UIOverviewVideo } from "./UIOverviewVideo";
 export { NotFound } from "./NotFound";
 export { Splash } from "./Splash";
 export { AppLayout } from "./AppLayout";
-export { SmartLink } from "./ui";
+export * from "./ui";
 export {
   Disclaimer,
   PrivacyPolicy,

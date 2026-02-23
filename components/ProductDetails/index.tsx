@@ -2,11 +2,8 @@
 
 import * as React from "react";
 
-import { CdnIcon } from "@/components";
-import { Section } from "@/components/Section";
-import { SectionNamespace, Align } from "@/config";
-import { SmartLink } from "@/components/ui";
-import { type CommonLinkType } from "@/config";
+import { Section, SmartLink, CdnIcon } from "@/components";
+import { SectionNamespace, type CommonLinkType } from "@/config";
 import { useTranslate } from "@/context";
 
 import "./ProductDetails.scss";
@@ -34,7 +31,7 @@ export const ProductDetails = ({
   return (
     <Section
       namespace={SectionNamespace.ProductDetails}
-      title={{ text: titleKey, align: Align.LEFT }}
+      title={{ text: titleKey }}
       description={{ text: descriptionKey }}
     >
       <div className="product-details__actions">
@@ -54,12 +51,16 @@ export const ProductDetails = ({
       </div>
 
       <ul className="product-details__grid">
-        {features.map(({ titleKey: featureTitle, descriptionKey: featureDesc }) => (
-          <li key={featureTitle} className="product-details__card">
-            <h3 className="product-details__card-title">{t(featureTitle)}</h3>
-            <p className="product-details__card-description">{t(featureDesc)}</p>
-          </li>
-        ))}
+        {features.map(
+          ({ titleKey: featureTitle, descriptionKey: featureDesc }) => (
+            <li key={featureTitle} className="product-details__card">
+              <h3 className="product-details__card-title">{t(featureTitle)}</h3>
+              <p className="product-details__card-description">
+                {t(featureDesc)}
+              </p>
+            </li>
+          ),
+        )}
       </ul>
     </Section>
   );

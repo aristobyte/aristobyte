@@ -1,6 +1,6 @@
 "use client";
 import { Section } from "@/components/Section";
-import { SectionNamespace, Align, Title, useConfig } from "@/config";
+import { SectionNamespace, Title, useConfig } from "@/config";
 import { useTranslate } from "@/context";
 
 import "./FeaturedInsights.scss";
@@ -14,7 +14,6 @@ export const FeaturedInsights = () => {
       namespace={SectionNamespace.FeaturedInsights}
       title={{
         text: "insights.featured.section.title",
-        align: Align.LEFT,
         as: Title.H3,
       }}
     >

@@ -1,13 +1,10 @@
 "use client";
 
 import * as React from "react";
-import { useTranslate } from "@/context";
-import { Config } from "@/config";
 import { Icons } from "@aristobyte-ui/utils";
-import { CdnIcon } from "@/components";
-import { Section } from "@/components/Section";
-import { SectionNamespace, Align } from "@/config";
-import { SmartLink } from "@/components/ui";
+import { Section, CdnIcon, SmartLink } from "@/components";
+import { SectionNamespace, Config } from "@/config";
+import { useTranslate } from "@/context";
 
 import "./UISuite.scss";
 
@@ -17,7 +14,7 @@ export const UISuite = () => {
   return (
     <Section
       namespace={SectionNamespace.UISuite}
-      title={{ text: "ui.suite.title", align: Align.LEFT }}
+      title={{ text: "ui.suite.title" }}
       description={{ text: "ui.suite.description" }}
     >
       <span className="ui-suite__logo">

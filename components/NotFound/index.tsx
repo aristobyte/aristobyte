@@ -3,7 +3,7 @@
 import * as React from "react";
 import { useRouter } from "next/navigation";
 import { useTranslate } from "@/context";
-import { Section } from "@/components/Section";
+import { Section } from "@/components";
 import { SectionNamespace } from "@/config";
 
 import "./NotFound.scss";

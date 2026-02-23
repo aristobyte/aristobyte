@@ -3,7 +3,7 @@
 import * as React from "react";
 import NextLink from "next/link";
 import { useTranslate } from "@/context";
-import { Section } from "@/components/Section";
+import { Section } from "@/components";
 import { SectionNamespace, Align } from "@/config";
 
 import "./UIComponentsPreview.scss";
@@ -14,9 +14,7 @@ export const UIComponentsPreview = () => {
   return (
     <Section
       namespace={SectionNamespace.UIComponentsPreview}
-      title={{ text: "home.ui-components-preview.title",
-        align: Align.CENTER,
-      }}
+      title={{ text: "home.ui-components-preview.title", align: Align.CENTER }}
       description={{ text: "home.ui-components-preview.description" }}
     >
       <NextLink

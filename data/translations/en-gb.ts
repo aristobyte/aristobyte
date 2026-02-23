@@ -575,6 +575,7 @@ export const EN_GB = {
       title: "Designed with Aristobot",
       description:
         "Our mascot helps us tell the product story and bring delightful moments to every UI.",
+      button: "Check GitHub App",
     },
   },
   community: {
@@ -834,7 +835,8 @@ export const EN_GB = {
         },
         "2": {
           topic: "Design System",
-          title: "Building a reusable Slider primitive for app-wide consistency",
+          title:
+            "Building a reusable Slider primitive for app-wide consistency",
           meta: "8 min read · Feb 2026",
         },
         "3": {
@@ -1042,7 +1044,8 @@ export const EN_GB = {
         "invalid-unsubscribe": "Unsubscribe link is invalid or expired.",
         "subscription-failed": "Subscription failed.",
         "subscribed-success": "Subscribed successfully.",
-        "subscription-failed-try-again": "Subscription failed. Please try again.",
+        "subscription-failed-try-again":
+          "Subscription failed. Please try again.",
       },
     },
     "case-studies": {

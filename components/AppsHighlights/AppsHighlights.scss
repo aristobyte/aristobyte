@@ -26,6 +26,10 @@
     max-width: 640px;
   }
 
+  &__button {
+    @include button;
+  }
+
   &__grid {
     display: grid;
     grid-template-columns: 1fr;

@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { Section } from "@/components/Section";
-import { SectionNamespace, Align } from "@/config";
+import { Section } from "@/components";
+import { SectionNamespace } from "@/config";
 import { useTranslate } from "@/context";
 
 import "./UIOverviewVideo.scss";
@@ -13,7 +13,7 @@ export const UIOverviewVideo = () => {
   return (
     <Section
       namespace={SectionNamespace.UIOverview}
-      title={{ text: "ui.overview.title", align: Align.LEFT }}
+      title={{ text: "ui.overview.title" }}
       description={{ text: "ui.overview.description" }}
     >
       <div className="ui-overview__frame">

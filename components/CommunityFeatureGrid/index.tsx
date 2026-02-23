@@ -1,9 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { Section } from "@/components/Section";
-import { SmartLink } from "@/components/ui";
-import { Align, SectionNamespace } from "@/config";
+import { Section, SmartLink } from "@/components";
+import { SectionNamespace } from "@/config";
 import { useTranslate } from "@/context";
 import "./CommunityFeatureGrid.scss";
 
@@ -31,12 +30,16 @@ export const CommunityFeatureGrid = ({
   return (
     <Section
       namespace={namespace}
-      title={{ text: titleKey, align: Align.LEFT }}
+      title={{ text: titleKey }}
       description={{ text: descriptionKey }}
     >
       <div className="community-feature-grid">
         {items.map((item) => (
-          <SmartLink key={item.id} href={item.href} className="community-feature-grid__card">
+          <SmartLink
+            key={item.id}
+            href={item.href}
+            className="community-feature-grid__card"
+          >
             <h3>{t(item.titleKey)}</h3>
             <p>{t(item.descriptionKey)}</p>
             <span>{t(item.actionKey)}</span>

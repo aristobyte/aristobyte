@@ -4,10 +4,8 @@ import * as React from "react";
 import NextLink from "next/link";
 
 import { useTranslate } from "@/context";
-import { Config } from "@/config";
-import { CdnIcon } from "@/components/CdnIcon";
-import { Section } from "@/components/Section";
-import { SectionNamespace, Align } from "@/config";
+import { CdnIcon, Section } from "@/components";
+import { SectionNamespace, Config } from "@/config";
 
 import "./HomeServices.scss";
 
@@ -91,7 +89,7 @@ export const HomeServices = () => {
   return (
     <Section
       namespace={SectionNamespace.HomeServices}
-      title={{ text: "home.services.title", align: Align.LEFT }}
+      title={{ text: "home.services.title" }}
       description={{ text: "home.services.description" }}
     >
       <div className="home-services__layout">
@@ -111,37 +109,36 @@ export const HomeServices = () => {
           role="tablist"
           aria-label={t("home.services.aria.list")}
         >
-          {Config.home.services.cards.map(({ id, titleKey, descriptionKey, iconName }) => {
-            const isActive = id === activeId;
+          {Config.home.services.cards.map(
+            ({ id, titleKey, descriptionKey, iconName }) => {
+              const isActive = id === activeId;
 
-            return (
-              <li key={id} className="home-services__item">
-                <button
-                  type="button"
-                  role="tab"
-                  aria-selected={isActive}
-                  aria-controls={`home-service-panel-${id}`}
-                  className={`home-services__tab${isActive ? " home-services__tab--active" : ""}`}
-                  onClick={() => handleTabClick(id)}
-                >
-                  <span className="home-services__tab-icon" aria-hidden>
-                    <CdnIcon
-                      name={iconName}
-                      size={18}
-                    />
-                  </span>
-                  <span className="home-services__tab-title">
-                    {t(titleKey)}
-                  </span>
-                  <span
-                    className={`home-services__tab-description${isActive ? " home-services__tab-description--active" : ""}`}
+              return (
+                <li key={id} className="home-services__item">
+                  <button
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-controls={`home-service-panel-${id}`}
+                    className={`home-services__tab${isActive ? " home-services__tab--active" : ""}`}
+                    onClick={() => handleTabClick(id)}
                   >
-                    {t(descriptionKey)}
-                  </span>
-                </button>
-              </li>
-            );
-          })}
+                    <span className="home-services__tab-icon" aria-hidden>
+                      <CdnIcon name={iconName} size={18} />
+                    </span>
+                    <span className="home-services__tab-title">
+                      {t(titleKey)}
+                    </span>
+                    <span
+                      className={`home-services__tab-description${isActive ? " home-services__tab-description--active" : ""}`}
+                    >
+                      {t(descriptionKey)}
+                    </span>
+                  </button>
+                </li>
+              );
+            },
+          )}
         </ul>
 
         {displayedService && (

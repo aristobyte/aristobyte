@@ -4,8 +4,7 @@ import * as React from "react";
 import { AnsiUp } from "ansi_up";
 import { Icons } from "@aristobyte-ui/utils";
 import { useTranslate } from "@/context";
-import { CdnIcon } from "@/components";
-import { Section } from "@/components/Section";
+import { Section, CdnIcon } from "@/components";
 import { SectionNamespace } from "@/config";
 
 import "./UICliGallery.scss";
@@ -107,8 +106,12 @@ export const UICliGallery = () => {
           <span className="ui-cli__terminal-dot ui-cli__terminal-dot--red" />
           <span className="ui-cli__terminal-dot ui-cli__terminal-dot--yellow" />
           <span className="ui-cli__terminal-dot ui-cli__terminal-dot--green" />
-          <span className="ui-cli__terminal-title">{t("ui.cli.terminal.title")}</span>
-          <span className="ui-cli__terminal-hint">{t("ui.cli.terminal.hint")}</span>
+          <span className="ui-cli__terminal-title">
+            {t("ui.cli.terminal.title")}
+          </span>
+          <span className="ui-cli__terminal-hint">
+            {t("ui.cli.terminal.hint")}
+          </span>
         </div>
         <pre
           className="ui-cli__terminal-body"
