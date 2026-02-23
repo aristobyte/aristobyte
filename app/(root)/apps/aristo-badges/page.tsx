@@ -2,6 +2,8 @@ import * as React from "react";
 
 import { Hero, ProductDetails } from "@/components";
 
+export const dynamic = "force-dynamic";
+
 export default function AristoBadgesPage() {
   return (
     <>
@@ -27,17 +29,20 @@ export default function AristoBadgesPage() {
         ]}
         features={[
           {
-            titleKey: "apps.products.pages.aristo-badges.details.features.readme-focused.title",
+            titleKey:
+              "apps.products.pages.aristo-badges.details.features.readme-focused.title",
             descriptionKey:
               "apps.products.pages.aristo-badges.details.features.readme-focused.description",
           },
           {
-            titleKey: "apps.products.pages.aristo-badges.details.features.svg-native.title",
+            titleKey:
+              "apps.products.pages.aristo-badges.details.features.svg-native.title",
             descriptionKey:
               "apps.products.pages.aristo-badges.details.features.svg-native.description",
           },
           {
-            titleKey: "apps.products.pages.aristo-badges.details.features.composable.title",
+            titleKey:
+              "apps.products.pages.aristo-badges.details.features.composable.title",
             descriptionKey:
               "apps.products.pages.aristo-badges.details.features.composable.description",
           },

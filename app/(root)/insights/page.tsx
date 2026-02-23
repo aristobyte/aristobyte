@@ -8,6 +8,8 @@ import {
   InsightsVideo,
 } from "@/components";
 
+export const dynamic = "force-dynamic";
+
 export default function Insights() {
   return (
     <>

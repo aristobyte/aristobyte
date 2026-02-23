@@ -2,6 +2,8 @@ import * as React from "react";
 
 import { Hero, ProductDetails } from "@/components";
 
+export const dynamic = "force-dynamic";
+
 export default function AristoByteUICLIPage() {
   return (
     <>
@@ -17,15 +19,18 @@ export default function AristoByteUICLIPage() {
         descriptionKey="apps.products.pages.aristobyte-ui-cli.details.description"
         links={[
           {
-            label: "apps.products.pages.aristobyte-ui-cli.details.links.cli-docs",
+            label:
+              "apps.products.pages.aristobyte-ui-cli.details.links.cli-docs",
             href: "https://ui.aristobyte.com/get-started/aristobyte-ui-cli",
           },
           {
-            label: "apps.products.pages.aristobyte-ui-cli.details.links.gh-package-cli",
+            label:
+              "apps.products.pages.aristobyte-ui-cli.details.links.gh-package-cli",
             href: "https://github.com/aristobyte-ui/aristobyte-ui/pkgs/npm/cli",
           },
           {
-            label: "apps.products.pages.aristobyte-ui-cli.details.links.source-code",
+            label:
+              "apps.products.pages.aristobyte-ui-cli.details.links.source-code",
             href: "https://github.com/aristobyte-ui/aristobyte-ui/tree/master/packages/cli",
           },
           {
@@ -35,17 +40,20 @@ export default function AristoByteUICLIPage() {
         ]}
         features={[
           {
-            titleKey: "apps.products.pages.aristobyte-ui-cli.details.features.scaffold-fast.title",
+            titleKey:
+              "apps.products.pages.aristobyte-ui-cli.details.features.scaffold-fast.title",
             descriptionKey:
               "apps.products.pages.aristobyte-ui-cli.details.features.scaffold-fast.description",
           },
           {
-            titleKey: "apps.products.pages.aristobyte-ui-cli.details.features.package-aware.title",
+            titleKey:
+              "apps.products.pages.aristobyte-ui-cli.details.features.package-aware.title",
             descriptionKey:
               "apps.products.pages.aristobyte-ui-cli.details.features.package-aware.description",
           },
           {
-            titleKey: "apps.products.pages.aristobyte-ui-cli.details.features.team-consistency.title",
+            titleKey:
+              "apps.products.pages.aristobyte-ui-cli.details.features.team-consistency.title",
             descriptionKey:
               "apps.products.pages.aristobyte-ui-cli.details.features.team-consistency.description",
           },

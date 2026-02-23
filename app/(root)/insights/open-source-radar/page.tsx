@@ -2,6 +2,8 @@ import * as React from "react";
 
 import { Hero, OpenSourceRadar } from "@/components";
 
+export const dynamic = "force-dynamic";
+
 export default function OpenSourceRadarPage() {
   return (
     <>

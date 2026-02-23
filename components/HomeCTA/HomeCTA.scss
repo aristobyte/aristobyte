@@ -32,12 +32,16 @@
 
   &__title {
     @include title;
-    text-align: left;
+    & {
+      text-align: left;
+    }
   }
 
   &__description {
     @include description;
-    text-align: left;
+    & {
+      text-align: left;
+    }
   }
 
   &__actions {

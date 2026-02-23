@@ -2,6 +2,8 @@ import * as React from "react";
 
 import { Hero, AppsProducts, AppsRoadmap, AppsHighlights } from "@/components";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <>

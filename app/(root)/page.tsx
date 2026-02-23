@@ -11,6 +11,8 @@ import {
 } from "@/components";
 import { Config } from "@/config";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <>

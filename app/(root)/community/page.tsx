@@ -3,6 +3,8 @@ import * as React from "react";
 import { CommunityOverview, Hero } from "@/components";
 import { Config } from "@/config";
 
+export const dynamic = "force-dynamic";
+
 export default function CommunityOverviewPage() {
   return (
     <>

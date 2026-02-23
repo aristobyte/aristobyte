@@ -2,6 +2,8 @@ import * as React from "react";
 
 import { CommunityResourcesHub, Hero } from "@/components";
 
+export const dynamic = "force-dynamic";
+
 export default function CommunityResourcesPage() {
   return (
     <>

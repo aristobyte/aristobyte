@@ -1,98 +1,98 @@
 @use "../../styles/settings" as *;
 
+@keyframes cookie-panel-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cookie-panel-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+}
+
+@keyframes cookie-settings-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cookie-settings-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+  }
+}
+
+@keyframes cookie-manager-close {
+  from {
+    max-height: 420px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes cookie-manager-open {
+  from {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    max-height: 420px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cookie-option-in {
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes cookie-option-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+}
+
 .cookie-consent {
-  @keyframes cookie-panel-enter {
-    from {
-      opacity: 0;
-      transform: translateY(14px) scale(0.985);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-
-  @keyframes cookie-panel-exit {
-    from {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-    to {
-      opacity: 0;
-      transform: translateY(12px) scale(0.985);
-    }
-  }
-
-  @keyframes cookie-settings-enter {
-    from {
-      opacity: 0;
-      transform: translateY(8px) scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-  }
-
-  @keyframes cookie-settings-exit {
-    from {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-    to {
-      opacity: 0;
-      transform: translateY(8px) scale(0.95);
-    }
-  }
-
-  @keyframes cookie-manager-close {
-    from {
-      max-height: 420px;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    to {
-      max-height: 0;
-      opacity: 0;
-      transform: translateY(-6px);
-    }
-  }
-
-  @keyframes cookie-manager-open {
-    from {
-      max-height: 0;
-      opacity: 0;
-      transform: translateY(-6px);
-    }
-    to {
-      max-height: 420px;
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @keyframes cookie-option-in {
-    from {
-      opacity: 0;
-      transform: translateX(-8px);
-    }
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes cookie-option-out {
-    from {
-      opacity: 1;
-      transform: translateX(0);
-    }
-    to {
-      opacity: 0;
-      transform: translateX(-8px);
-    }
-  }
-
   bottom: 16px;
   left: 16px;
   position: fixed;

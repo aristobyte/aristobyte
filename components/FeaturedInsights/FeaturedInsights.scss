@@ -3,7 +3,9 @@
 .featured-insights {
   &__container {
     @include container;
-    padding-bottom: 0;
+    & {
+      padding-bottom: 0;
+    }
   }
 
   &__title {
