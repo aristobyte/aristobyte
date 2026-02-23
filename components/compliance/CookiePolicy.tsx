@@ -63,6 +63,12 @@ export const CookiePolicy = () => (
           through our Website for advertising, analytics, and other purposes.
           This is described in more detail below.
         </p>
+        <p className="compliance__par">
+          By default, only strictly necessary cookies are enabled. Optional
+          categories (such as preferences, analytics, and marketing) are
+          disabled unless you explicitly enable them in our cookie preferences
+          banner.
+        </p>
         <h2 className="compliance__title-small">How can I control cookies?</h2>
         <p className="compliance__par">
           You have the right to decide whether to accept or reject cookies. You

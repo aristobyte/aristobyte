@@ -37,6 +37,7 @@ export { UIOverviewVideo } from "./UIOverviewVideo";
 export { NotFound } from "./NotFound";
 export { Splash } from "./Splash";
 export { AppLayout } from "./AppLayout";
+export { CookieConsent } from "./CookieConsent";
 export * from "./ui";
 export {
   Disclaimer,

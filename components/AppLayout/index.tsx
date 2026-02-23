@@ -3,7 +3,7 @@
 import * as React from "react";
 import { usePathname } from "next/navigation";
 
-import { Footer, Header, Splash } from "@/components";
+import { CookieConsent, Footer, Header, Splash } from "@/components";
 
 import "./AppLayout.scss";
 
@@ -32,6 +32,7 @@ export const AppLayout = ({ children }: AppLayoutPropsType) => {
         <>
           <main className="app-layout__main">{children}</main>
           <Footer />
+          <CookieConsent />
         </>
       )}
     </>

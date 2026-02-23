@@ -1,16 +1,16 @@
 "use client";
 
 import * as React from "react";
-import Script from "next/script";
+// import Script from "next/script";
 import { useTranslate } from "@/context";
-import { CdnIcon, Slide, Slider, Section, SmartLink } from "@/components";
-import { SectionNamespace, Config, useConfig } from "@/config";
+import { CdnIcon, Section, SmartLink } from "@/components";
+import { SectionNamespace, Config } from "@/config";
 
 import "./InsightsSocial.scss";
 
 export const InsightsSocial = () => {
   const { t } = useTranslate();
-  const { insights } = useConfig();
+  // const { insights } = useConfig();
   const processEmbeds = React.useCallback(() => {
     if (typeof window === "undefined") return;
     const instgrm = (
@@ -31,11 +31,11 @@ export const InsightsSocial = () => {
       title={{ text: "insights.social.title" }}
       description={{ text: "insights.social.description" }}
     >
-      <Script
+      {/* <Script
         src="https://www.instagram.com/embed.js"
         strategy="lazyOnload"
         onLoad={processEmbeds}
-      />
+      /> */}
       <div className="insights-social__grid">
         {Config.insights.socials.map(({ id, href, iconName, labelKey }) => (
           <SmartLink key={id} href={href} className="insights-social__card">
@@ -47,7 +47,7 @@ export const InsightsSocial = () => {
         ))}
       </div>
 
-      <Slider
+      {/* <Slider
         className="insights-social__slider"
         title={t("insights.social.instagram.title")}
         itemLabel={t("insights.social.slider.item-label")}
@@ -78,7 +78,7 @@ export const InsightsSocial = () => {
             </div>
           </Slide>
         ))}
-      </Slider>
+      </Slider> */}
     </Section>
   );
 };

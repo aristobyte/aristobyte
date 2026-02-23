@@ -5,7 +5,7 @@ import localFont from "next/font/local";
 import { AppLayout } from "@/components";
 import { HtmlMeta, structuredData, viewport as viewportConfig } from "@/data";
 
-import { TranslateProvider } from "@context";
+import { CookieConsentProvider, TranslateProvider } from "@context";
 import "./globals.scss";
 
 const workSans = localFont({
@@ -135,10 +135,10 @@ export default function RootLayout({
         />
       </head>
       <TranslateProvider>
-        <body
-          className={`${workSans.variable} ${unisonPro.variable} ${righteous.variable}`}
-        >
-          <AppLayout>{children}</AppLayout>
+        <body className={`${workSans.variable} ${unisonPro.variable} ${righteous.variable}`}>
+          <CookieConsentProvider>
+            <AppLayout>{children}</AppLayout>
+          </CookieConsentProvider>
         </body>
       </TranslateProvider>
     </html>

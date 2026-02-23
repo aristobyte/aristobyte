@@ -1131,6 +1131,46 @@ export const EN_GB = {
       },
     },
   },
+  cookies: {
+    banner: {
+      title: "We use cookies",
+      description:
+        "We use strictly necessary cookies to run the site. You can also enable optional cookies for analytics, marketing, and enhanced preferences.",
+      "cookie-policy": "Cookie Policy",
+      "privacy-policy": "Privacy Policy",
+    },
+    manager: {
+      title: "Cookie preferences",
+      description:
+        "Choose which optional categories you want to allow. You can update this choice anytime.",
+    },
+    actions: {
+      manage: "Manage",
+      settings: "Cookie settings",
+      close: "Close",
+      save: "Save preferences",
+      reject: "Reject non-essential",
+      accept: "Accept all",
+    },
+    categories: {
+      necessary: {
+        label: "Strictly necessary",
+        description: "Required for core website functionality and security.",
+      },
+      preferences: {
+        label: "Preferences",
+        description: "Remembers optional settings to improve your experience.",
+      },
+      analytics: {
+        label: "Analytics",
+        description: "Helps us understand traffic and improve product decisions.",
+      },
+      marketing: {
+        label: "Marketing",
+        description: "Used for campaign measurement and ad-related integrations.",
+      },
+    },
+  },
   contact: {
     hero: {
       title: "Let's Build Something Great",
