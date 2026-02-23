@@ -10,13 +10,6 @@ import { SmartLink } from "@/components/ui";
 
 import "./HomeCommunity.scss";
 
-const iconMap: Record<string, string> = {
-  github: "mdi:github",
-  "open-collective": "simple-icons:opencollective",
-  patreon: "simple-icons:patreon",
-  stackoverflow: "mdi:stack-overflow",
-};
-
 export const HomeCommunity = () => {
   const { t } = useTranslate();
 
@@ -27,13 +20,13 @@ export const HomeCommunity = () => {
       description={{ text: "home.community.description" }}
     >
       <div className="home-community__grid">
-        {Config.home.community.links.map(({ id, href }) => (
+        {Config.home.community.links.map(({ id, href, iconName, labelKey }) => (
           <SmartLink key={id} href={href} className="home-community__card">
             <span className="home-community__icon">
-              <CdnIcon name={iconMap[id] ?? "mdi:link"} size={22} />
+              <CdnIcon name={iconName} size={22} />
             </span>
             <span className="home-community__label">
-              {t(`home.community.links.${id}`)}
+              {t(labelKey)}
             </span>
           </SmartLink>
         ))}

@@ -339,6 +339,9 @@ export const EN_GB = {
       subtitle: "Build Interfaces at the Speed of Thought",
       description:
         "Supercharge your development workflow with our production-ready, beautifully designed UI components",
+      links: {
+        docoumentation: "Documentation",
+      },
     },
     overview: {
       title: "Product Overview",

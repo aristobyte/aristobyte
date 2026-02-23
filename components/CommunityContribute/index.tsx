@@ -12,7 +12,6 @@ export const CommunityContribute = () => {
       namespace={SectionNamespace.CommunityContribute}
       titleKey="community.contribute.section.title"
       descriptionKey="community.contribute.section.description"
-      itemPrefix="community.contribute.items"
       items={community.contribute}
     />
   );

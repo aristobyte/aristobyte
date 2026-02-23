@@ -18,13 +18,13 @@ export const AppsRoadmap = () => {
       description={{ text: "apps.roadmap.description" }}
     >
       <ul className="apps-roadmap__grid">
-        {Config.apps.roadmap.items.map(({ id }) => (
+        {Config.apps.roadmap.items.map(({ id, titleKey, descriptionKey }) => (
           <li key={id} className="apps-roadmap__card">
             <h3 className="apps-roadmap__card-title">
-              {t(`apps.roadmap.items.${id}.title`)}
+              {t(titleKey)}
             </h3>
             <p className="apps-roadmap__card-description">
-              {t(`apps.roadmap.items.${id}.description`)}
+              {t(descriptionKey)}
             </p>
           </li>
         ))}

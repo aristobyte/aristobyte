@@ -12,7 +12,6 @@ export const CommunityDiscussions = () => {
       namespace={SectionNamespace.CommunityDiscussions}
       titleKey="community.discussions.section.title"
       descriptionKey="community.discussions.section.description"
-      itemPrefix="community.discussions.items"
       items={community.discussions}
     />
   );

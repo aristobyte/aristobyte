@@ -1,15 +1,15 @@
 "use client";
 
 import { Section } from "@/components/Section";
-import { SectionNamespace, Align } from "@/config";
+import { SectionNamespace, Align, useConfig } from "@/config";
 import { SmartLink } from "@/components/ui";
 import { useTranslate } from "@/context";
-import { sections } from "./constants";
 
 import "./OpenSourceRadar.scss";
 
 export const OpenSourceRadar = () => {
   const { t } = useTranslate();
+  const { insights } = useConfig();
 
   return (
     <Section
@@ -21,7 +21,7 @@ export const OpenSourceRadar = () => {
       description={{ text: "insights.open-source-radar.section.description" }}
     >
       <div className="open-source-radar__grid">
-        {sections.map((section) => (
+        {insights.openSourceRadar.sections.map((section) => (
           <article key={section.id} className="open-source-radar__section">
             <h3 className="open-source-radar__section-title">
               {t(section.titleKey)}

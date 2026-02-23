@@ -12,7 +12,6 @@ export const CommunityResourcesHub = () => {
       namespace={SectionNamespace.CommunityResourcesHub}
       titleKey="community.resources-hub.section.title"
       descriptionKey="community.resources-hub.section.description"
-      itemPrefix="community.resources-hub.items"
       items={community.resourcesHub}
     />
   );

@@ -1,3 +1,4 @@
+"use client";
 import { useTranslate } from "@/context";
 import Image from "next/image";
 import { Section } from "@/components/Section";

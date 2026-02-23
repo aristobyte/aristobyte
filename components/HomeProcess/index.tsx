@@ -18,15 +18,15 @@ export const HomeProcess = () => {
       description={{ text: "home.process.description" }}
     >
       <ol className="home-process__timeline">
-        {Config.home.process.steps.map(({ id }, index) => (
+        {Config.home.process.steps.map(({ id, titleKey, descriptionKey }, index) => (
           <li key={id} className="home-process__step">
             <span className="home-process__index">0{index + 1}</span>
             <div className="home-process__step-body">
               <h3 className="home-process__step-title">
-                {t(`home.process.steps.${id}.title`)}
+                {t(titleKey)}
               </h3>
               <p className="home-process__step-description">
-                {t(`home.process.steps.${id}.description`)}
+                {t(descriptionKey)}
               </p>
             </div>
           </li>

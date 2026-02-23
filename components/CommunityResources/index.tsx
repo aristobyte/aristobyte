@@ -10,13 +10,6 @@ import { SmartLink } from "@/components/ui";
 
 import "./CommunityResources.scss";
 
-const iconMap: Record<string, string> = {
-  github: "mdi:github",
-  "aristobyte-ui-org": "mdi:source-repository",
-  "aristobyte-ui-packages": "mdi:package-variant",
-  "open-collective": "simple-icons:opencollective",
-};
-
 export const CommunityResources = () => {
   const { t } = useTranslate();
 
@@ -29,13 +22,13 @@ export const CommunityResources = () => {
       description={{ text: "community.resources.description" }}
     >
       <div className="community-resources__grid">
-        {Config.community.links.map(({ id, href }) => (
+        {Config.community.links.map(({ id, href, iconName, labelKey }) => (
           <SmartLink key={id} href={href} className="community-resources__card">
             <span className="community-resources__icon">
-              <CdnIcon name={iconMap[id] ?? "mdi:link"} size={22} />
+              <CdnIcon name={iconName} size={22} />
             </span>
             <span className="community-resources__label">
-              {t(`community.resources.links.${id}`)}
+              {t(labelKey)}
             </span>
           </SmartLink>
         ))}

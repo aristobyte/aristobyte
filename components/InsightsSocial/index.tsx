@@ -11,13 +11,6 @@ import { SmartLink } from "@/components/ui";
 
 import "./InsightsSocial.scss";
 
-const iconMap: Record<string, string> = {
-  instagram: "mdi:instagram",
-  facebook: "mdi:facebook",
-  "linked-in": "mdi:linkedin",
-  twitter: "mdi:twitter",
-};
-
 export const InsightsSocial = () => {
   const { t } = useTranslate();
   const { insights } = useConfig();
@@ -47,13 +40,13 @@ export const InsightsSocial = () => {
         onLoad={processEmbeds}
       />
       <div className="insights-social__grid">
-        {Config.insights.socials.map(({ id, href }) => (
+        {Config.insights.socials.map(({ id, href, iconName, labelKey }) => (
           <SmartLink key={id} href={href} className="insights-social__card">
             <span className="insights-social__icon">
-              <CdnIcon name={iconMap[id] ?? "mdi:link"} size={22} />
+              <CdnIcon name={iconName} size={22} />
             </span>
             <span className="insights-social__label">
-              {t(`insights.social.links.${id}`)}
+              {t(labelKey)}
             </span>
           </SmartLink>
         ))}

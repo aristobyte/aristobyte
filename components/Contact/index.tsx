@@ -20,11 +20,11 @@ export const ContactSection = () => {
       description={{ text: "contact.description" }}
     >
       <ul className="contact__list">
-        {Config.contact.cards.map(({ id, href }) => {
-          const title = t(`contact.cards.${id}.title`);
-          const value = t(`contact.cards.${id}.value`);
-          const description = t(`contact.cards.${id}.description`);
-          const action = t(`contact.cards.${id}.action`);
+        {Config.contact.cards.map(({ id, href, titleKey, valueKey, descriptionKey, actionKey }) => {
+          const title = t(titleKey);
+          const value = t(valueKey);
+          const description = t(descriptionKey);
+          const action = t(actionKey);
 
           return (
             <li key={id} className="contact__card">

@@ -12,7 +12,6 @@ export const CommunityShowcase = () => {
       namespace={SectionNamespace.CommunityShowcase}
       titleKey="community.showcase.section.title"
       descriptionKey="community.showcase.section.description"
-      itemPrefix="community.showcase.items"
       items={community.showcase}
     />
   );

@@ -11,15 +11,19 @@ type CommunityFeatureGridProps = {
   namespace: SectionNamespace;
   titleKey: string;
   descriptionKey: string;
-  itemPrefix: string;
-  items: Array<{ id: string; href: string }>;
+  items: Array<{
+    id: string;
+    href: string;
+    titleKey: string;
+    descriptionKey: string;
+    actionKey: string;
+  }>;
 };
 
 export const CommunityFeatureGrid = ({
   namespace,
   titleKey,
   descriptionKey,
-  itemPrefix,
   items,
 }: CommunityFeatureGridProps) => {
   const { t } = useTranslate();
@@ -33,9 +37,9 @@ export const CommunityFeatureGrid = ({
       <div className="community-feature-grid">
         {items.map((item) => (
           <SmartLink key={item.id} href={item.href} className="community-feature-grid__card">
-            <h3>{t(`${itemPrefix}.${item.id}.title`)}</h3>
-            <p>{t(`${itemPrefix}.${item.id}.description`)}</p>
-            <span>{t(`${itemPrefix}.${item.id}.action`)}</span>
+            <h3>{t(item.titleKey)}</h3>
+            <p>{t(item.descriptionKey)}</p>
+            <span>{t(item.actionKey)}</span>
           </SmartLink>
         ))}
       </div>

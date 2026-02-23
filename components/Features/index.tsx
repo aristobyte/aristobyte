@@ -20,16 +20,16 @@ export const Features = () => {
       description={{ text: "home.features.description" }}
     >
       <ul className="features__list">
-        {Config.home.features.cards.map(({ id, icon: Icon }) => (
+        {Config.home.features.cards.map(({ id, icon: Icon, titleKey, descriptionKey }) => (
           <li key={id} className="features__card">
             <span className="features__card-icon">
               <Icon />
             </span>
             <h3 className="features__card-title">
-              {t(`home.features.cards.${id}.title`)}
+              {t(titleKey)}
             </h3>
             <p className="features__card-description">
-              {t(`home.features.cards.${id}.description`)}
+              {t(descriptionKey)}
             </p>
           </li>
         ))}

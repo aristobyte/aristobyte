@@ -3,27 +3,22 @@
 import * as React from "react";
 import { CdnIcon } from "@/components";
 import { Section } from "@/components/Section";
-import { SectionNamespace, Align } from "@/config";
+import { SectionNamespace, Align, useConfig } from "@/config";
 import { SmartLink } from "@/components/ui";
 import { useTranslate } from "@/context";
-import {
-  deepDives,
-  filters,
-  noteTypeIcon,
-  notes,
-  namespaces,
-  type FilterType,
-} from "./constants";
 
 import "./EngineeringNotes.scss";
 
 export const EngineeringNotes = () => {
   const { t } = useTranslate();
-  const [activeFilter, setActiveFilter] = React.useState<FilterType>("all");
+  const { insights } = useConfig();
+  const [activeFilter, setActiveFilter] = React.useState<
+    "all" | "release" | "decision" | "migration"
+  >("all");
   const filteredNotes =
     activeFilter === "all"
-      ? notes
-      : notes.filter((note) => note.type === activeFilter);
+      ? insights.engineeringNotes.notes
+      : insights.engineeringNotes.notes.filter((note) => note.type === activeFilter);
 
   return (
     <Section
@@ -60,7 +55,7 @@ export const EngineeringNotes = () => {
       </div>
 
       <div className="engineering-notes__namespaces">
-        {namespaces.map((namespace) => (
+        {insights.engineeringNotes.namespaces.map((namespace) => (
           <article key={namespace.id} className="engineering-notes__namespace">
             <div className="engineering-notes__namespace-top">
               <h3>{t(namespace.titleKey)}</h3>
@@ -84,15 +79,19 @@ export const EngineeringNotes = () => {
       </div>
 
       <div className="engineering-notes__filters">
-        {filters.map((filter) => (
+        {insights.engineeringNotes.filters.map((filter) => (
           <button
             key={filter.id}
             type="button"
             className="engineering-notes__filter"
             data-active={activeFilter === filter.id}
-            onClick={() => setActiveFilter(filter.id)}
+            onClick={() =>
+              setActiveFilter(
+                filter.id as "all" | "release" | "decision" | "migration",
+              )
+            }
           >
-            {t(filter.label)}
+            {t(filter.labelKey)}
           </button>
         ))}
       </div>
@@ -106,8 +105,15 @@ export const EngineeringNotes = () => {
                 <span
                   className={`engineering-notes__type engineering-notes__type--${note.type}`}
                 >
-                  <CdnIcon name={noteTypeIcon[note.type]} size={14} />
-                  {t(`insights.engineering-notes.filters.${note.type}`)}
+                  <CdnIcon
+                    name={
+                      insights.engineeringNotes.noteTypeIcon[
+                        note.type as "release" | "decision" | "migration"
+                      ]
+                    }
+                    size={14}
+                  />
+                  {t(note.typeLabelKey)}
                 </span>
                 <time dateTime={note.date}>{note.date}</time>
               </div>
@@ -129,7 +135,7 @@ export const EngineeringNotes = () => {
       <div className="engineering-notes__deep-dives">
         <h3>{t("insights.engineering-notes.deep-dives.title")}</h3>
         <div className="engineering-notes__deep-grid">
-          {deepDives.map((dive) => (
+          {insights.engineeringNotes.deepDives.map((dive) => (
             <article key={dive.id} className="engineering-notes__deep-card">
               <h4>{t(dive.titleKey)}</h4>
               <p>{t(dive.descriptionKey)}</p>

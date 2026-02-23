@@ -16,24 +16,6 @@ const IN_DURATION_MS = 420;
 
 const panelBackgroundSrc = "/images/neon-background.png";
 
-const serviceImageById: Record<string, string> = {
-  "product-strategy": "/images/what-we-create/product-strategy.png",
-  "ui-ux": "/images/what-we-create/ux-ui-designs.png",
-  "web-platforms": "/images/what-we-create/web-platforms.png",
-  "mobile-experiences": "/images/what-we-create/mobile-experience.png",
-  "ai-automation": "/images/what-we-create/ai-automation.png",
-  "devops-growth": "/images/what-we-create/devops-growth.png",
-};
-
-const serviceIconById: Record<string, string> = {
-  "product-strategy": "mdi:compass-outline",
-  "ui-ux": "mdi:palette-outline",
-  "web-platforms": "mdi:web",
-  "mobile-experiences": "mdi:cellphone",
-  "ai-automation": "mdi:robot-outline",
-  "devops-growth": "mdi:infinity",
-};
-
 type AnimationPhase = "idle" | "out" | "in";
 
 export const HomeServices = () => {
@@ -116,12 +98,10 @@ export const HomeServices = () => {
         {displayedService && (
           <div className={`home-services__mobile-active ${animationClass}`}>
             <h3 className="home-services__mobile-active-title">
-              {t(`home.services.cards.${displayedService.id}.title`)}
+              {t(displayedService.titleKey)}
             </h3>
             <p className="home-services__mobile-active-description">
-              {t(
-                `home.services.cards.${displayedService.id}.previewDescription`,
-              )}
+              {t(displayedService.previewDescriptionKey)}
             </p>
           </div>
         )}
@@ -131,7 +111,7 @@ export const HomeServices = () => {
           role="tablist"
           aria-label={t("home.services.aria.list")}
         >
-          {Config.home.services.cards.map(({ id }) => {
+          {Config.home.services.cards.map(({ id, titleKey, descriptionKey, iconName }) => {
             const isActive = id === activeId;
 
             return (
@@ -146,17 +126,17 @@ export const HomeServices = () => {
                 >
                   <span className="home-services__tab-icon" aria-hidden>
                     <CdnIcon
-                      name={serviceIconById[id] ?? "mdi:shape-outline"}
+                      name={iconName}
                       size={18}
                     />
                   </span>
                   <span className="home-services__tab-title">
-                    {t(`home.services.cards.${id}.title`)}
+                    {t(titleKey)}
                   </span>
                   <span
                     className={`home-services__tab-description${isActive ? " home-services__tab-description--active" : ""}`}
                   >
-                    {t(`home.services.cards.${id}.description`)}
+                    {t(descriptionKey)}
                   </span>
                 </button>
               </li>
@@ -185,8 +165,8 @@ export const HomeServices = () => {
               </div>
               <div className="home-services__panel-icon">
                 <img
-                  src={serviceImageById[displayedService.id]}
-                  alt={t(`home.services.cards.${displayedService.id}.title`)}
+                  src={displayedService.image}
+                  alt={t(displayedService.titleKey)}
                   loading="lazy"
                   decoding="async"
                 />
@@ -194,12 +174,10 @@ export const HomeServices = () => {
             </div>
 
             <h3 className="home-services__panel-title">
-              {t(`home.services.cards.${displayedService.id}.title`)}
+              {t(displayedService.titleKey)}
             </h3>
             <p className="home-services__panel-description">
-              {t(
-                `home.services.cards.${displayedService.id}.previewDescription`,
-              )}
+              {t(displayedService.previewDescriptionKey)}
             </p>
             <NextLink href="/contact" className="home-services__panel-link">
               <span>{t("home.cta.primary")}</span>

@@ -11,17 +11,6 @@ import { SmartLink } from "@/components/ui";
 
 import "./UISuite.scss";
 
-const iconMap: Record<string, string> = {
-  documentation: "mdi:book-open-variant",
-  "github-org": "mdi:github",
-  "github-project": "mdi:source-repository",
-  "npm-packages": "simple-icons:npm",
-  releases: "mdi:tag-outline",
-  packages: "mdi:package-variant",
-  "open-collective": "simple-icons:opencollective",
-  discussions: "mdi:message-text-outline",
-};
-
 export const UISuite = () => {
   const { t } = useTranslate();
 
@@ -37,12 +26,12 @@ export const UISuite = () => {
         </span>
       </span>
       <div className="ui-suite__grid">
-        {Config.ui.links.map(({ id, href }) => (
+        {Config.ui.links.map(({ id, href, iconName, labelKey }) => (
           <SmartLink key={id} href={href} className="ui-suite__card">
             <span className="ui-suite__icon">
-              <CdnIcon name={iconMap[id] ?? "mdi:link"} size={22} />
+              <CdnIcon name={iconName} size={22} />
             </span>
-            <span className="ui-suite__label">{t(`ui.suite.links.${id}`)}</span>
+            <span className="ui-suite__label">{t(labelKey)}</span>
           </SmartLink>
         ))}
       </div>

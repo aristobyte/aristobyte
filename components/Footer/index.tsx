@@ -9,63 +9,6 @@ import { useTranslate } from "@/context";
 
 import "./Footer.scss";
 
-const socialLinks = [
-  {
-    id: "github",
-    labelKey: "footer.social.github",
-    href: "https://github.com/aristobyte",
-    icon: "mdi:github",
-  },
-  {
-    id: "stackoverflow",
-    labelKey: "footer.social.stackoverflow",
-    href: "https://stackoverflow.com/users/30507294/aristobyte",
-    icon: "mdi:stack-overflow",
-  },
-  {
-    id: "npm",
-    labelKey: "footer.social.npm",
-    href: "https://www.npmjs.com/~aristobyte_team",
-    icon: "mdi:npm",
-  },
-  {
-    id: "email",
-    labelKey: "footer.social.email",
-    href: "mailto:info.aristobyte@gmail.com",
-    icon: "mdi:email-outline",
-  },
-  {
-    id: "linkedin",
-    labelKey: "footer.social.linkedin",
-    href: "http://linkedin.com/company/aristobyte/",
-    icon: "mdi:linkedin",
-  },
-  {
-    id: "instagram",
-    labelKey: "footer.social.instagram",
-    href: "https://www.instagram.com/aristo_byte/",
-    icon: "mdi:instagram",
-  },
-  {
-    id: "youtube",
-    labelKey: "footer.social.youtube",
-    href: "https://www.youtube.com/@aristobyte",
-    icon: "mdi:youtube",
-  },
-  {
-    id: "open-collective",
-    labelKey: "footer.social.open-collective",
-    href: "https://opencollective.com/aristobyte",
-    icon: "simple-icons:opencollective",
-  },
-  {
-    id: "patreon",
-    labelKey: "footer.social.patreon",
-    href: "https://www.patreon.com/c/aristobyte",
-    icon: "mdi:patreon",
-  },
-];
-
 export const Footer = () => {
   const config = useConfig();
   const { t } = useTranslate();
@@ -87,7 +30,7 @@ export const Footer = () => {
             </NextLink>
             <p className="footer__description">{t("footer.description")}</p>
             <div className="footer__socials">
-              {socialLinks.map(({ id, href, icon, labelKey }) => (
+              {config.footer.socials.map(({ id, href, iconName, labelKey }) => (
                 <a
                   key={id}
                   href={href}
@@ -96,7 +39,7 @@ export const Footer = () => {
                   className={`footer__social footer__social--${id}`}
                   aria-label={t(labelKey)}
                 >
-                  <CdnIcon name={icon} size={16} />
+                  <CdnIcon name={iconName} size={16} />
                 </a>
               ))}
             </div>
@@ -108,10 +51,10 @@ export const Footer = () => {
                 {t("footer.columns.products")}
               </h3>
               <ul className="footer__list">
-                {config.apps.products.map(({ id, href }) => (
+                {config.apps.products.map(({ id, href, titleKey }) => (
                   <li key={id}>
                     <NextLink href={href} className="footer__link">
-                      {t(`apps.products.items.${id}.title`)}
+                      {t(titleKey)}
                     </NextLink>
                   </li>
                 ))}
@@ -121,10 +64,10 @@ export const Footer = () => {
             <div className="footer__column">
               <h3 className="footer__heading">{t("footer.columns.company")}</h3>
               <ul className="footer__list">
-                {config.header.nav.map(({ id, href }) => (
+                {config.header.nav.map(({ id, href, labelKey }) => (
                   <li key={id}>
                     <NextLink href={href} className="footer__link">
-                      {t(`header.nav.${id}`)}
+                      {t(labelKey)}
                     </NextLink>
                   </li>
                 ))}
@@ -141,10 +84,10 @@ export const Footer = () => {
                 {t("footer.columns.compliance")}
               </h3>
               <ul className="footer__list">
-                {config.compliance.main.list.map(({ id, href }) => (
+                {config.compliance.main.list.map(({ id, href, labelKey }) => (
                   <li key={id}>
                     <NextLink href={href} className="footer__link">
-                      {t(`compliance.main.list.${id}`)}
+                      {t(labelKey)}
                     </NextLink>
                   </li>
                 ))}
@@ -154,10 +97,10 @@ export const Footer = () => {
             <div className="footer__column">
               <h3 className="footer__heading">{t("footer.columns.contact")}</h3>
               <ul className="footer__list">
-                {config.contact.cards.map(({ id, href }) => (
+                {config.contact.cards.map(({ id, href, titleKey }) => (
                   <li key={id}>
                     <a href={href} className="footer__link">
-                      {t(`contact.cards.${id}.title`)}
+                      {t(titleKey)}
                     </a>
                   </li>
                 ))}

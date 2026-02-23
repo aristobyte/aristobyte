@@ -22,6 +22,7 @@ export type HeroPropsType = {
     id: string;
     href: string;
     type: LinkType;
+    labelKey: string;
   }[];
 };
 
@@ -74,7 +75,7 @@ export const Hero = ({
         </div>
         {links && linkText && (
           <ul className="hero__links">
-            {links.map(({ id, href, type }) => (
+            {links.map(({ id, href, type, labelKey }) => (
               <li
                 key={id}
                 className={`hero__item hero__item--${id} hero__animate hero__animate--links`}
@@ -86,12 +87,12 @@ export const Hero = ({
                     rel="noreferrer"
                     className="hero__link"
                   >
-                    <span>{t(`${linkText}.${id}`)}</span>
+                    <span>{t(labelKey)}</span>
                   </NextLink>
                 )}
                 {type === LinkType.SCROLL_LINK && (
                   <Link offset={offset} to={href} className="hero__link">
-                    <span>{t(`${linkText}.${id}`)}</span>
+                    <span>{t(labelKey)}</span>
                   </Link>
                 )}
               </li>

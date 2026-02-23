@@ -12,7 +12,6 @@ export const CommunityOverview = () => {
       namespace={SectionNamespace.CommunityOverview}
       titleKey="community.overview.section.title"
       descriptionKey="community.overview.section.description"
-      itemPrefix="community.overview.items"
       items={community.overview}
     />
   );
