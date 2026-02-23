@@ -1,9 +1,6 @@
 import * as React from "react";
 
-import { Hero } from "@/components/Hero";
-import { ProductDetails } from "@/components/ProductDetails";
-
-export const dynamic = "force-dynamic";
+import { Hero, ProductDetails } from "@/components";
 
 export default function AristoRepoPage() {
   return (

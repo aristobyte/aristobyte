@@ -1,10 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
-import { hasResendAudienceConfig, upsertResendAudienceContact } from "@/lib/newsletter/audience";
-import { hasSubscriber, upsertSubscriber } from "@/lib/newsletter/store";
-import { buildSubscriberWelcomeEmail } from "@/lib/newsletter/template";
-import { sendEmailViaResend } from "@/lib/newsletter/send";
-import { tNewsletter } from "@/lib/newsletter/i18n";
-import { NewsletterTopicsType } from "@/lib/newsletter/types";
+import {
+  hasResendAudienceConfig,
+  upsertResendAudienceContact,
+  hasSubscriber,
+  upsertSubscriber,
+  buildSubscriberWelcomeEmail,
+  sendEmailViaResend,
+  tNewsletter,
+  NewsletterTopicsType,
+} from "@/lib/newsletter";
 
 export const runtime = "nodejs";
 

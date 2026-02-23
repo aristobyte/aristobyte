@@ -3,8 +3,7 @@
 import * as React from "react";
 // import Script from "next/script";
 import { useTranslate } from "@/context";
-import { CdnIcon } from "@/components/CdnIcon";
-import { Section } from "@/components/Section";
+import { CdnIcon, Section } from "@/components";
 import { SmartLink } from "@/components/ui/SmartLink";
 import { SectionNamespace, Config } from "@/config";
 

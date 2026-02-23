@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { hasResendAudienceConfig, removeResendAudienceContact } from "@/lib/newsletter/audience";
-import { removeSubscriber } from "@/lib/newsletter/store";
-import { verifyUnsubscribeToken } from "@/lib/newsletter/token";
-import { tNewsletter } from "@/lib/newsletter/i18n";
+import {
+  hasResendAudienceConfig,
+  removeResendAudienceContact,
+  removeSubscriber,
+  verifyUnsubscribeToken,
+  tNewsletter,
+} from "@/lib/newsletter";
 
 const getSiteUrl = () =>
   process.env.NEXT_PUBLIC_SITE_URL ?? process.env.SITE_URL ?? "https://aristobyte.com";

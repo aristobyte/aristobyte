@@ -1,10 +1,30 @@
 import { EN_GB } from "./en-gb";
 
 export enum Locales {
-  EN_GB = "",
+  EN_GB = "en-gb",
 }
 
 export type TranslateFunctionType = (path: string) => string;
+
+export const DEFAULT_LOCALE = Locales.EN_GB;
+
+export const resolveLocale = (value?: string | null): Locales => {
+  if (!value) return DEFAULT_LOCALE;
+
+  const normalizedValue = value.toLowerCase();
+
+  return (Object.values(Locales).includes(normalizedValue as Locales)
+    ? normalizedValue
+    : DEFAULT_LOCALE) as Locales;
+};
+
+export const resolveLocaleFromPathname = (pathname?: string | null): Locales => {
+  const pathSegment = pathname
+    ?.split("/")
+    .filter(Boolean)[0];
+
+  return resolveLocale(pathSegment);
+};
 
 export const translate = (locale: Locales): TranslateFunctionType => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -2,8 +2,7 @@
 
 import * as React from "react";
 import { useTranslate } from "@/context";
-import { CdnIcon } from "@/components/CdnIcon";
-import { Section } from "@/components/Section";
+import { CdnIcon, Section } from "@/components";
 import { SmartLink } from "@/components/ui/SmartLink";
 import { SectionNamespace, Align, Config } from "@/config";
 

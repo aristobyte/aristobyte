@@ -1,8 +1,12 @@
 "use client";
 
 import * as React from "react";
+import {
+  resolveLocaleFromPathname,
+  translate,
+  type TranslateFunctionType,
+} from "@/data/translations";
 import { usePathname } from "next/navigation";
-import { Locales, translate, type TranslateFunctionType } from "@/data";
 
 const TranslateContext = React.createContext({
   t: ((_: string) => _) as TranslateFunctionType,
@@ -12,19 +16,21 @@ export type TranslateProviderPropsType = {
   children: React.ReactNode;
 };
 
-const getLocale = (pathname: string) =>
-  Object.values(Locales).find((locale) =>
-    pathname.toLowerCase().includes(`/${locale}`)
-  ) ?? Locales.EN_GB;
-
 export const TranslateProvider = ({ children }: TranslateProviderPropsType) => {
   const pathname = usePathname();
-  const locale = getLocale(pathname);
 
-  const t = translate(locale);
+  const locale = React.useMemo(
+    () => resolveLocaleFromPathname(pathname),
+    [pathname],
+  );
+
+  const translateFn = React.useMemo(
+    () => translate(locale),
+    [locale],
+  );
 
   return (
-    <TranslateContext.Provider value={{ t }}>
+    <TranslateContext.Provider value={{ t: translateFn }}>
       {children}
     </TranslateContext.Provider>
   );

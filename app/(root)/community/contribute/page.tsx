@@ -1,9 +1,6 @@
 import * as React from "react";
 
-import { CommunityContribute } from "@/components/CommunityContribute";
-import { Hero } from "@/components/Hero";
-
-export const dynamic = "force-dynamic";
+import { CommunityContribute, Hero } from "@/components";
 
 export default function CommunityContributePage() {
   return (

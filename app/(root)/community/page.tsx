@@ -1,10 +1,7 @@
 import * as React from "react";
 
-import { CommunityOverview } from "@/components/CommunityOverview";
-import { Hero } from "@/components/Hero";
+import { CommunityOverview, Hero } from "@/components";
 import { Config } from "@/config";
-
-export const dynamic = "force-dynamic";
 
 export default function CommunityOverviewPage() {
   return (

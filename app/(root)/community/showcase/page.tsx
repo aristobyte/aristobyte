@@ -1,9 +1,6 @@
 import * as React from "react";
 
-import { CommunityShowcase } from "@/components/CommunityShowcase";
-import { Hero } from "@/components/Hero";
-
-export const dynamic = "force-dynamic";
+import { CommunityShowcase, Hero } from "@/components";
 
 export default function CommunityShowcasePage() {
   return (

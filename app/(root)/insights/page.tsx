@@ -1,12 +1,12 @@
 import * as React from "react";
 
-import { FeaturedInsights } from "@/components";
-import { Hero } from "@/components/Hero";
-import { InsightsNewsletter } from "@/components/InsightsNewsletter";
-import { InsightsSocial } from "@/components/InsightsSocial";
-import { InsightsVideo } from "@/components/InsightsVideo";
-
-export const dynamic = "force-dynamic";
+import {
+  FeaturedInsights,
+  Hero,
+  InsightsNewsletter,
+  InsightsSocial,
+  InsightsVideo,
+} from "@/components";
 
 export default function Insights() {
   return (

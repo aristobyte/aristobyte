@@ -1,11 +1,7 @@
 import * as React from "react";
 
-import { Hero } from "@/components/Hero";
-import { ContactSection } from "@/components/Contact";
-import { HomeCommunity } from "@/components/HomeCommunity";
+import { Hero, ContactSection, HomeCommunity } from "@/components";
 import { Config } from "@/config";
-
-export const dynamic = "force-dynamic";
 
 export default function Contact() {
   return (

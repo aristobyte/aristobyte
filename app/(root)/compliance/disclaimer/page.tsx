@@ -1,8 +1,6 @@
 import * as React from "react";
 import { Disclaimer as DisclaimerComponent } from "@/components/compliance/Disclaimer";
 
-export const dynamic = "force-dynamic";
-
 export default function Disclaimer() {
   return <DisclaimerComponent />;
 }

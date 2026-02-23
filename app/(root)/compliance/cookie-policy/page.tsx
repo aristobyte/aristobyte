@@ -1,8 +1,6 @@
 import * as React from "react";
 import { CookiePolicy as CookiePolicyComponent } from "@/components/compliance/CookiePolicy";
 
-export const dynamic = "force-dynamic";
-
 export default function CookiePolicy() {
   return <CookiePolicyComponent />;
 }
