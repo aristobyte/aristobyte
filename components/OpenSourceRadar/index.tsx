@@ -1,6 +1,7 @@
 "use client";
 
-import { Section, SmartLink } from "@/components";
+import { Section } from "@/components/Section";
+import { SmartLink } from "@/components/ui/SmartLink";
 import { SectionNamespace, useConfig } from "@/config";
 import { useTranslate } from "@/context";
 

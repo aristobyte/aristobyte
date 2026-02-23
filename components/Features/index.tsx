@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import { Section } from "@/components";
+import { Section } from "@/components/Section";
 import { SectionNamespace, Config } from "@/config";
 import { useTranslate } from "@/context";
 

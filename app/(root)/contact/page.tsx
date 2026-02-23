@@ -1,6 +1,8 @@
 import * as React from "react";
 
-import { Hero, ContactSection, HomeCommunity } from "@/components";
+import { Hero } from "@/components/Hero";
+import { ContactSection } from "@/components/Contact";
+import { HomeCommunity } from "@/components/HomeCommunity";
 import { Config } from "@/config";
 
 export const dynamic = "force-dynamic";

@@ -5,7 +5,7 @@ import NextLink from "next/link";
 import { Link } from "react-scroll";
 
 import { Icons } from "@aristobyte-ui/utils";
-import { Gradient } from "@/components";
+import { Gradient } from "@/components/Gradient";
 import { HEADER_SIZE, LinkType } from "@/config";
 import { useTranslate } from "@/context";
 

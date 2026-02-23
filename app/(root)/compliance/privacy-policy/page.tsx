@@ -1,5 +1,5 @@
 import * as React from "react";
-import { PrivacyPolicy as PrivacyPolicyComponent } from "@/components";
+import { PrivacyPolicy as PrivacyPolicyComponent } from "@/components/compliance/PrivacyPolicy";
 
 export const dynamic = "force-dynamic";
 

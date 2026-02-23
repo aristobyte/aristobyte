@@ -3,7 +3,7 @@
 import * as React from "react";
 import NextLink from "next/link";
 
-import { Section } from "@/components";
+import { Section } from "@/components/Section";
 import { Config, SectionNamespace } from "@/config";
 import { useTranslate } from "@/context";
 

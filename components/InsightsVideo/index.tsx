@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useTranslate } from "@/context";
-import { Section } from "@/components";
+import { Section } from "@/components/Section";
 import { SectionNamespace, Title } from "@/config";
 
 import "./InsightsVideo.scss";

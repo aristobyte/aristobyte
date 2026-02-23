@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 
 import { Icons } from "@aristobyte-ui/utils";
 import { type HeaderMenuItem, MenuList, useConfig } from "@config";
-import { CdnIcon } from "@/components";
+import { CdnIcon } from "@/components/CdnIcon";
 import { useTranslate } from "@/context";
 import { DesktopDropdown } from "./DesktopDropdown";
 import { MenuListType } from "./MenuList";

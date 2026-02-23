@@ -1,5 +1,5 @@
 import * as React from "react";
-import { DataSubjectAccessRequest as DataSubjectAccessRequestComponent } from "@/components";
+import { DataSubjectAccessRequest as DataSubjectAccessRequestComponent } from "@/components/compliance/DataSubjectAccessRequest";
 
 export const dynamic = "force-dynamic";
 

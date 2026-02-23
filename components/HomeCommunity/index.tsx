@@ -2,7 +2,9 @@
 
 import * as React from "react";
 import { useTranslate } from "@/context";
-import { CdnIcon, Section, SmartLink } from "@/components";
+import { CdnIcon } from "@/components/CdnIcon";
+import { Section } from "@/components/Section";
+import { SmartLink } from "@/components/ui/SmartLink";
 import { SectionNamespace, Align, Config } from "@/config";
 
 import "./HomeCommunity.scss";

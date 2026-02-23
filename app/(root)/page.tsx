@@ -1,14 +1,12 @@
 import * as React from "react";
-import {
-  Hero,
-  Features,
-  UIComponentsPreview,
-  HomeServices,
-  HomeProcess,
-  HomeStack,
-  HomeCTA,
-  HomeCommunity,
-} from "@/components";
+import { Hero } from "@/components/Hero";
+import { Features } from "@/components/Features";
+import { UIComponentsPreview } from "@/components/UIComponentsPreview";
+import { HomeServices } from "@/components/HomeServices";
+import { HomeProcess } from "@/components/HomeProcess";
+import { HomeStack } from "@/components/HomeStack";
+import { HomeCTA } from "@/components/HomeCTA";
+import { HomeCommunity } from "@/components/HomeCommunity";
 import { Config } from "@/config";
 
 export const dynamic = "force-dynamic";

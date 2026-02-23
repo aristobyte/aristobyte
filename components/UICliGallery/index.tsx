@@ -4,7 +4,8 @@ import * as React from "react";
 import { AnsiUp } from "ansi_up";
 import { Icons } from "@aristobyte-ui/utils";
 import { useTranslate } from "@/context";
-import { Section, CdnIcon } from "@/components";
+import { Section } from "@/components/Section";
+import { CdnIcon } from "@/components/CdnIcon";
 import { SectionNamespace } from "@/config";
 
 import "./UICliGallery.scss";

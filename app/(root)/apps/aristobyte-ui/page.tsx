@@ -1,6 +1,9 @@
 import * as React from "react";
 
-import { Hero, UIOverviewVideo, UISuite, UICliGallery } from "@/components";
+import { Hero } from "@/components/Hero";
+import { UIOverviewVideo } from "@/components/UIOverviewVideo";
+import { UISuite } from "@/components/UISuite";
+import { UICliGallery } from "@/components/UICliGallery";
 
 export const dynamic = "force-dynamic";
 

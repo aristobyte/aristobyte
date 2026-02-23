@@ -2,10 +2,9 @@ import * as React from "react";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 
-import { AppLayout } from "@/components";
+import { AppLayout } from "@/components/AppLayout";
 import { HtmlMeta, structuredData, viewport as viewportConfig } from "@/data";
-
-import { CookieConsentProvider, TranslateProvider } from "@context";
+import { ClientProviders } from "./client-providers";
 import "./globals.scss";
 
 const workSans = localFont({
@@ -134,13 +133,11 @@ export default function RootLayout({
           content={process.env.NEXT_PUBLIC_FACEBOOK_DOMAIN_VERIFICATION}
         />
       </head>
-      <TranslateProvider>
-        <body className={`${workSans.variable} ${unisonPro.variable} ${righteous.variable}`}>
-          <CookieConsentProvider>
-            <AppLayout>{children}</AppLayout>
-          </CookieConsentProvider>
-        </body>
-      </TranslateProvider>
+      <body className={`${workSans.variable} ${unisonPro.variable} ${righteous.variable}`}>
+        <ClientProviders>
+          <AppLayout>{children}</AppLayout>
+        </ClientProviders>
+      </body>
     </html>
   );
 }

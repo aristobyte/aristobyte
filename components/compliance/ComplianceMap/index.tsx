@@ -5,7 +5,7 @@ import NextLink from "next/link";
 
 import { Icons } from "@aristobyte-ui/utils";
 import { useTranslate } from "@/context";
-import { Section } from "@/components";
+import { Section } from "@/components/Section";
 import { SectionNamespace, Config } from "@/config";
 
 import "./ComplianceMap.scss";

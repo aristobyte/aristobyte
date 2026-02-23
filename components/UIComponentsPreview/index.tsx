@@ -3,7 +3,7 @@
 import * as React from "react";
 import NextLink from "next/link";
 import { useTranslate } from "@/context";
-import { Section } from "@/components";
+import { Section } from "@/components/Section";
 import { SectionNamespace, Align } from "@/config";
 
 import "./UIComponentsPreview.scss";

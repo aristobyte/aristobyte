@@ -3,7 +3,7 @@
 import * as React from "react";
 import NextLink from "next/link";
 
-import { CdnIcon } from "@/components";
+import { CdnIcon } from "@/components/CdnIcon";
 import { useConfig } from "@/config";
 import { useTranslate } from "@/context";
 

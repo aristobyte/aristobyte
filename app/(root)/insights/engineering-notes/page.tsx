@@ -1,6 +1,7 @@
 import * as React from "react";
 
-import { EngineeringNotes, Hero } from "@/components";
+import { EngineeringNotes } from "@/components/EngineeringNotes";
+import { Hero } from "@/components/Hero";
 
 export const dynamic = "force-dynamic";
 

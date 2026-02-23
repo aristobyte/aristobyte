@@ -2,7 +2,8 @@
 import Image from "next/image";
 import NextLink from "next/link";
 
-import { CdnIcon, Section } from "@/components";
+import { CdnIcon } from "@/components/CdnIcon";
+import { Section } from "@/components/Section";
 import { SectionNamespace, useConfig } from "@/config";
 import { useTranslate } from "@/context";
 

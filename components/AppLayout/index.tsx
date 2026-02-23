@@ -3,7 +3,10 @@
 import * as React from "react";
 import { usePathname } from "next/navigation";
 
-import { CookieConsent, Footer, Header, Splash } from "@/components";
+import { CookieConsent } from "@/components/CookieConsent";
+import { Footer } from "@/components/Footer";
+import { Header } from "@/components/Header";
+import { Splash } from "@/components/Splash";
 
 import "./AppLayout.scss";
 

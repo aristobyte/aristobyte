@@ -2,7 +2,9 @@
 
 import * as React from "react";
 
-import { Section, SmartLink, CdnIcon } from "@/components";
+import { Section } from "@/components/Section";
+import { SmartLink } from "@/components/ui/SmartLink";
+import { CdnIcon } from "@/components/CdnIcon";
 import { SectionNamespace, type CommonLinkType } from "@/config";
 import { useTranslate } from "@/context";
 

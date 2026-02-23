@@ -2,7 +2,9 @@
 
 import * as React from "react";
 import { Icons } from "@aristobyte-ui/utils";
-import { Section, CdnIcon, SmartLink } from "@/components";
+import { Section } from "@/components/Section";
+import { CdnIcon } from "@/components/CdnIcon";
+import { SmartLink } from "@/components/ui/SmartLink";
 import { SectionNamespace, Config } from "@/config";
 import { useTranslate } from "@/context";
 

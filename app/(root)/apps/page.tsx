@@ -1,6 +1,9 @@
 import * as React from "react";
 
-import { Hero, AppsProducts, AppsRoadmap, AppsHighlights } from "@/components";
+import { Hero } from "@/components/Hero";
+import { AppsProducts } from "@/components/AppsProducts";
+import { AppsRoadmap } from "@/components/AppsRoadmap";
+import { AppsHighlights } from "@/components/AppsHighlights";
 
 export const dynamic = "force-dynamic";
 

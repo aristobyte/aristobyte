@@ -1,6 +1,7 @@
 import * as React from "react";
 
-import { Hero, OpenSourceRadar } from "@/components";
+import { Hero } from "@/components/Hero";
+import { OpenSourceRadar } from "@/components/OpenSourceRadar";
 
 export const dynamic = "force-dynamic";
 

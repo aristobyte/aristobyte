@@ -1,7 +1,8 @@
 "use client";
 
 import * as React from "react";
-import { Section, SmartLink } from "@/components";
+import { Section } from "@/components/Section";
+import { SmartLink } from "@/components/ui/SmartLink";
 import { SectionNamespace } from "@/config";
 import { useTranslate } from "@/context";
 import "./CommunityFeatureGrid.scss";

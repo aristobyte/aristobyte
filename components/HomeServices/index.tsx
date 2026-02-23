@@ -4,7 +4,8 @@ import * as React from "react";
 import NextLink from "next/link";
 
 import { useTranslate } from "@/context";
-import { CdnIcon, Section } from "@/components";
+import { CdnIcon } from "@/components/CdnIcon";
+import { Section } from "@/components/Section";
 import { SectionNamespace, Config } from "@/config";
 
 import "./HomeServices.scss";

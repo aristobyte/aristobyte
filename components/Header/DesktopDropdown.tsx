@@ -3,7 +3,7 @@
 import * as React from "react";
 
 import { type MenuListType as ConfigMenuListType, MenuList } from "@config";
-import { Portal } from "@/components";
+import { Portal } from "@/components/Portal";
 import { MenuListType } from "./MenuList";
 
 type DesktopDropdownProps = {
