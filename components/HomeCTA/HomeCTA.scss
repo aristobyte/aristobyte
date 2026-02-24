@@ -10,7 +10,7 @@
     & {
       background: linear-gradient(135deg, #0f1017 0%, #1a1b22 100%);
       border-radius: $border-radius-standard;
-      padding: 40px;
+      padding: 15px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -45,6 +45,7 @@
   }
 
   &__actions {
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     display: flex;
@@ -52,6 +53,7 @@
     margin: auto 0 0;
     position: relative;
     z-index: 1;
+    width: 100%;
   }
 
   &__mascot {
@@ -79,10 +81,19 @@
     }
   }
 
+  @media screen and (min-width: $media-xs) {
+    &__actions {
+      flex-direction: row;
+      width: unset;
+      padding: 20px;
+    }
+  }
+
   @media screen and (min-width: $media-md) {
     &__card {
-      flex-direction: row;
       align-items: center;
+      flex-direction: row;
+      padding: 40px;
     }
 
     &__mascot {

@@ -17,7 +17,7 @@ export const HomeCommunity = () => {
       title={{ text: "home.community.title", align: Align.CENTER }}
       description={{ text: "home.community.description" }}
     >
-      <div className="home-community__grid">
+      <div className="home-community__links">
         {Config.home.community.links.map(({ id, href, iconName, labelKey }) => (
           <SmartLink key={id} href={href} className="home-community__card">
             <span className="home-community__icon">

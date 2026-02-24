@@ -6,7 +6,7 @@
     & {
       display: flex;
       flex-direction: column;
-      gap: 30px;
+      gap: 10px;
     }
   }
 
@@ -30,10 +30,11 @@
     @include button;
   }
 
-  &__grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
+  &__cards {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    max-width: 800px;
   }
 
   &__card {
@@ -42,29 +43,44 @@
       background: $black-flat-color;
       border-radius: $border-radius-standard;
       overflow: hidden;
-      padding: 20px;
-      display: flex;
+      padding: 10px;
+      display: none;
       align-items: center;
       justify-content: center;
-      min-height: 220px;
+      width: 100%;
+    }
+
+    &:first-of-type {
+      display: flex;
     }
 
     img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
+      border-radius: 4px;
+      width: 100%;
+    }
+  }
+
+  @media screen and (min-width: $media-xs) {
+    &__container {
+      gap: 25px;
+    }
+
+    &__card {
+      display: flex;
     }
   }
 
   @media screen and (min-width: $media-sm) {
-    &__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    &__container {
+      gap: 30px;
     }
-  }
 
-  @media screen and (min-width: $media-lg) {
-    &__grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    &__cards {
+      gap: 18px;
+    }
+
+    &__card {
+      padding: 20px;
     }
   }
 }

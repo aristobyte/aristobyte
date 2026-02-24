@@ -29,11 +29,13 @@ export const AppsHighlights = () => {
       >
         <span>{t("apps.highlights.button")}</span>
       </a>
-      <div className="apps-highlights__grid">
+      <div className="apps-highlights__cards">
         {highlights.map((src, index) => (
           <div key={src} className="apps-highlights__card">
             <img
-              src={src}
+              src={
+                "https://github.com/aristobyte-team/assets/blob/master/png/aristobyte/sponsors/sponsors-60-min-advisory-session.png"
+              }
               alt={`Aristobot ${index + 1}`}
               loading="lazy"
               decoding="async"

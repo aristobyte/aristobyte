@@ -30,11 +30,13 @@
     max-width: 640px;
   }
 
-  &__grid {
-    align-items: stretch;
-    display: grid;
+  &__links {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
-    grid-template-columns: 1fr;
+    width: 100%;
   }
 
   &__card {
@@ -46,11 +48,12 @@
     gap: 10px;
     justify-content: flex-start;
     min-height: 52px;
-    padding: 8px 12px;
+    padding: 8px 14px 8px 12px;
     transition:
       border-color 180ms ease,
       background-color 180ms ease,
       transform 180ms ease;
+    min-width: max-content;
     width: 100%;
 
     &:hover {
@@ -85,14 +88,14 @@
   }
 
   @media screen and (min-width: $media-sm) {
-    &__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    &__card {
+      width: 49%;
     }
   }
 
   @media screen and (min-width: $media-lg) {
-    &__grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+    &__card {
+      width: 24%;
     }
   }
 }
